@@ -24,3 +24,8 @@ class Genre(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class AnimeGenreTable(models.Model):
+    anime = models.ForeignKey(to="Anime", on_delete=models.PROTECT)
+    genre = models.ForeignKey(to="Genre", on_delete=models.PROTECT)
