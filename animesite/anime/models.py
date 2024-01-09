@@ -29,3 +29,10 @@ class Genre(models.Model):
 class AnimeGenreTable(models.Model):
     anime = models.ForeignKey(to="Anime", on_delete=models.PROTECT)
     genre = models.ForeignKey(to="Genre", on_delete=models.PROTECT)
+
+
+class Years(models.Model):
+    years = models.IntegerField(default=2000)
+
+    def __str__(self):
+        return str(self.years)
