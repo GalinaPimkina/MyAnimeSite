@@ -52,3 +52,8 @@ class Producer(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class AnimeProducerTable(models.Model):
+    anime = models.ForeignKey(to="Anime", on_delete=models.PROTECT)
+    producer = models.ForeignKey(to="Producer", on_delete=models.PROTECT)
