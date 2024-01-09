@@ -73,3 +73,8 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.tag
+
+
+class AnimeTagTable(models.Model):
+    tag = models.ForeignKey(to="AnimeTag", on_delete=models.PROTECT)
+    anime = models.ForeignKey(to="Anime", on_delete=models.PROTECT)
