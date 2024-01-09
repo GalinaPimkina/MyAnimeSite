@@ -57,3 +57,11 @@ class Producer(models.Model):
 class AnimeProducerTable(models.Model):
     anime = models.ForeignKey(to="Anime", on_delete=models.PROTECT)
     producer = models.ForeignKey(to="Producer", on_delete=models.PROTECT)
+
+
+class Studio(models.Model):
+    name = models.CharField(max_length=100)
+    studio_slug = models.SlugField(max_length=255, unique=True, db_index=True)
+
+    def __str__(self):
+        return self.name
