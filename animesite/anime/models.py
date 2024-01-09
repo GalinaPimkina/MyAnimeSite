@@ -36,3 +36,11 @@ class Years(models.Model):
 
     def __str__(self):
         return str(self.years)
+
+
+class Author(models.Model):
+    name = models.CharField(max_length=255)
+    author_slug = models.SlugField(max_length=255, unique=True, db_index=True)
+
+    def __str__(self):
+        return self.name
