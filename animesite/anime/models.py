@@ -78,3 +78,20 @@ class Tag(models.Model):
 class AnimeTagTable(models.Model):
     tag = models.ForeignKey(to="AnimeTag", on_delete=models.PROTECT)
     anime = models.ForeignKey(to="Anime", on_delete=models.PROTECT)
+
+
+class Character(models.Model):
+    name = models.CharField(max_length=255)
+    seiyuu = models.ForeignKey(to="Seiyuu", on_delete=models.PROTECT, null=True)
+    description = models.TextField()
+
+    def __str__(self):
+        return self.name
+
+
+class Seiyuu(models.Model):
+    name = models.CharField(max_length=255)
+    seiyuu_slug = models.SlugField(max_length=255, unique=True, db_index=True)
+
+    def __str__(self):
+        return self.name
