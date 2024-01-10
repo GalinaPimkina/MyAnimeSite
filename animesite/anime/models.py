@@ -11,7 +11,7 @@ class Anime(models.Model):
     year = models.ForeignKey(to="Years", on_delete=models.PROTECT, related_name="year", null=True)
     producer = models.ManyToManyField(to="Producer", through="AnimeProducerTable", related_name="producer")
     author = models.ForeignKey(to="Author", on_delete=models.PROTECT, related_name="author")
-    tag = models.ManyToManyField(to="AnimeTag", through="AnimeTagTable", related_query_name="tags")
+    tag = models.ManyToManyField(to="Tag", through="AnimeTagTable", related_query_name="tags")
     slug = models.SlugField(max_length=255, unique=True, db_index=True)
     studio = models.ForeignKey(to="Studio", on_delete=models.PROTECT, null=True)
     description = models.TextField()
@@ -80,7 +80,7 @@ class Tag(models.Model):
 
 
 class AnimeTagTable(models.Model):
-    tag = models.ForeignKey(to="AnimeTag", on_delete=models.PROTECT)
+    tag = models.ForeignKey(to="Tag", on_delete=models.PROTECT)
     anime = models.ForeignKey(to="Anime", on_delete=models.PROTECT)
 
 
