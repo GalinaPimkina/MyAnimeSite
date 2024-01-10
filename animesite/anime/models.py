@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+
 
 class Anime(models.Model):
     name_ru = models.CharField(max_length=255)
@@ -17,6 +19,8 @@ class Anime(models.Model):
     def __str__(self):
         return self.name_ru
 
+    def get_absolute_url(self):
+        return reverse('anime_page', kwargs={'anime_slug': self.slug})
 
 class Genre(models.Model):
     name = models.CharField(max_length=100)
