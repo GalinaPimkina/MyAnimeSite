@@ -14,7 +14,6 @@ def index(request):
     data = {
         'title': 'Главная страница',
         'anime_all': anime_all,
-        'menu': menu,
     }
 
     return render(request, 'anime/index.html', context=data)
