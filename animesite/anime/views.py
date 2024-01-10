@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from animesite.anime.models import Anime
+from .models import Anime
 
 menu = [
     {'title': 'Каталог аниме', 'url_name': 'all_anime'},
