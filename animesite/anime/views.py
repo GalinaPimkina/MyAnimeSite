@@ -17,3 +17,13 @@ def index(request):
     }
 
     return render(request, 'anime/index.html', context=data)
+
+
+def show_all_anime(request):
+    anime = Anime.objects.all().order_by('name_ru')
+    data = {
+        'menu': menu,
+        'anime': anime,
+    }
+
+    return render(request, 'anime/show_all_anime.html', context=data)
