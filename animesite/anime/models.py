@@ -29,6 +29,9 @@ class Genre(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('genre_page', kwargs={'genre_slug': self.genre_slug})
+
 
 class AnimeGenreTable(models.Model):
     anime = models.ForeignKey(to="Anime", on_delete=models.PROTECT)
@@ -41,6 +44,9 @@ class Years(models.Model):
     def __str__(self):
         return str(self.years)
 
+    def get_absolute_url(self):
+        return reverse('year_page', kwargs={'year': self.years})
+
 
 class Author(models.Model):
     name = models.CharField(max_length=255)
@@ -49,6 +55,9 @@ class Author(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('author_page', kwargs={'author_slug': self.author_slug})
+
 
 class Producer(models.Model):
     name = models.CharField(max_length=100)
@@ -56,6 +65,9 @@ class Producer(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('producer_page', kwargs={'producer_slug': self.producer_slug})
 
 
 class AnimeProducerTable(models.Model):
@@ -70,6 +82,9 @@ class Studio(models.Model):
     def __str__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse('studio_page', kwargs={'studio_slug': self.studio_slug})
+
 
 class Tag(models.Model):
     tag = models.CharField(max_length=100)
@@ -77,6 +92,9 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.tag
+
+    def get_absolute_url(self):
+        return reverse('tag_page', kwargs={'tag_slug': self.tag_slug})
 
 
 class AnimeTagTable(models.Model):
