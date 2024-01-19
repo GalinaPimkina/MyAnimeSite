@@ -10,6 +10,8 @@ menu = [
 ]
 
 def index(request):
+    """ главная страница """
+
     anime_all = Anime.objects.all()
     data = {
         'title': 'Главная страница',
@@ -20,6 +22,8 @@ def index(request):
 
 
 def show_all_anime(request):
+    """ страница отображения всех имеющихсся на сайте тайтлов """
+
     anime = Anime.objects.all().order_by('name_ru')
     data = {
         'menu': menu,
@@ -30,6 +34,8 @@ def show_all_anime(request):
 
 
 def show_anime_page(request, anime_slug):
+    """ страница с описанием конкретного аниме """
+
     anime_obj = get_object_or_404(Anime, slug=anime_slug)
     genre = Genre.objects.filter(genre__slug=anime_obj.slug)
     producer = Producer.objects.filter(producer__slug=anime_slug)
@@ -47,6 +53,8 @@ def show_anime_page(request, anime_slug):
 
 
 def anime_genre(request):
+    """ показывает страницу со всеми жанрами """
+
     genre = Genre.objects.all().order_by('name')
 
     data = {
