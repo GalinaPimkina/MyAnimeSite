@@ -44,3 +44,15 @@ def show_anime_page(request, anime_slug):
         'menu': menu,
     }
     return render(request, 'anime/anime_page.html', context=data)
+
+
+def anime_genre(request):
+    genre = Genre.objects.all().order_by('name')
+
+    data = {
+        'title': 'Жанры',
+        'genre': genre,
+        'menu': menu,
+    }
+
+    return render(request, 'anime/anime_genre.html', context=data)
