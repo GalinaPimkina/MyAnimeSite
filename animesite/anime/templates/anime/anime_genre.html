@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for g in genre %}
+<ul>
+<li><a href="{{ g.get_absolute_url }}">{{ g }}</a></li>
+</ul>
+{% endfor %}
+{% endblock content %}
