@@ -92,3 +92,15 @@ def anime_years(request):
     }
 
     return render(request, 'anime/year_page.html', context=data)
+
+def show_year_page(request, year):
+    year_obj = get_object_or_404(Years, years=year)
+    animies = Anime.objects.filter(year=year_obj)
+
+    data = {
+        'title': f'Все аниме за {year_obj.years} г.',
+        'year_obj': year_obj,
+        'animies': animies,
+        'menu': menu,
+    }
+    return render(request, 'anime/anime_year_page.html', context=data)
