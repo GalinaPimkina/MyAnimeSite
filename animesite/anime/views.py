@@ -91,4 +91,4 @@ def anime_years(request):
         'menu': menu,
     }
 
-    return render(request, 'anime/year_page', context=data)
+    return render(request, 'anime/year_page.html', context=data)
