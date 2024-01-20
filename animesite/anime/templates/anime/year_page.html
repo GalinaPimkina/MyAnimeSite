@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for y in years %}
+<ul>
+<li><a href="{{ y.get_absolute_url }}">{{ y }}</a></li>
+</ul>
+{% endfor %}
+{% endblock content %}
