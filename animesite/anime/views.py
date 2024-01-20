@@ -1,12 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 
-from .models import Anime, Genre, Producer, Tag
+from .models import Anime, Genre, Producer, Tag, Years
 
 menu = [
     {'title': 'Каталог аниме', 'url_name': 'all_anime'},
-    {'title': 'Аниме по годам', 'url_name': 'anime_years'},
+    # {'title': 'Аниме по годам', 'url_name': 'anime_years'},
     {'title': 'Аниме по жанрам', 'url_name': 'anime_genre'},
-    {'title': 'Студии', 'url_name': 'anime_studio'},
+    # {'title': 'Студии', 'url_name': 'anime_studio'},
 ]
 
 def index(request):
@@ -80,3 +80,15 @@ def show_genre_page(request, genre_slug):
     }
 
     return render(request, 'anime/genre_page.html', context=data)
+
+
+def anime_years(request):
+    years = Years.objects.all().order_by('years')
+
+    data = {
+        'title': 'Все года',
+        'years': years,
+        'menu': menu,
+    }
+
+    return render(request, 'anime/year_page', context=data)
