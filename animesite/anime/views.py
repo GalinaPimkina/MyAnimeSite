@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 
-from .models import Anime, Genre, Producer, Tag, Years, Author
+from .models import Anime, Genre, Producer, Tag, Years, Author, Studio
 
 menu = [
     {'title': 'Каталог аниме', 'url_name': 'all_anime'},
@@ -143,3 +143,14 @@ def show_tag_page(request, tag_slug):
         'menu': menu,
     }
     return render(request, 'anime/tag_page.html', context=data)
+
+
+def anime_studio(request):
+    studio = Studio.objects.all().order_by('name')
+
+    data = {
+        'title': 'Студии',
+        'studio': studio,
+        'menu': menu,
+    }
+    return render(request, 'anime/anime_studio.html', context=data)
