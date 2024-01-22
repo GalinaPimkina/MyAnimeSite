@@ -154,3 +154,16 @@ def anime_studio(request):
         'menu': menu,
     }
     return render(request, 'anime/anime_studio.html', context=data)
+
+
+def show_studio_page(request, studio_slug):
+    studio_obj = get_object_or_404(Studio, studio_slug=studio_slug)
+    animies = Anime.objects.filter(studio=studio_obj)
+
+    data = {
+        'title': studio_obj.name,
+        'tag_obj': studio_obj,
+        'animies': animies,
+        'menu': menu,
+    }
+    return render(request, 'anime/studio_page.html', context=data)
