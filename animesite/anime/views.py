@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 
-from .models import Anime, Genre, Producer, Tag, Years
+from .models import Anime, Genre, Producer, Tag, Years, Author
 
 menu = [
     {'title': 'Каталог аниме', 'url_name': 'all_anime'},
@@ -117,3 +117,16 @@ def show_producer_page(request, producer_slug):
         'menu': menu,
     }
     return render(request, 'anime/producer_page.html', context=data)
+
+
+def show_author_page(request, author_slug):
+    author_obj = get_object_or_404(Author, author_slug=author_slug)
+    animies = Anime.objects.filter(author=author_obj)
+
+    data = {
+        'title': author_obj.name,
+        'producer_obj': author_obj,
+        'animies': animies,
+        'menu': menu,
+    }
+    return render(request, 'anime/author_page.html', context=data)
