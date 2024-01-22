@@ -4,9 +4,9 @@ from .models import Anime, Genre, Producer, Tag, Years, Author, Studio
 
 menu = [
     {'title': 'Каталог аниме', 'url_name': 'all_anime'},
-    # {'title': 'Аниме по годам', 'url_name': 'anime_years'},
+    {'title': 'Аниме по годам', 'url_name': 'anime_years'},
     {'title': 'Аниме по жанрам', 'url_name': 'anime_genre'},
-    # {'title': 'Студии', 'url_name': 'anime_studio'},
+    {'title': 'Студии', 'url_name': 'anime_studio'},
 ]
 
 def index(request):
