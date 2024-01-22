@@ -12,4 +12,5 @@ urlpatterns = [
     path('anime/year/<int:year>', views.show_year_page, name='year_page'),
     path('anime/producer/<slug:producer_slug>', views.show_producer_page, name='producer_page'),
     path('anime/author/<slug:author_slug>', views.show_author_page, name='author_page'),
+    path('anime/tag/<slug:tag_slug>', views.show_tag_page, name='tag_page'),
 ]
