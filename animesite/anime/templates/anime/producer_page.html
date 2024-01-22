@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for a in animies %}
+<ul>
+<li><a href="{{ a.get_absolute_url }}">{{ a.name_ru }}</a></li>
+</ul>
+{% endfor %}
+{% endblock content %}
