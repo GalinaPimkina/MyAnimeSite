@@ -130,3 +130,16 @@ def show_author_page(request, author_slug):
         'menu': menu,
     }
     return render(request, 'anime/author_page.html', context=data)
+
+
+def show_tag_page(request, tag_slug):
+    tag_obj = get_object_or_404(Tag, tag_slug=tag_slug)
+    animies = Anime.objects.filter(tag=tag_obj)
+
+    data = {
+        'title': tag_obj.tag,
+        'tag_obj': tag_obj,
+        'animies': animies,
+        'menu': menu,
+    }
+    return render(request, 'anime/tag_page.html', context=data)
