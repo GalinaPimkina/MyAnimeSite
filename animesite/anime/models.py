@@ -25,6 +25,7 @@ class Anime(models.Model):
     class Meta:
         verbose_name = "Аниме"
         verbose_name_plural = "Аниме"
+        ordering = "name_ru"
 
 
 class Genre(models.Model):
