@@ -161,3 +161,4 @@ class Seiyuu(models.Model):
     class Meta:
         verbose_name = "Сейю"
         verbose_name_plural = "Сейю"
+        ordering = "name"
