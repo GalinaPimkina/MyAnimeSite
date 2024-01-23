@@ -113,6 +113,7 @@ class Studio(models.Model):
     class Meta:
         verbose_name = "Стидия"
         verbose_name_plural = "Студии"
+        ordering = "name"
 
 
 class Tag(models.Model):
