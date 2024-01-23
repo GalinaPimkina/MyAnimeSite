@@ -148,6 +148,7 @@ class Character(models.Model):
     class Meta:
         verbose_name = "Персонаж"
         verbose_name_plural = "Персонажи"
+        ordering = "name"
 
 
 class Seiyuu(models.Model):
