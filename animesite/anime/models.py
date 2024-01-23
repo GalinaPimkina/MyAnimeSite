@@ -22,6 +22,11 @@ class Anime(models.Model):
     def get_absolute_url(self):
         return reverse('anime_page', kwargs={'anime_slug': self.slug})
 
+    class Meta:
+        verbose_name = "Аниме"
+        verbose_name_plural = "Аниме"
+
+
 class Genre(models.Model):
     name = models.CharField(max_length=100)
     genre_slug = models.SlugField(max_length=255, unique=True, db_index=True)
