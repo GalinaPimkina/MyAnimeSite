@@ -92,6 +92,7 @@ class Producer(models.Model):
     class Meta:
         verbose_name = "Режиссер"
         verbose_name_plural = "Режиссеры"
+        ordering = "name"
 
 
 class AnimeProducerTable(models.Model):
