@@ -121,6 +121,10 @@ class Tag(models.Model):
     def get_absolute_url(self):
         return reverse('tag_page', kwargs={'tag_slug': self.tag_slug})
 
+    class Meta:
+        verbose_name = "Тэг"
+        verbose_name_plural = "Тэги"
+
 
 class AnimeTagTable(models.Model):
     tag = models.ForeignKey(to="Tag", on_delete=models.PROTECT)
