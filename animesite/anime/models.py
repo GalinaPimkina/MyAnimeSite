@@ -106,6 +106,10 @@ class Studio(models.Model):
     def get_absolute_url(self):
         return reverse('studio_page', kwargs={'studio_slug': self.studio_slug})
 
+    class Meta:
+        verbose_name = "Стидия"
+        verbose_name_plural = "Студии"
+
 
 class Tag(models.Model):
     tag = models.CharField(max_length=100)
