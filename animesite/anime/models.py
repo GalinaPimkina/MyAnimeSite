@@ -61,6 +61,7 @@ class Years(models.Model):
     class Meta:
         verbose_name = "Год"
         verbose_name_plural = "Годы"
+        ordering = "years"
 
 
 class Author(models.Model):
