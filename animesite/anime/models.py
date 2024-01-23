@@ -72,8 +72,8 @@ class Author(models.Model):
         return reverse('author_page', kwargs={'author_slug': self.author_slug})
 
     class Meta:
-        verbose_name = "Автор"
-        verbose_name_plural = "Авторы"
+        verbose_name = "Автор оригинала"
+        verbose_name_plural = "Авторы оригиналов"
 
 
 class Producer(models.Model):
