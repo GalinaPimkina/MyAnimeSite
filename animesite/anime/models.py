@@ -71,6 +71,10 @@ class Author(models.Model):
     def get_absolute_url(self):
         return reverse('author_page', kwargs={'author_slug': self.author_slug})
 
+    class Meta:
+        verbose_name = "Автор"
+        verbose_name_plural = "Авторы"
+
 
 class Producer(models.Model):
     name = models.CharField(max_length=100)
