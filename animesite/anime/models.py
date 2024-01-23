@@ -76,6 +76,7 @@ class Author(models.Model):
     class Meta:
         verbose_name = "Автор оригинала"
         verbose_name_plural = "Авторы оригиналов"
+        ordering = "name"
 
 
 class Producer(models.Model):
