@@ -129,6 +129,7 @@ class Tag(models.Model):
     class Meta:
         verbose_name = "Тэг"
         verbose_name_plural = "Тэги"
+        ordering = "tag"
 
 
 class AnimeTagTable(models.Model):
