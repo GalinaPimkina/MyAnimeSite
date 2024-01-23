@@ -86,6 +86,10 @@ class Producer(models.Model):
     def get_absolute_url(self):
         return reverse('producer_page', kwargs={'producer_slug': self.producer_slug})
 
+    class Meta:
+        verbose_name = "Режиссер"
+        verbose_name_plural = "Режиссеры"
+
 
 class AnimeProducerTable(models.Model):
     anime = models.ForeignKey(to="Anime", on_delete=models.PROTECT)
