@@ -25,7 +25,7 @@ class Anime(models.Model):
     class Meta:
         verbose_name = "Аниме"
         verbose_name_plural = "Аниме"
-        ordering = "name_ru"
+        ordering = ("name_ru", )
 
 
 class Genre(models.Model):
@@ -41,7 +41,7 @@ class Genre(models.Model):
     class Meta:
         verbose_name = "Жанр"
         verbose_name_plural = "Жанры"
-        ordering = "name"
+        ordering = ("name", )
 
 
 class AnimeGenreTable(models.Model):
@@ -61,7 +61,7 @@ class Years(models.Model):
     class Meta:
         verbose_name = "Год"
         verbose_name_plural = "Годы"
-        ordering = "years"
+        ordering = ("years", )
 
 
 class Author(models.Model):
@@ -77,7 +77,7 @@ class Author(models.Model):
     class Meta:
         verbose_name = "Автор оригинала"
         verbose_name_plural = "Авторы оригиналов"
-        ordering = "name"
+        ordering = ("name", )
 
 
 class Producer(models.Model):
@@ -93,7 +93,7 @@ class Producer(models.Model):
     class Meta:
         verbose_name = "Режиссер"
         verbose_name_plural = "Режиссеры"
-        ordering = "name"
+        ordering = ("name", )
 
 
 class AnimeProducerTable(models.Model):
@@ -114,7 +114,7 @@ class Studio(models.Model):
     class Meta:
         verbose_name = "Стидия"
         verbose_name_plural = "Студии"
-        ordering = "name"
+        ordering = ("name", )
 
 
 class Tag(models.Model):
@@ -130,7 +130,7 @@ class Tag(models.Model):
     class Meta:
         verbose_name = "Тэг"
         verbose_name_plural = "Тэги"
-        ordering = "tag"
+        ordering = ("tag", )
 
 
 class AnimeTagTable(models.Model):
@@ -149,7 +149,7 @@ class Character(models.Model):
     class Meta:
         verbose_name = "Персонаж"
         verbose_name_plural = "Персонажи"
-        ordering = "name"
+        ordering = ("name", )
 
 
 class Seiyuu(models.Model):
@@ -162,4 +162,4 @@ class Seiyuu(models.Model):
     class Meta:
         verbose_name = "Сейю"
         verbose_name_plural = "Сейю"
-        ordering = "name"
+        ordering = ("name", )
