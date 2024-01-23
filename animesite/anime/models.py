@@ -56,6 +56,10 @@ class Years(models.Model):
     def get_absolute_url(self):
         return reverse('year_page', kwargs={'year': self.years})
 
+    class Meta:
+        verbose_name = "Год"
+        verbose_name_plural = "Годы"
+
 
 class Author(models.Model):
     name = models.CharField(max_length=255)
