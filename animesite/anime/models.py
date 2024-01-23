@@ -37,6 +37,10 @@ class Genre(models.Model):
     def get_absolute_url(self):
         return reverse('genre_page', kwargs={'genre_slug': self.genre_slug})
 
+    class Meta:
+        verbose_name = "Жанр"
+        verbose_name_plural = "Жанры"
+
 
 class AnimeGenreTable(models.Model):
     anime = models.ForeignKey(to="Anime", on_delete=models.PROTECT)
