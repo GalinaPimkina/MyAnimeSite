@@ -139,6 +139,10 @@ class Character(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = "Персонаж"
+        verbose_name_plural = "Персонажи"
+
 
 class Seiyuu(models.Model):
     name = models.CharField(max_length=255)
