@@ -2,6 +2,10 @@ from django.contrib import admin
 
 from anime.models import Anime, Genre, Years, Author, Producer, Studio, Tag, Character, Seiyuu
 
+class AnimeAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name_ru', 'slug', 'episodes', 'year', ]
+
+
 admin.site.register(Anime)
 admin.site.register(Genre)
 admin.site.register(Years)
