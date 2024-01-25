@@ -6,8 +6,11 @@ from anime.models import Anime, Genre, Years, Author, Producer, Studio, Tag, Cha
 class AnimeAdmin(admin.ModelAdmin):
     list_display = ['name_ru', 'year', 'studio']
 
+@admin.register(Genre)
+class GenreAdmin(admin.ModelAdmin):
+    list_display = ['name', 'genre_slug']
 
-admin.site.register(Genre)
+
 admin.site.register(Years)
 admin.site.register(Author)
 admin.site.register(Producer)
