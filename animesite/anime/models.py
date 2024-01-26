@@ -29,7 +29,7 @@ class Anime(models.Model):
 
 
 class Genre(models.Model):
-    name = models.CharField(max_length=100, verbose_name="Название жанра")
+    name = models.CharField(max_length=100, verbose_name="Жанр")
     genre_slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="Слаг")
 
     def __str__(self):
@@ -118,8 +118,8 @@ class Studio(models.Model):
 
 
 class Tag(models.Model):
-    tag = models.CharField(max_length=100)
-    tag_slug = models.SlugField(max_length=255, unique=True, db_index=True)
+    tag = models.CharField(max_length=100,  verbose_name="Teг")
+    tag_slug = models.SlugField(max_length=255, unique=True, db_index=True,  verbose_name="Слаг")
 
     def __str__(self):
         return self.tag
