@@ -28,8 +28,11 @@ class StudioAdmin(admin.ModelAdmin):
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
-    list_display = ['tag', 'tag_slug',]
+    list_display = ['tag', 'tag_slug', ]
 
-admin.site.register(Tag)
+@admin.register(Character)
+class CharacterAdmin(admin.ModelAdmin):
+    list_display = ['name', 'seiyuu', ]
+
 admin.site.register(Character)
 admin.site.register(Seiyuu)
