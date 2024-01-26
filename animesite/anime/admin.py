@@ -14,13 +14,15 @@ class GenreAdmin(admin.ModelAdmin):
 class YearsAdmin(admin.ModelAdmin):
     list_display = ['years', ]
 
-
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ['name', ]
 
+@admin.register(Producer)
+class ProducerAdmin(admin.ModelAdmin):
+    list_display = ['name', ]
 
-admin.site.register(Producer)
+
 admin.site.register(Studio)
 admin.site.register(Tag)
 admin.site.register(Character)
