@@ -139,8 +139,8 @@ class AnimeTagTable(models.Model):
 
 
 class Character(models.Model):
-    name = models.CharField(max_length=255)
-    seiyuu = models.ForeignKey(to="Seiyuu", on_delete=models.PROTECT, null=True)
+    name = models.CharField(max_length=255,  verbose_name="Имя")
+    seiyuu = models.ForeignKey(to="Seiyuu", on_delete=models.PROTECT, null=True,  verbose_name="Слаг")
     description = models.TextField()
 
     def __str__(self):
