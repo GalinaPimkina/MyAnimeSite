@@ -15,7 +15,11 @@ class YearsAdmin(admin.ModelAdmin):
     list_display = ['years', ]
 
 
-admin.site.register(Author)
+@admin.register(Author)
+class AuthorAdmin(admin.ModelAdmin):
+    list_display = ['name', ]
+
+
 admin.site.register(Producer)
 admin.site.register(Studio)
 admin.site.register(Tag)
