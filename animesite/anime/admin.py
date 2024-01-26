@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from anime.models import Anime, Genre, Years, Author, Producer, Studio, Tag, Character, Seiyuu, AnimeGenreTable, \
-    AnimeTagTable
+    AnimeTagTable, AnimeProducerTable
 
 
 class AnimeGenreInline(admin.TabularInline):
@@ -12,9 +12,13 @@ class AnimeTagInline(admin.TabularInline):
     model = AnimeTagTable
     extra = 1
 
+class AnimeProducerInline(admin.TabularInline):
+    model = AnimeProducerTable
+    extra = 1
+
 @admin.register(Anime)
 class AnimeAdmin(admin.ModelAdmin):
-    inlines = (AnimeGenreInline, AnimeTagInline, )
+    inlines = (AnimeGenreInline, AnimeTagInline, AnimeProducerInline, )
     list_display = ['name_ru', 'year', 'studio']
     list_per_page = 5
 
