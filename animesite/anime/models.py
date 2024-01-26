@@ -102,8 +102,8 @@ class AnimeProducerTable(models.Model):
 
 
 class Studio(models.Model):
-    name = models.CharField(max_length=100)
-    studio_slug = models.SlugField(max_length=255, unique=True, db_index=True)
+    name = models.CharField(max_length=100,  verbose_name="Название")
+    studio_slug = models.SlugField(max_length=255, unique=True, db_index=True,  verbose_name="Слаг")
 
     def __str__(self):
         return self.name
@@ -112,7 +112,7 @@ class Studio(models.Model):
         return reverse('studio_page', kwargs={'studio_slug': self.studio_slug})
 
     class Meta:
-        verbose_name = "Стидия"
+        verbose_name = "Студия"
         verbose_name_plural = "Студии"
         ordering = ("name", )
 
