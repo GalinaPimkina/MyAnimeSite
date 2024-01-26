@@ -29,8 +29,8 @@ class Anime(models.Model):
 
 
 class Genre(models.Model):
-    name = models.CharField(max_length=100)
-    genre_slug = models.SlugField(max_length=255, unique=True, db_index=True)
+    name = models.CharField(max_length=100, verbose_name="Название жанра")
+    genre_slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="Слаг")
 
     def __str__(self):
         return self.name
