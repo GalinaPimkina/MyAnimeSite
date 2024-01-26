@@ -34,5 +34,6 @@ class TagAdmin(admin.ModelAdmin):
 class CharacterAdmin(admin.ModelAdmin):
     list_display = ['name', 'seiyuu', ]
 
-admin.site.register(Character)
-admin.site.register(Seiyuu)
+@admin.register(Seiyuu)
+class SeiyuuAdmin(admin.ModelAdmin):
+    list_display = ['name', ]
