@@ -50,7 +50,7 @@ class AnimeGenreTable(models.Model):
 
 
 class Years(models.Model):
-    years = models.IntegerField(default=2000)
+    years = models.IntegerField(default=2000, verbose_name="Год издания")
 
     def __str__(self):
         return str(self.years)
