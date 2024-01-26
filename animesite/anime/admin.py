@@ -22,8 +22,11 @@ class AuthorAdmin(admin.ModelAdmin):
 class ProducerAdmin(admin.ModelAdmin):
     list_display = ['name', ]
 
+@admin.register(Studio)
+class StudioAdmin(admin.ModelAdmin):
+    list_display = ['name', ]
 
-admin.site.register(Studio)
+
 admin.site.register(Tag)
 admin.site.register(Character)
 admin.site.register(Seiyuu)
