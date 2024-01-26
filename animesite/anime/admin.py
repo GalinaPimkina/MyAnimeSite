@@ -5,6 +5,7 @@ from anime.models import Anime, Genre, Years, Author, Producer, Studio, Tag, Cha
 @admin.register(Anime)
 class AnimeAdmin(admin.ModelAdmin):
     list_display = ['name_ru', 'year', 'studio']
+    list_per_page = 5
 
 @admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):
