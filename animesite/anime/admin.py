@@ -1,14 +1,21 @@
 from django.contrib import admin
 
-from anime.models import Anime, Genre, Years, Author, Producer, Studio, Tag, Character, Seiyuu
+from anime.models import Anime, Genre, Years, Author, Producer, Studio, Tag, Character, Seiyuu, AnimeGenreTable
+
+
+class AnimeGenreInline(admin.TabularInline):
+    model = AnimeGenreTable
+    extra = 1
 
 @admin.register(Anime)
 class AnimeAdmin(admin.ModelAdmin):
+    inlines = (AnimeGenreInline, )
     list_display = ['name_ru', 'year', 'studio']
     list_per_page = 5
 
 @admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):
+    inlines = (AnimeGenreInline, )
     list_display = ['name', 'genre_slug']
 
 @admin.register(Years)
