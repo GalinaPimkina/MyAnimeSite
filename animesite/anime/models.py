@@ -3,18 +3,18 @@ from django.urls import reverse
 
 
 class Anime(models.Model):
-    name_ru = models.CharField(max_length=255)
-    name_en = models.CharField(max_length=255)
-    name_jp = models.CharField(max_length=255)
-    genre = models.ManyToManyField(to="Genre", through="AnimeGenreTable", related_name="genre")
-    episodes = models.IntegerField(default=1)
-    year = models.ForeignKey(to="Years", on_delete=models.PROTECT, related_name="year", null=True)
-    producer = models.ManyToManyField(to="Producer", through="AnimeProducerTable", related_name="producer")
-    author = models.ForeignKey(to="Author", on_delete=models.PROTECT, related_name="author")
-    tag = models.ManyToManyField(to="Tag", through="AnimeTagTable", related_query_name="tags")
-    slug = models.SlugField(max_length=255, unique=True, db_index=True)
-    studio = models.ForeignKey(to="Studio", on_delete=models.PROTECT, null=True)
-    description = models.TextField()
+    name_ru = models.CharField(max_length=255, verbose_name="Заголовок на русском")
+    name_en = models.CharField(max_length=255, verbose_name="Заголовок на английском")
+    name_jp = models.CharField(max_length=255, verbose_name="Заголовок на японском")
+    genre = models.ManyToManyField(to="Genre", through="AnimeGenreTable", related_name="genre", verbose_name="Жанр")
+    episodes = models.IntegerField(default=1, verbose_name="Количество эпизодов")
+    year = models.ForeignKey(to="Years", on_delete=models.PROTECT, related_name="year", null=True, verbose_name="Год выхода")
+    producer = models.ManyToManyField(to="Producer", through="AnimeProducerTable", related_name="producer", verbose_name="Режиссер")
+    author = models.ForeignKey(to="Author", on_delete=models.PROTECT, related_name="author", verbose_name="Автор оригинала")
+    tag = models.ManyToManyField(to="Tag", through="AnimeTagTable", related_query_name="tags", verbose_name="Теги")
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="Слаг")
+    studio = models.ForeignKey(to="Studio", on_delete=models.PROTECT, null=True, verbose_name="Студия-издатель")
+    description = models.TextField(verbose_name="Описание")
 
     def __str__(self):
         return self.name_ru
