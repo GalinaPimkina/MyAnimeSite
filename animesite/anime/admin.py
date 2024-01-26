@@ -10,8 +10,11 @@ class AnimeAdmin(admin.ModelAdmin):
 class GenreAdmin(admin.ModelAdmin):
     list_display = ['name', 'genre_slug']
 
+@admin.register(Years)
+class YearsAdmin(admin.ModelAdmin):
+    list_display = ['years', ]
 
-admin.site.register(Years)
+
 admin.site.register(Author)
 admin.site.register(Producer)
 admin.site.register(Studio)
