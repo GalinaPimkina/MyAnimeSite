@@ -153,8 +153,8 @@ class Character(models.Model):
 
 
 class Seiyuu(models.Model):
-    name = models.CharField(max_length=255)
-    seiyuu_slug = models.SlugField(max_length=255, unique=True, db_index=True)
+    name = models.CharField(max_length=255,  verbose_name="Имя")
+    seiyuu_slug = models.SlugField(max_length=255, unique=True, db_index=True,  verbose_name="Слаг")
 
     def __str__(self):
         return self.name
