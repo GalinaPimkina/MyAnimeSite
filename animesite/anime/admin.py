@@ -19,8 +19,12 @@ class AnimeProducerInline(admin.TabularInline):
 @admin.register(Anime)
 class AnimeAdmin(admin.ModelAdmin):
     inlines = (AnimeGenreInline, AnimeTagInline, AnimeProducerInline, )
-    list_display = ['name_ru', 'year', 'studio']
+    list_display = ['name_ru', 'year', 'studio', 'brief_info']
     list_per_page = 5
+
+    def brief_info(self, anime: Anime):
+        return f"Описание {len(anime.description)} символов."
+
 
 @admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):
