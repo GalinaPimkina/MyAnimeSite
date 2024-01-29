@@ -38,7 +38,7 @@ def show_anime_page(request, anime_slug):
     """ страница с описанием конкретного аниме """
 
     anime_obj = get_object_or_404(Anime, slug=anime_slug)
-    genre = Genre.objects.filter(genre__slug=anime_obj.slug)
+    genre = Genre.objects.filter(genre__slug=anime_slug)
     producer = Producer.objects.filter(producer__slug=anime_slug)
     tag = Tag.objects.filter(tags__slug=anime_slug)
 
