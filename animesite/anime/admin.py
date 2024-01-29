@@ -63,6 +63,7 @@ class TagAdmin(admin.ModelAdmin):
 @admin.register(Character)
 class CharacterAdmin(admin.ModelAdmin):
     list_display = ['name', 'seiyuu', ]
+    search_fields = ['name', 'seiyuu']
 
 @admin.register(Seiyuu)
 class SeiyuuAdmin(admin.ModelAdmin):
