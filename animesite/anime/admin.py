@@ -68,3 +68,4 @@ class CharacterAdmin(admin.ModelAdmin):
 @admin.register(Seiyuu)
 class SeiyuuAdmin(admin.ModelAdmin):
     list_display = ['name', ]
+    search_fields = ['name']
