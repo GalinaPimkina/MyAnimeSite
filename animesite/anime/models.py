@@ -6,12 +6,12 @@ class Anime(models.Model):
     name_ru = models.CharField(max_length=255, verbose_name="Заголовок на русском")
     name_en = models.CharField(max_length=255, verbose_name="Заголовок на английском")
     name_jp = models.CharField(max_length=255, verbose_name="Заголовок на японском")
-    genre = models.ManyToManyField(to="Genre", through="AnimeGenreTable", related_name="genre", verbose_name="Жанр")
+    genre = models.ManyToManyField("Genre", related_name="genre", verbose_name="Жанр")
     episodes = models.IntegerField(default=1, verbose_name="Количество эпизодов")
     year = models.ForeignKey(to="Years", on_delete=models.PROTECT, related_name="year", null=True, verbose_name="Год выхода")
-    producer = models.ManyToManyField(to="Producer", through="AnimeProducerTable", related_name="producer", verbose_name="Режиссер")
+    producer = models.ManyToManyField("Producer", related_name="producer", verbose_name="Режиссер")
     author = models.ForeignKey(to="Author", on_delete=models.PROTECT, related_name="author", verbose_name="Автор оригинала")
-    tag = models.ManyToManyField(to="Tag", through="AnimeTagTable", related_name="tags", verbose_name="Теги")
+    tag = models.ManyToManyField("Tag", related_name="tags", verbose_name="Теги")
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="Слаг")
     studio = models.ForeignKey(to="Studio", on_delete=models.PROTECT, null=True, verbose_name="Студия-издатель")
     description = models.TextField(verbose_name="Описание")
@@ -42,11 +42,6 @@ class Genre(models.Model):
         verbose_name = "Жанр"
         verbose_name_plural = "Жанры"
         ordering = ("name", )
-
-
-class AnimeGenreTable(models.Model):
-    anime = models.ForeignKey(to="Anime", on_delete=models.PROTECT)
-    genre = models.ForeignKey(to="Genre", on_delete=models.PROTECT)
 
 
 class Years(models.Model):
@@ -96,11 +91,6 @@ class Producer(models.Model):
         ordering = ("name", )
 
 
-class AnimeProducerTable(models.Model):
-    anime = models.ForeignKey(to="Anime", on_delete=models.PROTECT)
-    producer = models.ForeignKey(to="Producer", on_delete=models.PROTECT)
-
-
 class Studio(models.Model):
     name = models.CharField(max_length=100,  verbose_name="Название")
     studio_slug = models.SlugField(max_length=255, unique=True, db_index=True,  verbose_name="Слаг")
@@ -131,11 +121,6 @@ class Tag(models.Model):
         verbose_name = "Тэг"
         verbose_name_plural = "Тэги"
         ordering = ("tag", )
-
-
-class AnimeTagTable(models.Model):
-    tag = models.ForeignKey(to="Tag", on_delete=models.PROTECT)
-    anime = models.ForeignKey(to="Anime", on_delete=models.PROTECT)
 
 
 class Character(models.Model):
