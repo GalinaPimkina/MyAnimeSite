@@ -13,6 +13,8 @@ class AnimeGenreInline(admin.TabularInline):
 class AnimeTagInline(admin.TabularInline):
     model = AnimeTagTable
     extra = 1
+    verbose_name = "Тег"
+    verbose_name_plural = "Теги"
 
 class AnimeProducerInline(admin.TabularInline):
     model = AnimeProducerTable
