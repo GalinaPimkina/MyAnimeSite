@@ -1,30 +1,11 @@
 from django.contrib import admin
 
-from anime.models import Anime, Genre, Years, Author, Producer, Studio, Tag, Character, Seiyuu, AnimeGenreTable, \
-    AnimeTagTable, AnimeProducerTable
+from anime.models import Anime, Genre, Years, Author, Producer, Studio, Tag, Character, Seiyuu
 
 
-class AnimeGenreInline(admin.TabularInline):
-    model = AnimeGenreTable
-    extra = 1
-    verbose_name = "Жанр"
-    verbose_name_plural = "Жанры"
-
-class AnimeTagInline(admin.TabularInline):
-    model = AnimeTagTable
-    extra = 1
-    verbose_name = "Тег"
-    verbose_name_plural = "Теги"
-
-class AnimeProducerInline(admin.TabularInline):
-    model = AnimeProducerTable
-    extra = 1
-    verbose_name = "Режиссер"
-    verbose_name_plural = "Режиссеры"
 
 @admin.register(Anime)
 class AnimeAdmin(admin.ModelAdmin):
-    inlines = (AnimeGenreInline, AnimeTagInline, AnimeProducerInline, )
     list_display = ['name_ru', 'year', 'studio', 'brief_info']
     list_per_page = 5
     ordering = ['year', 'studio', 'name_ru']
@@ -37,7 +18,6 @@ class AnimeAdmin(admin.ModelAdmin):
 
 @admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):
-    inlines = (AnimeGenreInline, )
     list_display = ['name', 'genre_slug']
     search_fields = ['name']
 
