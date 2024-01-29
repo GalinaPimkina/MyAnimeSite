@@ -43,14 +43,17 @@ class YearsAdmin(admin.ModelAdmin):
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ['name', ]
+    search_fields = ['name']
 
 @admin.register(Producer)
 class ProducerAdmin(admin.ModelAdmin):
     list_display = ['name', ]
+    search_fields = ['name']
 
 @admin.register(Studio)
 class StudioAdmin(admin.ModelAdmin):
     list_display = ['name', ]
+    search_fields = ['name']
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
