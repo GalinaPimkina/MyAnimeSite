@@ -33,6 +33,7 @@ class AnimeAdmin(admin.ModelAdmin):
 class GenreAdmin(admin.ModelAdmin):
     inlines = (AnimeGenreInline, )
     list_display = ['name', 'genre_slug']
+    search_fields = ['name']
 
 @admin.register(Years)
 class YearsAdmin(admin.ModelAdmin):
