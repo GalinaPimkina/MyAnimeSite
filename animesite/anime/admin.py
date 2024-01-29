@@ -7,6 +7,8 @@ from anime.models import Anime, Genre, Years, Author, Producer, Studio, Tag, Cha
 class AnimeGenreInline(admin.TabularInline):
     model = AnimeGenreTable
     extra = 1
+    verbose_name = "Жанр"
+    verbose_name_plural = "Жанры"
 
 class AnimeTagInline(admin.TabularInline):
     model = AnimeTagTable
