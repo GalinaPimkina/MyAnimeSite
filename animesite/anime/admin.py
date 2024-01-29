@@ -22,6 +22,7 @@ class AnimeAdmin(admin.ModelAdmin):
     list_display = ['name_ru', 'year', 'studio', 'brief_info']
     list_per_page = 5
     ordering = ['year', 'studio', 'name_ru']
+    search_fields = ['title', 'studio']
 
     @admin.display(description="Краткое описание")
     def brief_info(self, anime: Anime):
