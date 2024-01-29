@@ -58,6 +58,7 @@ class StudioAdmin(admin.ModelAdmin):
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
     list_display = ['tag', 'tag_slug', ]
+    search_fields = ['tag']
 
 @admin.register(Character)
 class CharacterAdmin(admin.ModelAdmin):
