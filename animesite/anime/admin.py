@@ -19,6 +19,8 @@ class AnimeTagInline(admin.TabularInline):
 class AnimeProducerInline(admin.TabularInline):
     model = AnimeProducerTable
     extra = 1
+    verbose_name = "Режиссер"
+    verbose_name_plural = "Режиссеры"
 
 @admin.register(Anime)
 class AnimeAdmin(admin.ModelAdmin):
