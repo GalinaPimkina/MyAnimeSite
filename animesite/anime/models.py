@@ -178,3 +178,7 @@ class Seiyuu(models.Model):
         verbose_name = "Сейю"
         verbose_name_plural = "Сейю"
         ordering = ("name", )
+
+    def save(self, *args, **kwargs):
+        self.seiyuu_slug = slugify(self.name)
+        super().save(*args, **kwargs)
