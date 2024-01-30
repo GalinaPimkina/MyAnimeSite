@@ -44,6 +44,7 @@ class ProducerAdmin(admin.ModelAdmin):
 class StudioAdmin(admin.ModelAdmin):
     list_display = ['name', ]
     search_fields = ['name']
+    prepopulated_fields = {'studio_slug': ('name',)}
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
