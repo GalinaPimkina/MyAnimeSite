@@ -6,13 +6,13 @@ class Anime(models.Model):
     name_ru = models.CharField(max_length=255, verbose_name="Заголовок на русском")
     name_en = models.CharField(max_length=255, verbose_name="Заголовок на английском")
     name_jp = models.CharField(max_length=255, verbose_name="Заголовок на японском")
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="Слаг")
     genre = models.ManyToManyField("Genre", related_name="genre", verbose_name="Жанр")
     episodes = models.IntegerField(default=1, verbose_name="Количество эпизодов")
     year = models.ForeignKey(to="Years", on_delete=models.PROTECT, related_name="year", null=True, verbose_name="Год выхода")
     producer = models.ManyToManyField("Producer", related_name="producer", verbose_name="Режиссер")
     author = models.ForeignKey(to="Author", on_delete=models.PROTECT, related_name="author", verbose_name="Автор оригинала")
     tag = models.ManyToManyField("Tag", related_name="tags", verbose_name="Теги")
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="Слаг")
     studio = models.ForeignKey(to="Studio", on_delete=models.PROTECT, null=True, verbose_name="Студия-издатель")
     description = models.TextField(verbose_name="Описание")
 
@@ -127,7 +127,7 @@ class Character(models.Model):
     name = models.CharField(max_length=255,  verbose_name="Имя")
     seiyuu = models.ForeignKey(to="Seiyuu", on_delete=models.PROTECT, null=True,  verbose_name="Слаг")
     description = models.TextField()
-    character_slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="Слаг")
+    character_slug = models.SlugField(max_length=255, unique=True, null=True, db_index=True, verbose_name="Слаг")
 
     def __str__(self):
         return self.name
