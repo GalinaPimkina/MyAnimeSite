@@ -83,6 +83,10 @@ class Author(models.Model):
         verbose_name_plural = "Авторы оригиналов"
         ordering = ("name", )
 
+    def save(self, *args, **kwargs):
+        self.author_slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
 
 class Producer(models.Model):
     name = models.CharField(max_length=100,  verbose_name="Имя")
