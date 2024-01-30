@@ -1,5 +1,4 @@
 from django.db import models
-from django.template.defaultfilters import slugify
 from django.urls import reverse
 
 
@@ -28,10 +27,6 @@ class Anime(models.Model):
         verbose_name_plural = "Аниме"
         ordering = ("name_ru", )
 
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.name_jp)
-        super().save(*args, **kwargs)
-
 
 class Genre(models.Model):
     name = models.CharField(max_length=100, verbose_name="Жанр")
@@ -47,10 +42,6 @@ class Genre(models.Model):
         verbose_name = "Жанр"
         verbose_name_plural = "Жанры"
         ordering = ("name", )
-
-    def save(self, *args, **kwargs):
-        self.genre_slug = slugify(self.name)
-        super().save(*args, **kwargs)
 
 
 class Years(models.Model):
@@ -83,10 +74,6 @@ class Author(models.Model):
         verbose_name_plural = "Авторы оригиналов"
         ordering = ("name", )
 
-    def save(self, *args, **kwargs):
-        self.author_slug = slugify(self.name)
-        super().save(*args, **kwargs)
-
 
 class Producer(models.Model):
     name = models.CharField(max_length=100,  verbose_name="Имя")
@@ -102,10 +89,6 @@ class Producer(models.Model):
         verbose_name = "Режиссер"
         verbose_name_plural = "Режиссеры"
         ordering = ("name", )
-
-    def save(self, *args, **kwargs):
-        self.producer_slug = slugify(self.name)
-        super().save(*args, **kwargs)
 
 
 class Studio(models.Model):
@@ -123,10 +106,6 @@ class Studio(models.Model):
         verbose_name_plural = "Студии"
         ordering = ("name", )
 
-    def save(self, *args, **kwargs):
-        self.studio_slug = slugify(self.name)
-        super().save(*args, **kwargs)
-
 
 class Tag(models.Model):
     tag = models.CharField(max_length=100,  verbose_name="Teг")
@@ -143,10 +122,6 @@ class Tag(models.Model):
         verbose_name_plural = "Тэги"
         ordering = ("tag", )
 
-    def save(self, *args, **kwargs):
-        self.tag_slug = slugify(self.tag)
-        super().save(*args, **kwargs)
-
 
 class Character(models.Model):
     name = models.CharField(max_length=255,  verbose_name="Имя")
@@ -162,10 +137,6 @@ class Character(models.Model):
         verbose_name_plural = "Персонажи"
         ordering = ("name", )
 
-    def save(self, *args, **kwargs):
-        self.character_slug = slugify(self.name)
-        super().save(*args, **kwargs)
-
 
 class Seiyuu(models.Model):
     name = models.CharField(max_length=255,  verbose_name="Имя")
@@ -178,7 +149,3 @@ class Seiyuu(models.Model):
         verbose_name = "Сейю"
         verbose_name_plural = "Сейю"
         ordering = ("name", )
-
-    def save(self, *args, **kwargs):
-        self.seiyuu_slug = slugify(self.name)
-        super().save(*args, **kwargs)
