@@ -6,10 +6,10 @@ from anime.models import Anime, Genre, Years, Author, Producer, Studio, Tag, Cha
 
 @admin.register(Anime)
 class AnimeAdmin(admin.ModelAdmin):
-    list_display = ['name_ru', 'year', 'studio', 'brief_info']
+    list_display = ['name_ru', 'year', 'brief_info']
     list_per_page = 5
-    ordering = ['year', 'studio', 'name_ru']
-    search_fields = ['name_ru', 'studio__name']
+    ordering = ['year', 'name_ru']
+    search_fields = ['name_ru', ]
     prepopulated_fields = {'slug': ('name_jp', )}
 
     @admin.display(description="Краткое описание")
