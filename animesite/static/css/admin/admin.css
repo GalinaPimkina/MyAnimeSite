@@ -1,0 +1,57 @@
+body {
+    background: #fccad9;
+}
+
+h1 {
+    color: #522b37;;
+}
+
+tr:nth-child(2n+1), .row-form-errors {
+  background: #ffe0ea;
+}
+
+tr:nth-child(2n), tr:nth-child(2n) .errorlist, tr:nth-child(2n+1) + .row-form-errors, tr:nth-child(2n+1) + .row-form-errors .errorlist
+{
+  background: #ffe0ea;
+}
+
+a.section:link, a.section:visited {
+  color: #ffe0ea;
+}
+
+a:link, a:visited {
+  color: #522b37;
+}
+
+.module h2, .module caption, .inline-group h2 {
+    background: #a3848d;
+    color: #a3848d;
+}
+
+#content-related {
+  background: #ffe0ea;
+  color: #522b37;}
+
+#content-related .quiet, a.quiet:link, a.quiet:visited {
+  color: #522b37; }
+
+#content-related .module h2 {
+  background: #a3848d;
+  color: #ffe0ea;
+}
+
+#content-related h3{
+  color: #a3848d;
+}
+
+#header {
+	background: #a3848d;
+	color: #522b37;;
+}
+
+#header a:visited, #header a:link, #logout-form button {
+    color: #ffe0ea;
+}
+
+#site-name a:visited {
+    color: #522b37; }
