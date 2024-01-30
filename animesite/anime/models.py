@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 from django.urls import reverse
 
 
@@ -26,6 +27,10 @@ class Anime(models.Model):
         verbose_name = "Аниме"
         verbose_name_plural = "Аниме"
         ordering = ("name_ru", )
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name_jp)
+        super().save(*args, **kwargs)
 
 
 class Genre(models.Model):
