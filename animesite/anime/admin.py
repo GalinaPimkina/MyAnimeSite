@@ -21,6 +21,7 @@ class AnimeAdmin(admin.ModelAdmin):
 class GenreAdmin(admin.ModelAdmin):
     list_display = ['name', 'genre_slug']
     search_fields = ['name']
+    prepopulated_fields = {'genre_slug': ('name',)}
 
 @admin.register(Years)
 class YearsAdmin(admin.ModelAdmin):
