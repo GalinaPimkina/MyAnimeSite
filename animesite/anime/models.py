@@ -48,6 +48,10 @@ class Genre(models.Model):
         verbose_name_plural = "Жанры"
         ordering = ("name", )
 
+    def save(self, *args, **kwargs):
+        self.genre_slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
 
 class Years(models.Model):
     years = models.IntegerField(default=2000, verbose_name="Год издания")
