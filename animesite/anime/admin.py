@@ -56,6 +56,7 @@ class TagAdmin(admin.ModelAdmin):
 class CharacterAdmin(admin.ModelAdmin):
     list_display = ['name', 'seiyuu', ]
     search_fields = ['name', 'seiyuu']
+    prepopulated_fields = {'character_slug': ('name',)}
 
 @admin.register(Seiyuu)
 class SeiyuuAdmin(admin.ModelAdmin):
