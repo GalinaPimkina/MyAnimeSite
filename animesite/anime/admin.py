@@ -10,6 +10,7 @@ class AnimeAdmin(admin.ModelAdmin):
     list_per_page = 5
     ordering = ['year', 'studio', 'name_ru']
     search_fields = ['name_ru', 'studio__name']
+    prepopulated_fields = {'slug': ('name_jp', )}
 
     @admin.display(description="Краткое описание")
     def brief_info(self, anime: Anime):
