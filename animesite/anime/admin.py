@@ -50,6 +50,7 @@ class StudioAdmin(admin.ModelAdmin):
 class TagAdmin(admin.ModelAdmin):
     list_display = ['tag', 'tag_slug', ]
     search_fields = ['tag']
+    prepopulated_fields = {'tag_slug': ('tag',)}
 
 @admin.register(Character)
 class CharacterAdmin(admin.ModelAdmin):
