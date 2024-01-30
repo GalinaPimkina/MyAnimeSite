@@ -103,6 +103,10 @@ class Producer(models.Model):
         verbose_name_plural = "Режиссеры"
         ordering = ("name", )
 
+    def save(self, *args, **kwargs):
+        self.producer_slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
 
 class Studio(models.Model):
     name = models.CharField(max_length=100,  verbose_name="Название")
