@@ -62,3 +62,4 @@ class CharacterAdmin(admin.ModelAdmin):
 class SeiyuuAdmin(admin.ModelAdmin):
     list_display = ['name', ]
     search_fields = ['name']
+    prepopulated_fields = {'seiyuu_slug': ('name',)}
