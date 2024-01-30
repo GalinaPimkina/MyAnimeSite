@@ -143,6 +143,10 @@ class Tag(models.Model):
         verbose_name_plural = "Тэги"
         ordering = ("tag", )
 
+    def save(self, *args, **kwargs):
+        self.tag_slug = slugify(self.tag)
+        super().save(*args, **kwargs)
+
 
 class Character(models.Model):
     name = models.CharField(max_length=255,  verbose_name="Имя")
