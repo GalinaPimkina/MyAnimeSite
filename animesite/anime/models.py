@@ -152,6 +152,7 @@ class Character(models.Model):
     name = models.CharField(max_length=255,  verbose_name="Имя")
     seiyuu = models.ForeignKey(to="Seiyuu", on_delete=models.PROTECT, null=True,  verbose_name="Слаг")
     description = models.TextField()
+    character_slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="Слаг")
 
     def __str__(self):
         return self.name
@@ -160,6 +161,10 @@ class Character(models.Model):
         verbose_name = "Персонаж"
         verbose_name_plural = "Персонажи"
         ordering = ("name", )
+
+    def save(self, *args, **kwargs):
+        self.character_slug = slugify(self.name)
+        super().save(*args, **kwargs)
 
 
 class Seiyuu(models.Model):
