@@ -32,6 +32,7 @@ class YearsAdmin(admin.ModelAdmin):
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ['name', ]
     search_fields = ['name']
+    prepopulated_fields = {'author_slug': ('name',)}
 
 @admin.register(Producer)
 class ProducerAdmin(admin.ModelAdmin):
