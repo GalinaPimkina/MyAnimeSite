@@ -123,6 +123,10 @@ class Studio(models.Model):
         verbose_name_plural = "Студии"
         ordering = ("name", )
 
+    def save(self, *args, **kwargs):
+        self.studio_slug = slugify(self.name)
+        super().save(*args, **kwargs)
+
 
 class Tag(models.Model):
     tag = models.CharField(max_length=100,  verbose_name="Teг")
