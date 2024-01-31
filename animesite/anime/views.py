@@ -168,3 +168,6 @@ def show_studio_page(request, studio_slug):
         'menu': menu,
     }
     return render(request, 'anime/studio_page.html', context=data)
+
+def addanime(request):
+    return render(request, 'anime/addanime.html', {'menu': menu, 'title': 'Добавить аниме'})
