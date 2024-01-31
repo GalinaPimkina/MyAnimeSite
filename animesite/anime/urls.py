@@ -15,4 +15,5 @@ urlpatterns = [
     path('anime/tag/<slug:tag_slug>', views.show_tag_page, name='tag_page'),
     path('anime/studio/', views.anime_studio, name='anime_studio'),
     path('anime/studio/<slug:studio_slug>', views.show_studio_page, name='studio_page'),
+    path('anime/add/', views.addanime, name='addanime'),
 ]
