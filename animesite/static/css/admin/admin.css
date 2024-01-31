@@ -1,3 +1,16 @@
+#header {
+	background: #a3848d;
+	color: #522b37;;
+}
+
+#header a:visited, #header a:link, #logout-form button {
+    color: #ffe0ea;
+}
+
+#site-name a:visited {
+    color: #522b37;
+}
+
 body {
     background: #fccad9;
 }
@@ -44,14 +57,38 @@ a:link, a:visited {
   color: #a3848d;
 }
 
-#header {
-	background: #a3848d;
-	color: #522b37;;
-}
-
-#header a:visited, #header a:link, #logout-form button {
+div.breadcrumbs {
+    background: #522b37;
     color: #ffe0ea;
 }
+div.breadcrumbs a{
+    color: #a3848d;
+}
 
-#site-name a:visited {
-    color: #522b37; }
+.toggle-nav-sidebar {
+    border-right: 1px solid #522b37;
+    background-color: #522b37;
+}
+
+.toggle-nav-sidebar:hover, .toggle-nav-sidebar:focus {
+  background-color: #522b37;
+}
+
+#nav-sidebar {
+    border-right: none;
+    background-color: #fccad9;
+}
+
+#nav-filter {
+    background-color: #fccad9;
+    border: none;
+    color: #522b37;
+}
+
+#nav-sidebar .current-model {
+    background: #fccad9;
+}
+
+.module {
+  background: #fccad9;
+}
