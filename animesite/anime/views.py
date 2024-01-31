@@ -7,6 +7,7 @@ menu = [
     {'title': 'Аниме по годам', 'url_name': 'anime_years'},
     {'title': 'Аниме по жанрам', 'url_name': 'anime_genre'},
     {'title': 'Студии', 'url_name': 'anime_studio'},
+    {'title': 'Добавить аниме', 'url_name': 'addanime'},
 ]
 
 def index(request):
