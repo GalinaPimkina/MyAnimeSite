@@ -1,5 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
+from .forms import AddAnimeForm
 from .models import Anime, Genre, Producer, Tag, Years, Author, Studio
 
 menu = [
@@ -171,4 +172,21 @@ def show_studio_page(request, studio_slug):
     return render(request, 'anime/studio_page.html', context=data)
 
 def addanime(request):
-    return render(request, 'anime/addanime.html', {'menu': menu, 'title': 'Добавить аниме'})
+    if request.method == "POST":
+        form = AddAnimeForm(request.POST)
+        if form.is_valid():
+            try:
+                Anime.objects.create(**form.cleaned_data)
+                return redirect('index')
+            except:
+                form.add_error(None, "Ошибка добавления")
+    else:
+        form = AddAnimeForm()
+
+    data = {
+        'menu': menu,
+        'title': 'Добавить аниме',
+        'form': form
+    }
+
+    return render(request, 'anime/addanime.html', data)
