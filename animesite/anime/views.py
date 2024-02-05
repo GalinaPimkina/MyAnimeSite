@@ -43,6 +43,7 @@ def show_anime_page(request, anime_slug):
     genre = Genre.objects.filter(genre__slug=anime_slug)
     producer = Producer.objects.filter(producer__slug=anime_slug)
     tag = Tag.objects.filter(tags__slug=anime_slug)
+    studio = Studio.objects.filter(studio__slug=anime_slug)
 
     data = {
         'title': anime_obj.name_ru,
@@ -50,6 +51,7 @@ def show_anime_page(request, anime_slug):
         'genre': genre,
         'producer': producer,
         'tag': tag,
+        'studio': studio,
         'menu': menu,
     }
     return render(request, 'anime/anime_page.html', context=data)
