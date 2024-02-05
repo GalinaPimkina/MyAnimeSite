@@ -175,11 +175,9 @@ def addanime(request):
     if request.method == "POST":
         form = AddAnimeForm(request.POST)
         if form.is_valid():
-            try:
-                Anime.objects.create(**form.cleaned_data)
-                return redirect('index')
-            except:
-                form.add_error(None, "Ошибка добавления")
+            form.save()
+            return redirect('index')
+
     else:
         form = AddAnimeForm()
 
