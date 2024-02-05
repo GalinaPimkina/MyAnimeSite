@@ -20,7 +20,9 @@
 {% for t in tag %}
 <li><a href="{{ t.get_absolute_url }}">{{ t.tag }}</a></li>
 {% endfor %}
-<li><p>Студия: <a href="{{ anime_obj.studio.get_absolute_url }}">{{ anime_obj.studio.name }}</a></p></li>
+{% for s in studio %}
+<li><p>Студия: <a href="{{ s.get_absolute_url }}">{{ s.name }}</a></p></li>
+{% endfor %}
 <li><p>Краткое описание: {{ anime_obj.description }}</p></li>
 
 
