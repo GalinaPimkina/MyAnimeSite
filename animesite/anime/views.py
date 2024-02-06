@@ -80,20 +80,6 @@ class GenrePage(ListView):
     }
 
 
-# def anime_genre(request):
-#     """ показывает страницу со всеми жанрами """
-#
-#     genre = Genre.objects.all().order_by('name')
-#
-#     data = {
-#         'title': 'Жанры',
-#         'genre': genre,
-#         'menu': menu,
-#     }
-#
-#     return render(request, 'anime/anime_genre.html', context=data)
-
-
 def show_genre_page(request, genre_slug):
     """ на страницу выводятся все аниме, соответствующие выбранному жанру """
 
@@ -110,16 +96,19 @@ def show_genre_page(request, genre_slug):
     return render(request, 'anime/genre_page.html', context=data)
 
 
-def anime_years(request):
-    years = Years.objects.all().order_by('years')
+class YearsPage(ListView):
+    ''' вывод страницы со списком всех имеющихся на сайте годами выпуска аниме '''
 
-    data = {
+    model = Years
+    template_name = 'anime/year_page.html'
+    context_object_name = 'years'
+
+    extra_context = {
         'title': 'Все года',
-        'years': years,
         'menu': menu,
     }
 
-    return render(request, 'anime/year_page.html', context=data)
+
 
 def show_year_page(request, year):
     year_obj = get_object_or_404(Years, years=year)
