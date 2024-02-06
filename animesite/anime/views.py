@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
 from .forms import AddAnimeForm
 from .models import Anime, Genre, Producer, Tag, Years, Author, Studio
@@ -12,13 +12,15 @@ menu = [
     {'title': 'Добавить аниме', 'url_name': 'addanime'},
 ]
 
-class AnimeHome(TemplateView):
+class AnimeHome(ListView):
     '''главная страница сайта, выводится список всех аниме'''
 
+    model = Anime
     template_name = 'anime/index.html'
+    context_object_name = 'all_anime'
+
     extra_context = {
         'title': 'Главная страница',
-        'anime_all': Anime.objects.all(),
         'menu': menu,
     }
 
