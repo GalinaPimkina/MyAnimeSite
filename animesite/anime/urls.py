@@ -4,7 +4,7 @@ from . import views
 
 urlpatterns = [
     path('', views.AnimeHome.as_view(), name='index'),
-    path('anime/', views.show_all_anime, name='all_anime'),
+    path('anime/', views.AllAnimePage.as_view(), name='all_anime'),
     path('anime/<slug:anime_slug>', views.show_anime_page, name='anime_page'),
     path('anime/genre/', views.anime_genre, name='anime_genre'),
     path('anime/genre/<slug:genre_slug>', views.show_genre_page, name='genre_page'),
