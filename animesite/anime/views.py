@@ -140,18 +140,6 @@ class AnimeFromProducerPage(ListView):
         producer = get_object_or_404(Producer, producer_slug=self.kwargs['producer_slug'])
         return Anime.objects.filter(producer=producer)
 
-# def show_producer_page(request, producer_slug):
-#     producer_obj = get_object_or_404(Producer, producer_slug=producer_slug)
-#     animies = Anime.objects.filter(producer=producer_obj)
-#
-#     data = {
-#         'title': producer_obj.name,
-#         'producer_obj': producer_obj,
-#         'animies': animies,
-#         'menu': menu,
-#     }
-#     return render(request, 'anime/producer_page.html', context=data)
-
 
 def show_author_page(request, author_slug):
     author_obj = get_object_or_404(Author, author_slug=author_slug)
