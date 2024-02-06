@@ -109,17 +109,20 @@ class YearsPage(ListView):
     }
 
 
-def show_year_page(request, year):
-    year_obj = get_object_or_404(Years, years=year)
-    animies = Anime.objects.filter(year=year_obj)
+class AnimeFromYearPage(ListView):
+    ''' на страницу выводятся все аниме, соответствующие выбранному году  '''
 
-    data = {
-        'title': f'Все аниме за {year_obj.years} г.',
-        'year_obj': year_obj,
-        'animies': animies,
+    model = Anime
+    template_name = 'anime/anime_year_page.html'
+    context_object_name = 'anime'
+
+    extra_context = {
         'menu': menu,
     }
-    return render(request, 'anime/anime_year_page.html', context=data)
+
+    def get_queryset(self):
+        year = get_object_or_404(Years, years=self.kwargs['year'])
+        return Anime.objects.filter(year=year)
 
 
 def show_producer_page(request, producer_slug):
