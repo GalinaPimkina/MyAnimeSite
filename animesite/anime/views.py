@@ -13,7 +13,8 @@ menu = [
 ]
 
 class AnimeHome(ListView):
-    '''главная страница сайта, выводится список всех аниме'''
+    '''главная страница сайта, выводится список всех аниме/
+    пока что практически аналог AllAnimePage, но будет изменена в дальнейшем'''
 
     model = Anime
     template_name = 'anime/index.html'
@@ -32,16 +33,17 @@ class AnimeHome(ListView):
     #     return context
 
 
-def show_all_anime(request):
+class AllAnimePage(ListView):
     """ страница отображения всех имеющихсся на сайте тайтлов """
 
-    anime = Anime.objects.all().order_by('name_ru')
-    data = {
-        'menu': menu,
-        'anime': anime,
-    }
+    model = Anime
+    template_name = 'anime/show_all_anime.html'
+    context_object_name = 'all_anime'
 
-    return render(request, 'anime/show_all_anime.html', context=data)
+    extra_context = {
+        'menu': menu,
+        'title': 'Каталог аниме',
+    }
 
 
 def show_anime_page(request, anime_slug):
