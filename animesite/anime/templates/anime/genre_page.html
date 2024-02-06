@@ -1,12 +1,9 @@
 {% extends 'base.html' %}
-{% load animetags %}
 
 {% block content %}
 
-{% for a in animies %}
+{% for a in anime %}
     <li><a href="{{ a.get_absolute_url }}">{{ a.name_ru }}</a></li>
 {% endfor %}
 
 {% endblock content %}
-
-<!-- нужно добавить в админ панель функцию добавления данров при создании аниме. то же самое сделать с тегами-->
