@@ -22,6 +22,13 @@ class AnimeHome(TemplateView):
         'menu': menu,
     }
 
+    # def get_context_data(self, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     context['title'] = 'Главная страница'
+    #     context['menu'] = menu
+    #     context['anime_all'] = Anime.objects.all()
+    #     return context
+
 
 def show_all_anime(request):
     """ страница отображения всех имеющихсся на сайте тайтлов """
