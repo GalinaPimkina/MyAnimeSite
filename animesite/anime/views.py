@@ -12,7 +12,7 @@ menu = [
     {'title': 'Добавить аниме', 'url_name': 'addanime'},
 ]
 
-class AnimeHome(ListView):
+class AnimeHomePage(ListView):
     '''главная страница сайта, выводится список всех аниме/
     пока что практически аналог AllAnimePage, но будет изменена в дальнейшем'''
 
@@ -67,18 +67,31 @@ def show_anime_page(request, anime_slug):
     return render(request, 'anime/anime_page.html', context=data)
 
 
-def anime_genre(request):
-    """ показывает страницу со всеми жанрами """
+class GenrePage(ListView):
+    ''' вывод страницы со списком всех имеющихся на сайте жанров аниме '''
 
-    genre = Genre.objects.all().order_by('name')
+    model = Genre
+    template_name = 'anime/anime_genre.html'
+    context_object_name = 'genre'
 
-    data = {
+    extra_context = {
         'title': 'Жанры',
-        'genre': genre,
         'menu': menu,
     }
 
-    return render(request, 'anime/anime_genre.html', context=data)
+
+# def anime_genre(request):
+#     """ показывает страницу со всеми жанрами """
+#
+#     genre = Genre.objects.all().order_by('name')
+#
+#     data = {
+#         'title': 'Жанры',
+#         'genre': genre,
+#         'menu': menu,
+#     }
+#
+#     return render(request, 'anime/anime_genre.html', context=data)
 
 
 def show_genre_page(request, genre_slug):
