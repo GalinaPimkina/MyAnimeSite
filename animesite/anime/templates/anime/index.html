@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% for a in anime_all %}
+{% for a in all_anime %}
 <ul>
     <li><p>Название: {{ a.name_ru }}</p>
         <p>Описание: {{ a.description|truncatewords:15 }}</p>
