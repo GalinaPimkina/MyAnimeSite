@@ -109,7 +109,6 @@ class YearsPage(ListView):
     }
 
 
-
 def show_year_page(request, year):
     year_obj = get_object_or_404(Years, years=year)
     animies = Anime.objects.filter(year=year_obj)
@@ -162,15 +161,17 @@ def show_tag_page(request, tag_slug):
     return render(request, 'anime/tag_page.html', context=data)
 
 
-def anime_studio(request):
-    studio = Studio.objects.all().order_by('name')
+class StudioPage(ListView):
+    ''' страница со списком студий, которые выпускали те или иные аниме '''
 
-    data = {
+    model = Studio
+    template_name = 'anime/anime_studio.html'
+    context_object_name = 'studio'
+
+    extra_context = {
         'title': 'Студии',
-        'studio': studio,
         'menu': menu,
     }
-    return render(request, 'anime/anime_studio.html', context=data)
 
 
 def show_studio_page(request, studio_slug):
