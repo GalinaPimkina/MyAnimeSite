@@ -3,10 +3,10 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.AnimeHome.as_view(), name='index'),
+    path('', views.AnimeHomePage.as_view(), name='index'),
     path('anime/', views.AllAnimePage.as_view(), name='all_anime'),
     path('anime/<slug:anime_slug>', views.show_anime_page, name='anime_page'),
-    path('anime/genre/', views.anime_genre, name='anime_genre'),
+    path('anime/genre/', views.GenrePage.as_view(), name='anime_genre'),
     path('anime/genre/<slug:genre_slug>', views.show_genre_page, name='genre_page'),
     path('anime/year/', views.anime_years, name='anime_years'),
     path('anime/year/<int:year>', views.show_year_page, name='year_page'),
