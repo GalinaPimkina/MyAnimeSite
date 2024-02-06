@@ -125,17 +125,32 @@ class AnimeFromYearPage(ListView):
         return Anime.objects.filter(year=year)
 
 
-def show_producer_page(request, producer_slug):
-    producer_obj = get_object_or_404(Producer, producer_slug=producer_slug)
-    animies = Anime.objects.filter(producer=producer_obj)
+class AnimeFromProducerPage(ListView):
+    ''' на страницу выводятся все аниме, соответствующие выбранному режиссеру '''
 
-    data = {
-        'title': producer_obj.name,
-        'producer_obj': producer_obj,
-        'animies': animies,
+    model = Anime
+    template_name = 'anime/producer_page.html'
+    context_object_name = 'anime'
+
+    extra_context = {
         'menu': menu,
     }
-    return render(request, 'anime/producer_page.html', context=data)
+
+    def get_queryset(self):
+        producer = get_object_or_404(Producer, producer_slug=self.kwargs['producer_slug'])
+        return Anime.objects.filter(producer=producer)
+
+# def show_producer_page(request, producer_slug):
+#     producer_obj = get_object_or_404(Producer, producer_slug=producer_slug)
+#     animies = Anime.objects.filter(producer=producer_obj)
+#
+#     data = {
+#         'title': producer_obj.name,
+#         'producer_obj': producer_obj,
+#         'animies': animies,
+#         'menu': menu,
+#     }
+#     return render(request, 'anime/producer_page.html', context=data)
 
 
 def show_author_page(request, author_slug):
