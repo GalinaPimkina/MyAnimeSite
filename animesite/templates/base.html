@@ -23,7 +23,7 @@
 {% block mainmenu %}
 		<div>
 			<ul id="mainmenu" class="mainmenu">
-			<li><a href="{% url 'index' %}"><div class="logo"></div></a></li>
+			<li><a href="{% url 'anime_home_page' %}"><div class="logo"></div></a></li>
 			{% for m in menu %}
 <!--			{% if not forloop.last %}<li>{% else %}<li class="last">{% endif %}-->
 				<li><a href="{% url m.url_name %}">{{m.title}}</a></li>
