@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% for a in all_anime %}
+{% for a in anime %}
 <ul>
 <li><a href="{{ a.get_absolute_url }}">{{ a.name_ru }}</a></li>
 </ul>
