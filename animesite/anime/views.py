@@ -201,8 +201,13 @@ class AnimeFromStudioPageView(ListView):
     }
 
     def get_queryset(self):
-        studio = get_object_or_404(Studio, studio_slug=self.kwargs['studio_slug'])
-        return Anime.objects.filter(studio=studio)
+        self.studio = get_object_or_404(Studio, studio_slug=self.kwargs['studio_slug'])
+        return Anime.objects.filter(studio=self.studio)
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = self.studio.name
+        return context
 
 
 def addanime(request):
