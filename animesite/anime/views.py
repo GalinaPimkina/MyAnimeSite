@@ -90,7 +90,7 @@ class AnimeFromGenrePageView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = (self.genre.name).capitalize()
+        context['title'] = f'Поиск по жанру: {self.genre.name}'
         return context
 
 
@@ -124,7 +124,7 @@ class AnimeFromYearPageView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = self.year
+        context['title'] = f'Поиск по году: {self.year}'
         return context
 
 
@@ -145,7 +145,7 @@ class AnimeFromProducerPageView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = self.producer.name
+        context['title'] = f'Поиск по режиссеру: {self.producer.name}'
         return context
 
 
@@ -166,7 +166,7 @@ class AnimeFromAuthorPageView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = self.author.name
+        context['title'] = f'Поиск по автору оригинала: {self.author.name}'
         return context
 
 
@@ -182,8 +182,13 @@ class AnimeFromTagPageView(ListView):
     }
 
     def get_queryset(self):
-        tag = get_object_or_404(Tag, tag_slug=self.kwargs['tag_slug'])
-        return Anime.objects.filter(tag=tag)
+        self.tag = get_object_or_404(Tag, tag_slug=self.kwargs['tag_slug'])
+        return Anime.objects.filter(tag=self.tag)
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = f'Поиск по тегу: {self.tag.tag}'
+        return context
 
 
 class StudioPageView(ListView):
