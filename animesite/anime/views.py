@@ -161,8 +161,13 @@ class AnimeFromAuthorPageView(ListView):
     }
 
     def get_queryset(self):
-        author = get_object_or_404(Author, author_slug=self.kwargs['author_slug'])
-        return Anime.objects.filter(author=author)
+        self.author = get_object_or_404(Author, author_slug=self.kwargs['author_slug'])
+        return Anime.objects.filter(author=self.author)
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = self.author.name
+        return context
 
 
 class AnimeFromTagPageView(ListView):
