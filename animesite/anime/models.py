@@ -99,7 +99,7 @@ class Studio(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('studio_page', kwargs={'studio_slug': self.studio_slug})
+        return reverse('anime_from_studio_page', kwargs={'studio_slug': self.studio_slug})
 
     class Meta:
         verbose_name = "Студия"
