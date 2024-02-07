@@ -7,7 +7,7 @@ from .models import Anime, Genre, Producer, Tag, Years, Author, Studio
 menu = [
     {'title': 'Каталог аниме', 'url_name': 'all_anime_page'},
     {'title': 'Аниме по годам', 'url_name': 'anime_years'},
-    {'title': 'Аниме по жанрам', 'url_name': 'anime_genre'},
+    {'title': 'Аниме по жанрам', 'url_name': 'genre_page'},
     {'title': 'Студии', 'url_name': 'anime_studio'},
     {'title': 'Добавить аниме', 'url_name': 'addanime'},
 ]
@@ -64,7 +64,7 @@ class GenrePageView(ListView):
     ''' вывод страницы со списком всех имеющихся на сайте жанров аниме '''
 
     model = Genre
-    template_name = 'anime/anime_genre.html'
+    template_name = 'anime/genre_page.html'
     context_object_name = 'genre'
 
     extra_context = {
