@@ -144,17 +144,20 @@ class AnimeFromProducerPageView(ListView):
         return Anime.objects.filter(producer=producer)
 
 
-def show_author_page(request, author_slug):
-    author_obj = get_object_or_404(Author, author_slug=author_slug)
-    animies = Anime.objects.filter(author=author_obj)
+class AnimeFromAuthorPageView(ListView):
+    ''' на страницу выводятся все аниме, соответствующие выбранному автору оригинала '''
 
-    data = {
-        'title': author_obj.name,
-        'producer_obj': author_obj,
-        'animies': animies,
+    model = Anime
+    template_name = 'anime/author_page.html'
+    context_object_name = 'anime'
+
+    extra_context = {
         'menu': menu,
     }
-    return render(request, 'anime/author_page.html', context=data)
+
+    def get_queryset(self):
+        author = get_object_or_404(Author, author_slug=self.kwargs['author_slug'])
+        return Anime.objects.filter(author=author)
 
 
 def show_tag_page(request, tag_slug):
