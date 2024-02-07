@@ -122,6 +122,11 @@ class AnimeFromYearPageView(ListView):
         year = get_object_or_404(Years, years=self.kwargs['year'])
         return Anime.objects.filter(year=year)
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = self.kwargs['year']
+        return context
+
 
 class AnimeFromProducerPageView(ListView):
     ''' на страницу выводятся все аниме, соответствующие выбранному режиссеру '''
