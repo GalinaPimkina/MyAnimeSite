@@ -115,7 +115,7 @@ class Tag(models.Model):
         return self.tag
 
     def get_absolute_url(self):
-        return reverse('tag_page', kwargs={'tag_slug': self.tag_slug})
+        return reverse('anime_from_tag_page', kwargs={'tag_slug': self.tag_slug})
 
     class Meta:
         verbose_name = "Тэг"
