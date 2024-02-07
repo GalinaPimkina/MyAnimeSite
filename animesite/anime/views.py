@@ -164,7 +164,7 @@ class AnimeFromTagPageView(ListView):
     ''' на страницу выводятся все аниме, соответствующие выбранному тегу '''
 
     model = Anime
-    template_name = 'anime/tag_page.html'
+    template_name = 'anime/anime_from_tag_page.html'
     context_object_name = 'anime'
 
     extra_context = {
