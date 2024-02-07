@@ -5,7 +5,7 @@ from .forms import AddAnimeForm
 from .models import Anime, Genre, Producer, Tag, Years, Author, Studio
 
 menu = [
-    {'title': 'Каталог аниме', 'url_name': 'all_anime'},
+    {'title': 'Каталог аниме', 'url_name': 'all_anime_page'},
     {'title': 'Аниме по годам', 'url_name': 'anime_years'},
     {'title': 'Аниме по жанрам', 'url_name': 'anime_genre'},
     {'title': 'Студии', 'url_name': 'anime_studio'},
@@ -17,7 +17,7 @@ class AnimeHomePageView(ListView):
     пока что практически аналог AllAnimePage, но будет изменена в дальнейшем'''
 
     model = Anime
-    template_name = 'anime/index.html'
+    template_name = 'anime/anime_home_page.html'
     context_object_name = 'anime'
 
     extra_context = {
@@ -30,7 +30,7 @@ class AllAnimePageView(ListView):
     """ страница отображения всех имеющихсся на сайте тайтлов """
 
     model = Anime
-    template_name = 'anime/show_all_anime.html'
+    template_name = 'anime/all_anime_page.html'
     context_object_name = 'anime'
 
     extra_context = {
