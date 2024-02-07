@@ -18,7 +18,7 @@ class AnimeHomePageView(ListView):
 
     model = Anime
     template_name = 'anime/index.html'
-    context_object_name = 'all_anime'
+    context_object_name = 'anime'
 
     extra_context = {
         'title': 'Главная страница',
@@ -31,7 +31,7 @@ class AllAnimePageView(ListView):
 
     model = Anime
     template_name = 'anime/show_all_anime.html'
-    context_object_name = 'all_anime'
+    context_object_name = 'anime'
 
     extra_context = {
         'menu': menu,
