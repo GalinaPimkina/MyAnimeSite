@@ -148,7 +148,7 @@ class AnimeFromAuthorPageView(ListView):
     ''' на страницу выводятся все аниме, соответствующие выбранному автору оригинала '''
 
     model = Anime
-    template_name = 'anime/author_page.html'
+    template_name = 'anime/anime_from_author_page.html'
     context_object_name = 'anime'
 
     extra_context = {
