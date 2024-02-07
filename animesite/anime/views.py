@@ -160,17 +160,20 @@ class AnimeFromAuthorPageView(ListView):
         return Anime.objects.filter(author=author)
 
 
-def show_tag_page(request, tag_slug):
-    tag_obj = get_object_or_404(Tag, tag_slug=tag_slug)
-    animies = Anime.objects.filter(tag=tag_obj)
+class AnimeFromTagPageView(ListView):
+    ''' на страницу выводятся все аниме, соответствующие выбранному тегу '''
 
-    data = {
-        'title': tag_obj.tag,
-        'tag_obj': tag_obj,
-        'animies': animies,
+    model = Anime
+    template_name = 'anime/tag_page.html'
+    context_object_name = 'anime'
+
+    extra_context = {
         'menu': menu,
     }
-    return render(request, 'anime/tag_page.html', context=data)
+
+    def get_queryset(self):
+        tag = get_object_or_404(Tag, tag_slug=self.kwargs['tag_slug'])
+        return Anime.objects.filter(tag=tag)
 
 
 class StudioPageView(ListView):
