@@ -67,7 +67,7 @@ class Author(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('author_page', kwargs={'author_slug': self.author_slug})
+        return reverse('anime_from_author_page', kwargs={'author_slug': self.author_slug})
 
     class Meta:
         verbose_name = "Автор оригинала"
