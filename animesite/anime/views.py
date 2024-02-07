@@ -77,7 +77,7 @@ class AnimeFromGenrePageView(ListView):
     ''' на страницу выводятся все аниме, соответствующие выбранному жанру '''
 
     model = Anime
-    template_name = 'anime/genre_page.html'
+    template_name = 'anime/anime_from_genre_page.html'
     context_object_name = 'anime'
 
     extra_context = {
