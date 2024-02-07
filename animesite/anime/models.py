@@ -36,7 +36,7 @@ class Genre(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('genre_page', kwargs={'genre_slug': self.genre_slug})
+        return reverse('anime_from_genre_page', kwargs={'genre_slug': self.genre_slug})
 
     class Meta:
         verbose_name = "Жанр"
