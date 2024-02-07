@@ -8,7 +8,7 @@ menu = [
     {'title': 'Каталог аниме', 'url_name': 'all_anime_page'},
     {'title': 'Аниме по годам', 'url_name': 'year_page'},
     {'title': 'Аниме по жанрам', 'url_name': 'genre_page'},
-    {'title': 'Студии', 'url_name': 'anime_studio'},
+    {'title': 'Студии', 'url_name': 'studio_page'},
     {'title': 'Добавить аниме', 'url_name': 'addanime'},
 ]
 
@@ -180,7 +180,7 @@ class StudioPageView(ListView):
     ''' страница со списком студий, которые выпускали те или иные аниме '''
 
     model = Studio
-    template_name = 'anime/anime_studio.html'
+    template_name = 'anime/studio_page.html'
     context_object_name = 'studio'
 
     extra_context = {
