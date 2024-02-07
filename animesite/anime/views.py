@@ -88,6 +88,11 @@ class AnimeFromGenrePageView(ListView):
         self.genre = get_object_or_404(Genre, genre_slug=self.kwargs['genre_slug'])
         return Anime.objects.filter(genre=self.genre)
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = (self.genre.name).capitalize()
+        return context
+
 
 class YearsPageView(ListView):
     ''' вывод страницы со списком всех имеющихся на сайте годами выпуска аниме '''
