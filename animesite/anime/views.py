@@ -12,7 +12,7 @@ menu = [
     {'title': 'Добавить аниме', 'url_name': 'addanime'},
 ]
 
-class AnimeHomePage(ListView):
+class AnimeHomePageView(ListView):
     '''главная страница сайта, выводится список всех аниме/
     пока что практически аналог AllAnimePage, но будет изменена в дальнейшем'''
 
@@ -25,15 +25,8 @@ class AnimeHomePage(ListView):
         'menu': menu,
     }
 
-    # def get_context_data(self, **kwargs):
-    #     context = super().get_context_data(**kwargs)
-    #     context['title'] = 'Главная страница'
-    #     context['menu'] = menu
-    #     context['anime_all'] = Anime.objects.all()
-    #     return context
 
-
-class AllAnimePage(ListView):
+class AllAnimePageView(ListView):
     """ страница отображения всех имеющихсся на сайте тайтлов """
 
     model = Anime
@@ -67,7 +60,7 @@ def show_anime_page(request, anime_slug):
     return render(request, 'anime/anime_page.html', context=data)
 
 
-class GenrePage(ListView):
+class GenrePageView(ListView):
     ''' вывод страницы со списком всех имеющихся на сайте жанров аниме '''
 
     model = Genre
@@ -80,7 +73,7 @@ class GenrePage(ListView):
     }
 
 
-class AnimeFromGenrePage(ListView):
+class AnimeFromGenrePageView(ListView):
     ''' на страницу выводятся все аниме, соответствующие выбранному жанру '''
 
     model = Anime
@@ -96,7 +89,7 @@ class AnimeFromGenrePage(ListView):
         return Anime.objects.filter(genre=self.genre)
 
 
-class YearsPage(ListView):
+class YearsPageView(ListView):
     ''' вывод страницы со списком всех имеющихся на сайте годами выпуска аниме '''
 
     model = Years
@@ -109,7 +102,7 @@ class YearsPage(ListView):
     }
 
 
-class AnimeFromYearPage(ListView):
+class AnimeFromYearPageView(ListView):
     ''' на страницу выводятся все аниме, соответствующие выбранному году  '''
 
     model = Anime
@@ -125,7 +118,7 @@ class AnimeFromYearPage(ListView):
         return Anime.objects.filter(year=year)
 
 
-class AnimeFromProducerPage(ListView):
+class AnimeFromProducerPageView(ListView):
     ''' на страницу выводятся все аниме, соответствующие выбранному режиссеру '''
 
     model = Anime
@@ -167,7 +160,7 @@ def show_tag_page(request, tag_slug):
     return render(request, 'anime/tag_page.html', context=data)
 
 
-class StudioPage(ListView):
+class StudioPageView(ListView):
     ''' страница со списком студий, которые выпускали те или иные аниме '''
 
     model = Studio
