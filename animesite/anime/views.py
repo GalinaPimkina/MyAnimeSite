@@ -111,7 +111,7 @@ class AnimeFromYearPageView(ListView):
     ''' на страницу выводятся все аниме, соответствующие выбранному году  '''
 
     model = Anime
-    template_name = 'anime/anime_year_page.html'
+    template_name = 'anime/anime_from_year_page.html'
     context_object_name = 'anime'
 
     extra_context = {
