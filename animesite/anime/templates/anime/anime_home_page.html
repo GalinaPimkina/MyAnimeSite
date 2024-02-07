@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for a in anime %}
+<ul>
+    <li><p>Название: {{ a.name_ru }}</p>
+        <p>Описание: {{ a.description|truncatewords:15 }}</p>
+        <a href="{{ a.get_absolute_url }}">Подробнее...</a>
+        <hr>
+    </li>
+</ul>
+{% endfor %}
+{% endblock content %}
