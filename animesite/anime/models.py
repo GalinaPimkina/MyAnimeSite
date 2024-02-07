@@ -51,7 +51,7 @@ class Years(models.Model):
         return str(self.years)
 
     def get_absolute_url(self):
-        return reverse('year_page', kwargs={'year': self.years})
+        return reverse('anime_from_year_page', kwargs={'year': self.years})
 
     class Meta:
         verbose_name = "Год"
