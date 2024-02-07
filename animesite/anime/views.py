@@ -189,17 +189,32 @@ class StudioPageView(ListView):
     }
 
 
-def show_studio_page(request, studio_slug):
-    studio_obj = get_object_or_404(Studio, studio_slug=studio_slug)
-    animies = Anime.objects.filter(studio=studio_obj)
+class AnimeFromStudioPageView(ListView):
+    ''' на страницу выводятся все аниме, соответствующие выбранной студии '''
 
-    data = {
-        'title': studio_obj.name,
-        'tag_obj': studio_obj,
-        'animies': animies,
+    model = Anime
+    template_name = 'anime/studio_page.html'
+    context_object_name = 'anime'
+
+    extra_context = {
         'menu': menu,
     }
-    return render(request, 'anime/studio_page.html', context=data)
+
+    def get_queryset(self):
+        studio = get_object_or_404(Studio, studio_slug=self.kwargs['studio_slug'])
+        return Anime.objects.filter(studio=studio)
+
+# def show_studio_page(request, studio_slug):
+#     studio_obj = get_object_or_404(Studio, studio_slug=studio_slug)
+#     animies = Anime.objects.filter(studio=studio_obj)
+#
+#     data = {
+#         'title': studio_obj.name,
+#         'tag_obj': studio_obj,
+#         'animies': animies,
+#         'menu': menu,
+#     }
+#     return render(request, 'anime/studio_page.html', context=data)
 
 def addanime(request):
     if request.method == "POST":
