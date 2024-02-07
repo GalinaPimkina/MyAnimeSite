@@ -132,7 +132,7 @@ class AnimeFromProducerPageView(ListView):
     ''' на страницу выводятся все аниме, соответствующие выбранному режиссеру '''
 
     model = Anime
-    template_name = 'anime/producer_page.html'
+    template_name = 'anime/anime_from_producer_page.html'
     context_object_name = 'anime'
 
     extra_context = {
