@@ -193,7 +193,7 @@ class AnimeFromStudioPageView(ListView):
     ''' на страницу выводятся все аниме, соответствующие выбранной студии '''
 
     model = Anime
-    template_name = 'anime/studio_page.html'
+    template_name = 'anime/anime_from_studio_page.html'
     context_object_name = 'anime'
 
     extra_context = {
