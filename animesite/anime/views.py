@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 
 from .forms import AddAnimeForm
 from .models import Anime, Genre, Producer, Tag, Years, Author, Studio
@@ -40,25 +40,45 @@ class AllAnimePageView(ListView):
     }
 
 
-def show_anime_page(request, anime_slug):
-    """ страница с описанием конкретного аниме """
+# def show_anime_page(request, anime_slug):
+#     """ страница с описанием конкретного аниме """
+#
+#     anime_obj = get_object_or_404(Anime, slug=anime_slug)
+#     genre = Genre.objects.filter(genre__slug=anime_slug)
+#     producer = Producer.objects.filter(producer__slug=anime_slug)
+#     tag = Tag.objects.filter(tags__slug=anime_slug)
+#     studio = Studio.objects.filter(studio__slug=anime_slug)
+#
+#     data = {
+#         'title': anime_obj.name_ru,
+#         'anime_obj': anime_obj,
+#         'genre': genre,
+#         'producer': producer,
+#         'tag': tag,
+#         'studio': studio,
+#         'menu': menu,
+#     }
+#     return render(request, 'anime/anime_page.html', context=data)
 
-    anime_obj = get_object_or_404(Anime, slug=anime_slug)
-    genre = Genre.objects.filter(genre__slug=anime_slug)
-    producer = Producer.objects.filter(producer__slug=anime_slug)
-    tag = Tag.objects.filter(tags__slug=anime_slug)
-    studio = Studio.objects.filter(studio__slug=anime_slug)
 
-    data = {
-        'title': anime_obj.name_ru,
-        'anime_obj': anime_obj,
-        'genre': genre,
-        'producer': producer,
-        'tag': tag,
-        'studio': studio,
+class AnimePageView(DetailView):
+    model = Anime
+    template_name = 'anime/anime_page.html'
+    slug_url_kwarg = 'anime_slug'
+    context_object_name = 'anime'
+
+    extra_context = {
         'menu': menu,
     }
-    return render(request, 'anime/anime_page.html', context=data)
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = context['anime'].name_ru
+        context['genre'] = Genre.objects.filter(genre__slug=self.kwargs['anime_slug'])
+        context['producer'] = Producer.objects.filter(producer__slug=self.kwargs['anime_slug'])
+        context['tag'] = Tag.objects.filter(tags__slug=self.kwargs['anime_slug'])
+        context['studio'] = Studio.objects.filter(studio__slug=self.kwargs['anime_slug'])
+        return context
 
 
 class GenrePageView(ListView):
