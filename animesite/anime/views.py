@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.views import View
 from django.views.generic import TemplateView, ListView
 
 from .forms import AddAnimeForm
@@ -9,7 +10,7 @@ menu = [
     {'title': 'Аниме по годам', 'url_name': 'year_page'},
     {'title': 'Аниме по жанрам', 'url_name': 'genre_page'},
     {'title': 'Студии', 'url_name': 'studio_page'},
-    {'title': 'Добавить аниме', 'url_name': 'addanime'},
+    {'title': 'Добавить аниме', 'url_name': 'add_new_anime'},
 ]
 
 class AnimeHomePageView(ListView):
@@ -225,20 +226,26 @@ class AnimeFromStudioPageView(ListView):
         return context
 
 
-def addanime(request):
-    if request.method == "POST":
+class AddNewAnime(View):
+    def get(self, request):
+        form = AddAnimeForm()
+        data = {
+            'menu': menu,
+            'title': 'Добавить аниме',
+            'form': form
+        }
+        return render(request, 'anime/add_new_anime.html', data)
+
+    def post(self, request):
         form = AddAnimeForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('index')
 
-    else:
-        form = AddAnimeForm()
+        data = {
+            'menu': menu,
+            'title': 'Добавить аниме',
+            'form': form
+        }
+        return render(request, 'anime/add_new_anime.html', data)
 
-    data = {
-        'menu': menu,
-        'title': 'Добавить аниме',
-        'form': form
-    }
-
-    return render(request, 'anime/addanime.html', data)
