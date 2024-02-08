@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
-from django.views.generic import ListView, DetailView
+from django.views.generic import TemplateView, ListView, DetailView, FormView, CreateView
 
 from .forms import AddAnimeForm
 from .models import Anime, Genre, Producer, Tag, Years, Author, Studio
@@ -227,26 +227,12 @@ class AnimeFromStudioPageView(ListView):
         return context
 
 
-class AddNewAnime(View):
-    def get(self, request):
-        form = AddAnimeForm()
-        data = {
-            'menu': menu,
-            'title': 'Добавить аниме',
-            'form': form
-        }
-        return render(request, 'anime/add_new_anime.html', data)
+class AddNewAnime(CreateView):
+    form_class = AddAnimeForm
+    template_name = 'anime/add_new_anime.html'
 
-    def post(self, request):
-        form = AddAnimeForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('index')
-
-        data = {
-            'menu': menu,
-            'title': 'Добавить аниме',
-            'form': form
-        }
-        return render(request, 'anime/add_new_anime.html', data)
+    extra_context = {
+        'menu': menu,
+        'title': 'Добавить аниме',
+    }
 
