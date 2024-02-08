@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import ListView, DetailView
 
 from .forms import AddAnimeForm
 from .models import Anime, Genre, Producer, Tag, Years, Author, Studio
@@ -41,6 +41,8 @@ class AllAnimePageView(ListView):
 
 
 class AnimePageView(DetailView):
+    ''' страница с описанием одного конкретного аниме '''
+
     model = Anime
     template_name = 'anime/anime_page.html'
     slug_url_kwarg = 'anime_slug'
