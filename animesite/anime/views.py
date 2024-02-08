@@ -40,27 +40,6 @@ class AllAnimePageView(ListView):
     }
 
 
-# def show_anime_page(request, anime_slug):
-#     """ страница с описанием конкретного аниме """
-#
-#     anime_obj = get_object_or_404(Anime, slug=anime_slug)
-#     genre = Genre.objects.filter(genre__slug=anime_slug)
-#     producer = Producer.objects.filter(producer__slug=anime_slug)
-#     tag = Tag.objects.filter(tags__slug=anime_slug)
-#     studio = Studio.objects.filter(studio__slug=anime_slug)
-#
-#     data = {
-#         'title': anime_obj.name_ru,
-#         'anime_obj': anime_obj,
-#         'genre': genre,
-#         'producer': producer,
-#         'tag': tag,
-#         'studio': studio,
-#         'menu': menu,
-#     }
-#     return render(request, 'anime/anime_page.html', context=data)
-
-
 class AnimePageView(DetailView):
     model = Anime
     template_name = 'anime/anime_page.html'
