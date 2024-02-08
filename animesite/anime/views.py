@@ -74,10 +74,10 @@ class AnimePageView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = context['anime'].name_ru
-        context['genre'] = Genre.objects.filter(genre__slug=self.kwargs['anime_slug'])
-        context['producer'] = Producer.objects.filter(producer__slug=self.kwargs['anime_slug'])
-        context['tag'] = Tag.objects.filter(tags__slug=self.kwargs['anime_slug'])
-        context['studio'] = Studio.objects.filter(studio__slug=self.kwargs['anime_slug'])
+        context['genre'] = Genre.objects.filter(genre__slug=self.kwargs[self.slug_url_kwarg])
+        context['producer'] = Producer.objects.filter(producer__slug=self.kwargs[self.slug_url_kwarg])
+        context['tag'] = Tag.objects.filter(tags__slug=self.kwargs[self.slug_url_kwarg])
+        context['studio'] = Studio.objects.filter(studio__slug=self.kwargs[self.slug_url_kwarg])
         return context
 
 
