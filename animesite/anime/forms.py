@@ -1,6 +1,6 @@
 from django import forms
 
-from anime.models import Anime, Genre, Years, Producer, Author
+from anime.models import Anime, Genre, Years, Producer, Author, Tag
 
 
 class AddAnimeForm(forms.ModelForm):
@@ -41,3 +41,11 @@ class AddNewAuthorForm(forms.ModelForm):
     class Meta:
         model = Author
         fields = ['name', 'author_slug']
+
+
+class AddNewTagForm(forms.ModelForm):
+    ''' форма позволяет внести данные, чтобы добавить нового тега '''
+
+    class Meta:
+        model = Tag
+        fields = ['tag', 'tag_slug']
