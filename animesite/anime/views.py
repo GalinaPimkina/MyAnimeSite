@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, FormView, CreateView
 
-from .forms import AddAnimeForm
+from .forms import AddAnimeForm, AddNewGenreForm
 from .models import Anime, Genre, Producer, Tag, Years, Author, Studio
 
 menu = [
@@ -228,6 +228,8 @@ class AnimeFromStudioPageView(ListView):
 
 
 class AddNewAnime(CreateView):
+    ''' добавляет новое аниме на сайт '''
+
     form_class = AddAnimeForm
     template_name = 'anime/add_new_anime.html'
 
@@ -236,3 +238,14 @@ class AddNewAnime(CreateView):
         'title': 'Добавить аниме',
     }
 
+
+class AddNewGenre(CreateView):
+    ''' позволяет добавить новый жанр, если его еще нет '''
+
+    form_class = AddNewGenreForm
+    template_name = 'anime/add_new_genre.html'
+
+    extra_context = {
+        'menu': menu,
+        'title': 'Добавить жанр',
+    }
