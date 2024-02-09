@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, FormView, CreateView
 
-from .forms import AddAnimeForm, AddNewGenreForm, AddNewYearForm, AddNewProducerForm, AddNewAuthorForm
+from .forms import AddAnimeForm, AddNewGenreForm, AddNewYearForm, AddNewProducerForm, AddNewAuthorForm, AddNewTagForm
 from .models import Anime, Genre, Producer, Tag, Years, Author, Studio
 
 menu = [
@@ -284,4 +284,16 @@ class AddNewAuthor(CreateView):
     extra_context = {
         'menu': menu,
         'title': 'Добавить автора оригинала',
+    }
+
+
+class AddNewTag(CreateView):
+    ''' позволяет добавить тег, если его еще нет '''
+
+    form_class = AddNewTagForm
+    template_name = 'anime/add_new_tag.html'
+
+    extra_context = {
+        'menu': menu,
+        'title': 'Добавить тег',
     }
