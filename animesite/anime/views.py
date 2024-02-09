@@ -1,6 +1,5 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from django.views import View
-from django.views.generic import TemplateView, ListView, DetailView, FormView, CreateView
+from django.shortcuts import get_object_or_404
+from django.views.generic import ListView, DetailView, CreateView
 
 from .forms import AddAnimeForm, AddNewGenreForm, AddNewYearForm, AddNewProducerForm, AddNewAuthorForm, AddNewTagForm, \
     AddNewStudioForm
@@ -8,9 +7,9 @@ from .models import Anime, Genre, Producer, Tag, Years, Author, Studio
 
 menu = [
     {'title': 'Каталог аниме', 'url_name': 'all_anime_page'},
-    {'title': 'Аниме по годам', 'url_name': 'year_page'},
-    {'title': 'Аниме по жанрам', 'url_name': 'genre_page'},
-    {'title': 'Студии', 'url_name': 'studio_page'},
+    {'title': 'Поиск по году', 'url_name': 'year_page'},
+    {'title': 'Поиск по жанру', 'url_name': 'genre_page'},
+    {'title': 'Поиск по студии', 'url_name': 'studio_page'},
     {'title': 'Добавить аниме', 'url_name': 'add_new_anime'},
 ]
 
