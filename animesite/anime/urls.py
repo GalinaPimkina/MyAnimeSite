@@ -18,5 +18,6 @@ urlpatterns = [
     path('anime/addanime/', views.AddNewAnime.as_view(), name='add_new_anime'),
     path('anime/addgenre/', views.AddNewGenre.as_view(), name='add_new_genre'),
     path('anime/addyear/', views.AddNewYear.as_view(), name='add_new_year'),
-    path('anime/addproducer/', views.AddNewProducer.as_view(), name='add_new_producer')
+    path('anime/addproducer/', views.AddNewProducer.as_view(), name='add_new_producer'),
+    path('anime/addauthor/', views.AddNewAuthor.as_view(), name='add_new_author'),
 ]
