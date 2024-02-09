@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, FormView, CreateView
 
-from .forms import AddAnimeForm, AddNewGenreForm
+from .forms import AddAnimeForm, AddNewGenreForm, AddNewYearForm
 from .models import Anime, Genre, Producer, Tag, Years, Author, Studio
 
 menu = [
@@ -248,4 +248,16 @@ class AddNewGenre(CreateView):
     extra_context = {
         'menu': menu,
         'title': 'Добавить жанр',
+    }
+
+
+class AddNewYear(CreateView):
+    ''' позволяет добавить год, если еще еще нет '''
+
+    form_class =  AddNewYearForm
+    template_name = 'anime/add_new_year.html'
+
+    extra_context = {
+        'menu': menu,
+        'title': 'Добавить год',
     }
