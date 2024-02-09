@@ -4,7 +4,18 @@
 <h1>{{ title }}</h1>
 <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
+    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.name_ru.label }}: </label>{{ form.name_ru }}</p>
+    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.name_en.label }}: </label>{{ form.name_en }}</p>
+    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.name_jp.label }}: </label>{{ form.name_jp }}</p>
+    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.slug.label }}: </label>{{ form.slug }}</p>
+    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.genre.label }}: </label>{{ form.genre }} Нет нужного? <a href="{% url 'add_new_genre' %}">Добавь! :)</a></p>
+    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.episodes.label }}: </label>{{ form.episodes }}</p>
+    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.year.label }}: </label>{{ form.year }}</p>
+    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.producer.label }}: </label>{{ form.producer }}</p>
+    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.author.label }}: </label>{{ form.author }}</p>
+    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.tag.label }}: </label>{{ form.tag }}</p>
+    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.studio.label }}: </label>{{ form.studio }}</p>
+    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.description.label }}: </label>{{ form.description }}</p>
     <button type="submit">Сохранить</button>
 </form>
 
