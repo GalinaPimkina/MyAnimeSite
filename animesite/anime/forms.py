@@ -1,6 +1,6 @@
 from django import forms
 
-from anime.models import Anime, Genre
+from anime.models import Anime, Genre, Years
 
 
 class AddAnimeForm(forms.ModelForm):
@@ -13,3 +13,9 @@ class AddNewGenreForm(forms.ModelForm):
     class Meta:
         model = Genre
         fields = ['name', 'genre_slug']
+
+
+class AddNewYearForm(forms.ModelForm):
+    class Meta:
+        model = Years
+        fields = ['years', ]
