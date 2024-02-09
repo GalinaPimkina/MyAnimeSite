@@ -51,7 +51,7 @@ class AddNewTagForm(forms.ModelForm):
         fields = ['tag', 'tag_slug']
 
 
-class AddNewStudio(forms.ModelForm):
+class AddNewStudioForm(forms.ModelForm):
     ''' форма позволяет внести данные, чтобы добавить новую студию '''
 
     class Meta:
