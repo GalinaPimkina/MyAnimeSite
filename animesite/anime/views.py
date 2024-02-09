@@ -2,7 +2,8 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, FormView, CreateView
 
-from .forms import AddAnimeForm, AddNewGenreForm, AddNewYearForm, AddNewProducerForm, AddNewAuthorForm, AddNewTagForm
+from .forms import AddAnimeForm, AddNewGenreForm, AddNewYearForm, AddNewProducerForm, AddNewAuthorForm, AddNewTagForm, \
+    AddNewStudioForm
 from .models import Anime, Genre, Producer, Tag, Years, Author, Studio
 
 menu = [
@@ -296,4 +297,16 @@ class AddNewTag(CreateView):
     extra_context = {
         'menu': menu,
         'title': 'Добавить тег',
+    }
+
+
+class AddNewStudio(CreateView):
+    ''' позволяет добавить студию, если ее еще нет '''
+
+    form_class = AddNewStudioForm
+    template_name = 'anime/add_new_studio.html'
+
+    extra_context = {
+        'menu': menu,
+        'title': 'Добавить студию',
     }
