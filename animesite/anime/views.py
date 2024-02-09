@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.views import View
 from django.views.generic import TemplateView, ListView, DetailView, FormView, CreateView
 
-from .forms import AddAnimeForm, AddNewGenreForm, AddNewYearForm, AddNewProducerForm
+from .forms import AddAnimeForm, AddNewGenreForm, AddNewYearForm, AddNewProducerForm, AddNewAuthorForm
 from .models import Anime, Genre, Producer, Tag, Years, Author, Studio
 
 menu = [
@@ -252,7 +252,7 @@ class AddNewGenre(CreateView):
 
 
 class AddNewYear(CreateView):
-    ''' позволяет добавить год, если еще еще нет '''
+    ''' позволяет добавить год, если его еще нет '''
 
     form_class =  AddNewYearForm
     template_name = 'anime/add_new_year.html'
@@ -264,7 +264,7 @@ class AddNewYear(CreateView):
 
 
 class AddNewProducer(CreateView):
-    ''' позволяет добавить режиссера, если еще еще нет '''
+    ''' позволяет добавить режиссера, если его еще нет '''
 
     form_class = AddNewProducerForm
     template_name = 'anime/add_new_producer.html'
@@ -272,4 +272,16 @@ class AddNewProducer(CreateView):
     extra_context = {
         'menu': menu,
         'title': 'Добавить режиссера',
+    }
+
+
+class AddNewAuthor(CreateView):
+    ''' позволяет добавить автора оригинала, если его еще нет '''
+
+    form_class = AddNewAuthorForm
+    template_name = 'anime/add_new_author.html'
+
+    extra_context = {
+        'menu': menu,
+        'title': 'Добавить автора оригинала',
     }
