@@ -313,3 +313,7 @@ class AddNewStudioView(CreateView):
 
 class UpdateAnimeView(UpdateView):
     pass
+
+
+class UpdateGenreView(UpdateView):
+    pass
