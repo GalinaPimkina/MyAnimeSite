@@ -227,7 +227,7 @@ class AnimeFromStudioPageView(ListView):
         return context
 
 
-class AddNewAnime(CreateView):
+class AddNewAnimeView(CreateView):
     ''' добавляет новое аниме на сайт '''
 
     form_class = AddAnimeForm
@@ -239,7 +239,7 @@ class AddNewAnime(CreateView):
     }
 
 
-class AddNewGenre(CreateView):
+class AddNewGenreView(CreateView):
     ''' позволяет добавить новый жанр, если его еще нет '''
 
     form_class = AddNewGenreForm
@@ -251,7 +251,7 @@ class AddNewGenre(CreateView):
     }
 
 
-class AddNewYear(CreateView):
+class AddNewYearView(CreateView):
     ''' позволяет добавить год, если его еще нет '''
 
     form_class =  AddNewYearForm
@@ -263,7 +263,7 @@ class AddNewYear(CreateView):
     }
 
 
-class AddNewProducer(CreateView):
+class AddNewProducerView(CreateView):
     ''' позволяет добавить режиссера, если его еще нет '''
 
     form_class = AddNewProducerForm
@@ -275,7 +275,7 @@ class AddNewProducer(CreateView):
     }
 
 
-class AddNewAuthor(CreateView):
+class AddNewAuthorView(CreateView):
     ''' позволяет добавить автора оригинала, если его еще нет '''
 
     form_class = AddNewAuthorForm
@@ -287,7 +287,7 @@ class AddNewAuthor(CreateView):
     }
 
 
-class AddNewTag(CreateView):
+class AddNewTagView(CreateView):
     ''' позволяет добавить тег, если его еще нет '''
 
     form_class = AddNewTagForm
@@ -299,7 +299,7 @@ class AddNewTag(CreateView):
     }
 
 
-class AddNewStudio(CreateView):
+class AddNewStudioView(CreateView):
     ''' позволяет добавить студию, если ее еще нет '''
 
     form_class = AddNewStudioForm
