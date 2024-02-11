@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
 from .forms import AddAnimeForm, AddNewGenreForm, AddNewYearForm, AddNewProducerForm, AddNewAuthorForm, AddNewTagForm, \
     AddNewStudioForm
@@ -309,3 +309,7 @@ class AddNewStudio(CreateView):
         'menu': menu,
         'title': 'Добавить студию',
     }
+
+
+class UpdateAnimeView(UpdateView):
+    pass
