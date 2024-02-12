@@ -123,6 +123,7 @@ class AnimeFromAuthorPageView(DataMixin, ListView):
     model = Anime
     template_name = 'anime/anime_from_author_page.html'
     context_object_name = 'anime'
+    
 
     def get_queryset(self):
         self.author = get_object_or_404(Author, author_slug=self.kwargs['author_slug'])
@@ -130,8 +131,7 @@ class AnimeFromAuthorPageView(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = f'Поиск по автору оригинала: {self.author.name}'
-        return context
+        return self.get_mixin_context(context, title=f'Поиск по автору оригинала: {self.author.name}')
 
 
 class AnimeFromTagPageView(DataMixin, ListView):
@@ -147,8 +147,7 @@ class AnimeFromTagPageView(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = f'Поиск по тегу: {self.tag.tag}'
-        return context
+        return self.get_mixin_context(context, title=f'Поиск по тегу: {self.tag.tag}')
 
 
 class StudioPageView(DataMixin, ListView):
@@ -173,8 +172,7 @@ class AnimeFromStudioPageView(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = f'Поиск по студии: {self.studio.name}'
-        return context
+        return self.get_mixin_context(context, title=f'Поиск по студии: {self.studio.name}')
 
 
 class AddNewAnimeView(DataMixin, CreateView):
