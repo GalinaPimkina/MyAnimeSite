@@ -23,4 +23,5 @@ urlpatterns = [
     path('anime/addtag/', views.AddNewTagView.as_view(), name='add_new_tag'),
     path('anime/addstudio/', views.AddNewStudioView.as_view(), name='add_new_studio'),
     path('anime/editanime/<slug:slug>/', views.EditAnimeView.as_view(), name='edit_anime'),
+    # path('anime/editgenre/<slug:genre_slug>/', views.EditGenreView.as_view(), name='edit_genre'),
 ]

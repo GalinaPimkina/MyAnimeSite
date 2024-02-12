@@ -324,5 +324,14 @@ class EditAnimeView(UpdateView):
     }
 
 
-class UpdateGenreView(UpdateView):
-    pass
+# class EditGenreView(UpdateView):
+#     ''' редактирование жанра '''
+#
+#     model = Genre
+#     fields = ['name']
+#     template_name = 'anime/add_new_genre.html'
+#
+#     extra_context = {
+#         'menu': menu,
+#         'title': 'Редактировать жанр',
+#     }
