@@ -311,8 +311,17 @@ class AddNewStudioView(CreateView):
     }
 
 
-class UpdateAnimeView(UpdateView):
-    pass
+class EditAnimeView(UpdateView):
+    ''' редактирование аниме '''
+
+    model = Anime
+    fields = ['name_ru', 'name_en', 'name_jp', 'genre', 'episodes', 'year', 'producer', 'author', 'tag', 'studio', 'description']
+    template_name = 'anime/add_new_anime.html'
+
+    extra_context = {
+        'menu': menu,
+        'title': 'Редактировать аниме',
+    }
 
 
 class UpdateGenreView(UpdateView):
