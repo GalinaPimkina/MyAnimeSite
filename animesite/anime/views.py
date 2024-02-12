@@ -14,18 +14,14 @@ menu = [
     {'title': 'Добавить аниме', 'url_name': 'add_new_anime'},
 ]
 
-class AnimeHomePageView(ListView):
+class AnimeHomePageView(DataMixin, ListView):
     '''главная страница сайта, выводится список всех аниме/
     пока что практически аналог AllAnimePage, но будет изменена в дальнейшем'''
 
     model = Anime
     template_name = 'anime/anime_home_page.html'
     context_object_name = 'anime'
-
-    extra_context = {
-        'title': 'Главная страница',
-        'menu': menu,
-    }
+    title_page = 'Главная страница'
 
 
 class AllAnimePageView(ListView):
