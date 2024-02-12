@@ -10,12 +10,12 @@
 <li><a href="{{ g.get_absolute_url }}">{{ g.name }}</a></li>
 {% endfor %}
 <li><p>Количество эпизодов: {{ anime.episodes }} эп.</p></li>
-<li><p>Год выпуска: <a href="{{ anime_obj.year.get_absolute_url }}">{{ anime.year }} г.</a></p></li>
+<li><p>Год выпуска: <a href="{{ anime.year.get_absolute_url }}">{{ anime.year }} г.</a></p></li>
 <li><p>Режиссер:</p></li>
 {% for p in producer %}
 <li><a href="{{ p.get_absolute_url }}">{{ p.name }}</a></li>
 {% endfor %}
-<li><p>Автор оригинала: <a href="{{ anime_obj.author.get_absolute_url }}">{{ anime.author }}</a></p></li>
+<li><p>Автор оригинала: <a href="{{ anime.author.get_absolute_url }}">{{ anime.author }}</a></p></li>
 <li><p>Теги:</p></li>
 {% for t in tag %}
 <li><a href="{{ t.get_absolute_url }}">{{ t.tag }}</a></li>
