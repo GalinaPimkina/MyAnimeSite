@@ -114,8 +114,7 @@ class AnimeFromProducerPageView(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = f'Поиск по режиссеру: {self.producer.name}'
-        return context
+        return self.get_mixin_context(context, title=f'Поиск по режиссеру: {self.producer.name}')
 
 
 class AnimeFromAuthorPageView(DataMixin, ListView):
