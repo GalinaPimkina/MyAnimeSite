@@ -73,8 +73,7 @@ class AnimeFromGenrePageView(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = f'Поиск по жанру: {self.genre.name}'
-        return context
+        return self.get_mixin_context(context, title=f'Поиск по жанру: {self.genre.name}')
 
 
 class YearsPageView(DataMixin, ListView):
