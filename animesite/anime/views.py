@@ -238,6 +238,7 @@ class EditAnimeView(DataMixin, UpdateView):
     fields = ['name_ru', 'name_en', 'name_jp', 'genre', 'episodes', 'year', 'producer', 'author', 'tag', 'studio', 'description']
     template_name = 'anime/add_new_anime.html'
     title_page = 'Редактировать аниме'
+    slug_url_kwarg = 'anime_slug'
 
 
 # class EditGenreView(UpdateView):
