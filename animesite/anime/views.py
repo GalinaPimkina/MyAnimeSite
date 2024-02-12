@@ -6,13 +6,6 @@ from .forms import AddAnimeForm, AddNewGenreForm, AddNewYearForm, AddNewProducer
 from .models import Anime, Genre, Producer, Tag, Years, Author, Studio
 from .utils import DataMixin
 
-menu = [
-    {'title': 'Каталог аниме', 'url_name': 'all_anime_page'},
-    {'title': 'Поиск по году', 'url_name': 'year_page'},
-    {'title': 'Поиск по жанру', 'url_name': 'genre_page'},
-    {'title': 'Поиск по студии', 'url_name': 'studio_page'},
-    {'title': 'Добавить аниме', 'url_name': 'add_new_anime'},
-]
 
 class AnimeHomePageView(DataMixin, ListView):
     '''главная страница сайта, выводится список всех аниме/
