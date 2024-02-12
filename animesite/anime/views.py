@@ -240,3 +240,5 @@ class EditGenreView(DataMixin, UpdateView):
     fields = ['name', ]
     template_name = 'anime/add_new_genre.html'
     title_page = 'Редактировать жанр'
+    slug_url_kwarg = 'genre_slug'
+    slug_field = 'genre_slug'
