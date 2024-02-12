@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView
 from .forms import AddAnimeForm, AddNewGenreForm, AddNewYearForm, AddNewProducerForm, AddNewAuthorForm, AddNewTagForm, \
     AddNewStudioForm
 from .models import Anime, Genre, Producer, Tag, Years, Author, Studio
+from .utils import DataMixin
 
 menu = [
     {'title': 'Каталог аниме', 'url_name': 'all_anime_page'},
@@ -40,7 +41,7 @@ class AllAnimePageView(ListView):
     }
 
 
-class AnimePageView(DetailView):
+class AnimePageView(DataMixin, DetailView):
     ''' страница с описанием одного конкретного аниме '''
 
     model = Anime
@@ -54,12 +55,18 @@ class AnimePageView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = context['anime'].name_ru
-        context['genre'] = Genre.objects.filter(genre__slug=self.kwargs[self.slug_url_kwarg])
-        context['producer'] = Producer.objects.filter(producer__slug=self.kwargs[self.slug_url_kwarg])
-        context['tag'] = Tag.objects.filter(tags__slug=self.kwargs[self.slug_url_kwarg])
-        context['studio'] = Studio.objects.filter(studio__slug=self.kwargs[self.slug_url_kwarg])
-        return context
+        return self.get_mixin_context(context,
+                                      title=context['anime'].name_ru,
+                                      genre=Genre.objects.filter(genre__slug=self.kwargs[self.slug_url_kwarg]),
+                                      producer=Producer.objects.filter(producer__slug=self.kwargs[self.slug_url_kwarg]),
+                                      tag=Tag.objects.filter(tags__slug=self.kwargs[self.slug_url_kwarg]),
+                                      studio=Studio.objects.filter(studio__slug=self.kwargs[self.slug_url_kwarg]))
+        # context['title'] = context['anime'].name_ru
+        # context['genre'] = Genre.objects.filter(genre__slug=self.kwargs[self.slug_url_kwarg])
+        # context['producer'] = Producer.objects.filter(producer__slug=self.kwargs[self.slug_url_kwarg])
+        # context['tag'] = Tag.objects.filter(tags__slug=self.kwargs[self.slug_url_kwarg])
+        # context['studio'] = Studio.objects.filter(studio__slug=self.kwargs[self.slug_url_kwarg])
+        # return context
 
 
 class GenrePageView(ListView):
