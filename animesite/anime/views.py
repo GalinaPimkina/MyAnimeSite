@@ -233,10 +233,10 @@ class EditAnimeView(DataMixin, UpdateView):
     title_page = 'Редактировать аниме'
 
 
-# class EditGenreView(DataMixin, UpdateView):
-#     ''' редактирование жанра '''
-#
-#     model = Genre
-#     fields = ['name', ]
-#     template_name = 'anime/add_new_genre.html'
-#     title_page = 'Редактировать жанр'
+class EditGenreView(DataMixin, UpdateView):
+    ''' редактирование жанра '''
+
+    model = Genre
+    fields = ['name', ]
+    template_name = 'anime/add_new_genre.html'
+    title_page = 'Редактировать жанр'
