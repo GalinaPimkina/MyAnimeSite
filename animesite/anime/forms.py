@@ -24,7 +24,7 @@ class AddNewYearForm(forms.ModelForm):
 
     class Meta:
         model = Years
-        fields = ['years', ]
+        fields = ['year', ]
 
 
 class AddNewProducerForm(forms.ModelForm):

@@ -9,7 +9,7 @@ class Anime(models.Model):
     slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="Слаг")
     genre = models.ManyToManyField("Genre", related_name="genre", verbose_name="Жанр")
     episodes = models.IntegerField(default=1, verbose_name="Количество эпизодов")
-    year = models.ForeignKey(to="Years", on_delete=models.PROTECT, related_name="year", verbose_name="Год выхода")
+    year = models.ForeignKey(to="Years", on_delete=models.PROTECT, related_name="years", verbose_name="Год выхода")
     producer = models.ManyToManyField("Producer", blank=True, related_name="producer", verbose_name="Режиссер")
     author = models.ForeignKey(to="Author", on_delete=models.PROTECT, related_name="author", verbose_name="Автор оригинала")
     tag = models.ManyToManyField("Tag", related_name="tags", verbose_name="Теги")
@@ -45,18 +45,18 @@ class Genre(models.Model):
 
 
 class Years(models.Model):
-    years = models.IntegerField(default=2000, verbose_name="Год издания")
+    year = models.IntegerField(default=2000, verbose_name="Год издания")
 
     def __str__(self):
-        return str(self.years)
+        return str(self.year)
 
     def get_absolute_url(self):
-        return reverse('anime_from_year_page', kwargs={'year': self.years})
+        return reverse('anime_from_year_page', kwargs={'year': self.year})
 
     class Meta:
         verbose_name = "Год"
         verbose_name_plural = "Годы"
-        ordering = ("years", )
+        ordering = ("year", )
 
 
 class Author(models.Model):

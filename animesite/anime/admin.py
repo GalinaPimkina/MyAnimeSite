@@ -26,8 +26,8 @@ class GenreAdmin(admin.ModelAdmin):
 
 @admin.register(Years)
 class YearsAdmin(admin.ModelAdmin):
-    list_display = ['years', ]
-    search_fields = ['years']
+    list_display = ['year', ]
+    search_fields = ['year']
 
 @admin.register(Author)
 class AuthorAdmin(admin.ModelAdmin):
