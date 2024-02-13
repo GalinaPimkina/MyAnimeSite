@@ -86,7 +86,7 @@ class AnimeFromYearPageView(DataMixin, ListView):
     context_object_name = 'anime'
 
     def get_queryset(self):
-        self.year = get_object_or_404(Years, years=self.kwargs['year'])
+        self.year = get_object_or_404(Years, year=self.kwargs['year'])
         return Anime.objects.filter(year=self.year)
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -187,7 +187,7 @@ class AddNewGenreView(DataMixin, CreateView):
 class AddNewYearView(DataMixin, CreateView):
     ''' позволяет добавить год, если его еще нет '''
 
-    form_class =  AddNewYearForm
+    form_class = AddNewYearForm
     template_name = 'anime/add_new_year.html'
     title_page = 'Добавить год'
 
@@ -242,3 +242,14 @@ class EditGenreView(DataMixin, UpdateView):
     title_page = 'Редактировать жанр'
     slug_url_kwarg = 'genre_slug'
     slug_field = 'genre_slug'
+
+
+class EditYearPageView(DataMixin, UpdateView):
+    ''' редактирование года '''
+
+    model = Years
+    fields = ['year', ]
+    template_name = 'anime/add_new_year.html'
+    title_page = 'Редактировать год'
+    slug_url_kwarg = 'year'
+    slug_field = 'year'

@@ -14,6 +14,7 @@ urlpatterns = [
     path('genre/<slug:genre_slug>/', views.AnimeFromGenrePageView.as_view(), name='anime_from_genre_page'),
     path('year/', views.YearsPageView.as_view(), name='year_page'),
     path('year/add/', views.AddNewYearView.as_view(), name='add_new_year'),
+    path('year/edit/<slug:year>/', views.EditYearPageView.as_view(), name='edit_year'),
     path('year/<int:year>/', views.AnimeFromYearPageView.as_view(), name='anime_from_year_page'),
     path('producer/add/', views.AddNewProducerView.as_view(), name='add_new_producer'),
     path('producer/<slug:producer_slug>/', views.AnimeFromProducerPageView.as_view(), name='anime_from_producer_page'),
