@@ -275,3 +275,14 @@ class EditProducerView(DataMixin, UpdateView):
     title_page = 'Редактировать режиссера'
     slug_field = 'producer_slug'
     slug_url_kwarg = 'producer_slug'
+
+
+class EditStudioView(DataMixin, UpdateView):
+    ''' редактировать студию '''
+
+    model = Studio
+    fields = ['name', ]
+    template_name = 'anime/add_new_studio.html'
+    title_page = 'Редактировать студию'
+    slug_field = 'studio_slug'
+    slug_url_kwarg = 'studio_slug'

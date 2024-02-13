@@ -26,5 +26,6 @@ urlpatterns = [
     path('tag/<slug:tag_slug>/', views.AnimeFromTagPageView.as_view(), name='anime_from_tag_page'),
     path('studio/', views.StudioPageView.as_view(), name='studio_page'),
     path('studio/add/', views.AddNewStudioView.as_view(), name='add_new_studio'),
+    path('studio/edit/<slug:studio_slug>/', views.EditStudioView.as_view(), name='edit_studio'),
     path('studio/<slug:studio_slug>/', views.AnimeFromStudioPageView.as_view(), name='anime_from_studio_page'),
 ]
