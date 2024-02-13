@@ -16,7 +16,7 @@ class AddNewGenreForm(forms.ModelForm):
 
     class Meta:
         model = Genre
-        fields = ['name', 'genre_slug']
+        fields = ['name', ]
 
 
 class AddNewYearForm(forms.ModelForm):
@@ -32,7 +32,7 @@ class AddNewProducerForm(forms.ModelForm):
 
     class Meta:
         model = Producer
-        fields = ['name', 'producer_slug']
+        fields = ['name', ]
 
 
 class AddNewAuthorForm(forms.ModelForm):
@@ -40,7 +40,7 @@ class AddNewAuthorForm(forms.ModelForm):
 
     class Meta:
         model = Author
-        fields = ['name', 'author_slug']
+        fields = ['name', ]
 
 
 class AddNewTagForm(forms.ModelForm):
@@ -48,7 +48,7 @@ class AddNewTagForm(forms.ModelForm):
 
     class Meta:
         model = Tag
-        fields = ['tag', 'tag_slug']
+        fields = ['tag', ]
 
 
 class AddNewStudioForm(forms.ModelForm):
@@ -56,4 +56,4 @@ class AddNewStudioForm(forms.ModelForm):
 
     class Meta:
         model = Studio
-        fields = ['name', 'studio_slug']
+        fields = ['name', ]
