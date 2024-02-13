@@ -286,3 +286,14 @@ class EditStudioView(DataMixin, UpdateView):
     title_page = 'Редактировать студию'
     slug_field = 'studio_slug'
     slug_url_kwarg = 'studio_slug'
+
+
+class EditTagView(DataMixin, UpdateView):
+    ''' редактировать тег '''
+
+    model = Tag
+    fields = ['tag', ]
+    template_name = 'anime/add_new_tag.html'
+    title_page = 'Редактировать тег'
+    slug_field = 'tag_slug'
+    slug_url_kwarg = 'tag_slug'

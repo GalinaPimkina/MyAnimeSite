@@ -23,6 +23,7 @@ urlpatterns = [
     path('author/edit/<slug:author_slug>/', views.EditAuthorView.as_view(), name='edit_author'),
     path('author/<slug:author_slug>/', views.AnimeFromAuthorPageView.as_view(), name='anime_from_author_page'),
     path('tag/add/', views.AddNewTagView.as_view(), name='add_new_tag'),
+    path('tag/edit/<slug:tag_slug>/', views.EditTagView.as_view(), name='edit_tag'),
     path('tag/<slug:tag_slug>/', views.AnimeFromTagPageView.as_view(), name='anime_from_tag_page'),
     path('studio/', views.StudioPageView.as_view(), name='studio_page'),
     path('studio/add/', views.AddNewStudioView.as_view(), name='add_new_studio'),
