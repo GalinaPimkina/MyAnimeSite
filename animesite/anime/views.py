@@ -32,16 +32,17 @@ class AnimePageView(DataMixin, DetailView):
     model = Anime
     template_name = 'anime/anime_page.html'
     slug_url_kwarg = 'anime_slug'
+    slug_field = 'anime_slug'
     context_object_name = 'anime'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return self.get_mixin_context(context,
                                       title=context['anime'].name_ru,
-                                      genre=Genre.objects.filter(genre__slug=self.kwargs[self.slug_url_kwarg]),
-                                      producer=Producer.objects.filter(producer__slug=self.kwargs[self.slug_url_kwarg]),
-                                      tag=Tag.objects.filter(tags__slug=self.kwargs[self.slug_url_kwarg]),
-                                      studio=Studio.objects.filter(studio__slug=self.kwargs[self.slug_url_kwarg]))
+                                      genre=Genre.objects.filter(genre__anime_slug=self.kwargs[self.slug_url_kwarg]),
+                                      producer=Producer.objects.filter(producer__anime_slug=self.kwargs[self.slug_url_kwarg]),
+                                      tag=Tag.objects.filter(tags__anime_slug=self.kwargs[self.slug_url_kwarg]),
+                                      studio=Studio.objects.filter(studio__anime_slug=self.kwargs[self.slug_url_kwarg]))
 
 
 class GenrePageView(DataMixin, ListView):
@@ -231,6 +232,8 @@ class EditAnimeView(DataMixin, UpdateView):
     fields = ['name_ru', 'name_en', 'name_jp', 'genre', 'episodes', 'year', 'producer', 'author', 'tag', 'studio', 'description']
     template_name = 'anime/add_new_anime.html'
     title_page = 'Редактировать аниме'
+    slug_field = 'anime_slug'
+    slug_url_kwarg = 'anime_slug'
 
 
 class EditGenreView(DataMixin, UpdateView):
