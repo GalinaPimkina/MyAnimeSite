@@ -21,7 +21,6 @@ class AnimeAdmin(admin.ModelAdmin):
 class GenreAdmin(admin.ModelAdmin):
     list_display = ['name', 'genre_slug']
     search_fields = ['name']
-    prepopulated_fields = {'genre_slug': ('name',)}
 
 @admin.register(Years)
 class YearsAdmin(admin.ModelAdmin):
@@ -32,34 +31,28 @@ class YearsAdmin(admin.ModelAdmin):
 class AuthorAdmin(admin.ModelAdmin):
     list_display = ['name', ]
     search_fields = ['name']
-    prepopulated_fields = {'author_slug': ('name',)}
 
 @admin.register(Producer)
 class ProducerAdmin(admin.ModelAdmin):
     list_display = ['name', ]
     search_fields = ['name']
-    prepopulated_fields = {'producer_slug': ('name',)}
 
 @admin.register(Studio)
 class StudioAdmin(admin.ModelAdmin):
     list_display = ['name', ]
     search_fields = ['name']
-    prepopulated_fields = {'studio_slug': ('name',)}
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
     list_display = ['tag', 'tag_slug', ]
     search_fields = ['tag']
-    prepopulated_fields = {'tag_slug': ('tag',)}
 
 @admin.register(Character)
 class CharacterAdmin(admin.ModelAdmin):
     list_display = ['name', 'seiyuu', ]
     search_fields = ['name', 'seiyuu']
-    prepopulated_fields = {'character_slug': ('name',)}
 
 @admin.register(Seiyuu)
 class SeiyuuAdmin(admin.ModelAdmin):
     list_display = ['name', ]
     search_fields = ['name']
-    prepopulated_fields = {'seiyuu_slug': ('name',)}
