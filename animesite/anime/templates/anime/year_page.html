@@ -1,9 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% for y in years %}
+{% for y in year %}
 <ul>
-<li><a href="{{ y.get_absolute_url }}">{{ y }}</a></li>
+<li><a href="{{ y.get_absolute_url }}">{{ y }}</a><a href="{% url 'edit_year' y.year %}"> Редактировать</a></li>
 </ul>
 {% endfor %}
 {% endblock content %}
