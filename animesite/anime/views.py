@@ -264,3 +264,14 @@ class EditAuthorView(DataMixin, UpdateView):
     title_page = 'Редактировать автора'
     slug_field = 'author_slug'
     slug_url_kwarg = 'author_slug'
+
+
+class EditProducerView(DataMixin, UpdateView):
+    ''' редактировать режиссера '''
+
+    model = Producer
+    fields = ['name', ]
+    template_name = 'anime/add_new_producer.html'
+    title_page = 'Редактировать режиссера'
+    slug_field = 'producer_slug'
+    slug_url_kwarg = 'producer_slug'
