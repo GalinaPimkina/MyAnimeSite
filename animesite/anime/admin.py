@@ -10,7 +10,6 @@ class AnimeAdmin(admin.ModelAdmin):
     list_per_page = 5
     ordering = ['year', 'name_ru']
     search_fields = ['name_ru', ]
-    prepopulated_fields = {'slug': ('name_jp', )}
     filter_horizontal = ['genre', 'tag', 'producer']
 
     @admin.display(description="Краткое описание")
