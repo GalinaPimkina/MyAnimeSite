@@ -3,7 +3,7 @@
 {% block content %}
 {% for a in anime %}
 <ul>
-<li><a href="{{ a.get_absolute_url }}">{{ a.name_ru }}</a></li>
+<li><a href="{{ a.get_absolute_url }}">{{ a.name_ru }}</a><a href="{% url 'edit_anime' a.anime_slug %}"> Редактировать</a></li>
 </ul>
 {% endfor %}
 {% endblock content %}
