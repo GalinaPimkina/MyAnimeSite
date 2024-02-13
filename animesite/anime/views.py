@@ -74,7 +74,7 @@ class YearsPageView(DataMixin, ListView):
 
     model = Years
     template_name = 'anime/year_page.html'
-    context_object_name = 'years'
+    context_object_name = 'year'
     title_page = 'Поиск по году'
 
 
@@ -244,7 +244,7 @@ class EditGenreView(DataMixin, UpdateView):
     slug_field = 'genre_slug'
 
 
-class EditYearPageView(DataMixin, UpdateView):
+class EditYearView(DataMixin, UpdateView):
     ''' редактирование года '''
 
     model = Years
@@ -253,3 +253,14 @@ class EditYearPageView(DataMixin, UpdateView):
     title_page = 'Редактировать год'
     slug_url_kwarg = 'year'
     slug_field = 'year'
+
+
+class EditAuthorView(DataMixin, UpdateView):
+    ''' редактирование автора оригинала '''
+
+    model = Author
+    fields = ['name', ]
+    template_name = 'anime/add_new_author.html'
+    title_page = 'Редактировать автора'
+    slug_field = 'author_slug'
+    slug_url_kwarg = 'author_slug'
