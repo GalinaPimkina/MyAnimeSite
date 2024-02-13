@@ -1,3 +1,4 @@
+from autoslug import AutoSlugField
 from django.db import models
 from django.urls import reverse
 
@@ -6,7 +7,7 @@ class Anime(models.Model):
     name_ru = models.CharField(max_length=255, verbose_name="Заголовок на русском")
     name_en = models.CharField(max_length=255, verbose_name="Заголовок на английском")
     name_jp = models.CharField(max_length=255, verbose_name="Заголовок на японском")
-    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="Слаг")
+    slug = AutoSlugField(populate_from='name_jp', unique=True, db_index= True, verbose_name="Слаг")
     genre = models.ManyToManyField("Genre", related_name="genre", verbose_name="Жанр")
     episodes = models.IntegerField(default=1, verbose_name="Количество эпизодов")
     year = models.ForeignKey(to="Years", on_delete=models.PROTECT, related_name="years", verbose_name="Год выхода")
@@ -16,16 +17,16 @@ class Anime(models.Model):
     studio = models.ManyToManyField("Studio", related_name="studio", verbose_name="Студия-издатель")
     description = models.TextField(verbose_name="Описание")
 
+    class Meta:
+        verbose_name = "Аниме"
+        verbose_name_plural = "Аниме"
+        ordering = ("name_ru", )
+
     def __str__(self):
         return self.name_ru
 
     def get_absolute_url(self):
         return reverse('anime_page', kwargs={'anime_slug': self.slug})
-
-    class Meta:
-        verbose_name = "Аниме"
-        verbose_name_plural = "Аниме"
-        ordering = ("name_ru", )
 
 
 class Genre(models.Model):
