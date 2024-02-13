@@ -7,7 +7,7 @@ class Anime(models.Model):
     name_ru = models.CharField(max_length=255, verbose_name="Заголовок на русском")
     name_en = models.CharField(max_length=255, verbose_name="Заголовок на английском")
     name_jp = models.CharField(max_length=255, verbose_name="Заголовок на японском")
-    slug = AutoSlugField(populate_from='name_jp', unique=True, db_index= True, verbose_name="Слаг")
+    anime_slug = AutoSlugField(populate_from='name_jp', unique=True, db_index= True, verbose_name="Слаг")
     genre = models.ManyToManyField("Genre", related_name="genre", verbose_name="Жанр")
     episodes = models.IntegerField(default=1, verbose_name="Количество эпизодов")
     year = models.ForeignKey(to="Years", on_delete=models.PROTECT, related_name="years", verbose_name="Год выхода")
@@ -26,7 +26,7 @@ class Anime(models.Model):
         return self.name_ru
 
     def get_absolute_url(self):
-        return reverse('anime_page', kwargs={'anime_slug': self.slug})
+        return reverse('anime_page', kwargs={'anime_slug': self.anime_slug})
 
 
 class Genre(models.Model):
