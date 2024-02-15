@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'anime.apps.AnimeConfig',
     'django_extensions',
-    "debug_toolbar",
+    'debug_toolbar',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
