@@ -25,18 +25,16 @@
 		<div>
 			<ul id="mainmenu" class="mainmenu">
 			<li><a href="{% url 'anime_home_page' %}"><div class="logo"></div></a></li>
-
-			{% get_menu as menu %}
-
-			{% for m in menu %}
-<!--			{% if not forloop.last %}<li>{% else %}<li class="last">{% endif %}-->
-				<li><a href="{% url m.url_name %}">{{m.title}}</a></li>
-			{% endfor %}
+		{% for m in mainmenu %}
+			<li><a href="{% url m.url_name %}">{{m.title}}</a></li>
+		{% endfor %}
+			<li class="last"><a href="{% url 'users:login_user' %}">Войти</a></li>
 			</ul>
 			<div class="clear"></div>
 		</div>
 {% endblock mainmenu %}
 </td>
+
 <table align="center" bgcolor="#ffffff" cellpadding="10" cellspacing="10" width="70%">
 <tr><td>
 <!-- Блок контента -->
