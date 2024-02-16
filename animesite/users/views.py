@@ -11,10 +11,7 @@ class LoginUserView(LoginView):
     template_name = 'users/login_user.html'
     extra_context = {'title': 'Авторизация'}
 
-    def get_success_url(self):
-        return reverse_lazy('anime_home_page')
-
 
 def logout_user(request):
     logout(request)
-    return HttpResponseRedirect(reverse_lazy('users:login_user'))
+    return HttpResponseRedirect(reverse_lazy('anime_home_page'))
