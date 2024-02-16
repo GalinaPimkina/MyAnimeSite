@@ -1,25 +1,18 @@
-from django.contrib.auth import authenticate, login, logout
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.contrib.auth import logout
+from django.contrib.auth.views import LoginView
+from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 
 from users.forms import LoginUserForm
 
 
-def login_user(request):
-    if request.method == 'POST':
-        form = LoginUserForm(request.POST)
-        if form.is_valid():
-            user = authenticate(request,
-                                username=form.cleaned_data['username'],
-                                password=form.cleaned_data['password'])
-            if user and user.is_active:
-                login(request, user)
-                return HttpResponseRedirect(reverse_lazy('anime_home_page'))
-    else:
-        form = LoginUserForm()
+class LoginUserView(LoginView):
+    form_class = LoginUserForm
+    template_name = 'users/login_user.html'
+    extra_context = {'title': 'Авторизация'}
 
-    return render(request, 'users/login_user.html', {'form': form})
+    def get_success_url(self):
+        return reverse_lazy('anime_home_page')
 
 
 def logout_user(request):
