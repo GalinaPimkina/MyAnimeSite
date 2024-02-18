@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% for a in anime %}
-<ul>
 <li><a href="{% url 'edit_author' author.author_slug %}">Редактировать автора</a></li>
 <hr>
+{% for a in anime %}
+<ul>
 <li><a href="{{ a.get_absolute_url }}">{{ a.name_ru }}</a></li>
 </ul>
 {% endfor %}
