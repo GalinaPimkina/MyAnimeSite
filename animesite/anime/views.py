@@ -147,7 +147,9 @@ class AnimeFromTagPageView(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        return self.get_mixin_context(context, title=f'Поиск по тегу: {self.tag.tag}')
+        return self.get_mixin_context(context,
+                                      title=f'Поиск по тегу: {self.tag.tag}',
+                                      tag=self.tag)
 
 
 class StudioPageView(DataMixin, ListView):
