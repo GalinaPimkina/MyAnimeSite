@@ -2,6 +2,7 @@
 
 {% block content %}
 <li><a href="{% url 'edit_producer' producer.producer_slug %}">Редактировать режиссера</a></li>
+<hr>
 {% for a in anime %}
 <ul>
 <li><a href="{{ a.get_absolute_url }}">{{ a.name_ru }}</a></li>
