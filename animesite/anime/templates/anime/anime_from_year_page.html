@@ -3,6 +3,8 @@
 {% block content %}
 {% for a in anime %}
 <ul>
+<li><a href="{% url 'edit_year' year.year %}">Редактировать год</li>
+<hr>
 <li><a href="{{ a.get_absolute_url }}">{{ a.name_ru }}</a></li>
 </ul>
 {% endfor %}
