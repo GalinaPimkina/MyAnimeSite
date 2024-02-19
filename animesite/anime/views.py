@@ -242,7 +242,7 @@ class EditAnimeView(LoginRequiredMixin, DataMixin, UpdateView):
     ''' редактирование аниме '''
 
     model = Anime
-    fields = ['name_ru', 'name_en', 'name_jp', 'genre', 'episodes', 'year', 'producer', 'author', 'tag', 'studio', 'description']
+    fields = ['name_ru', 'name_en', 'name_jp', 'image', 'genre', 'episodes', 'year', 'producer', 'author', 'tag', 'studio', 'description']
     template_name = 'anime/add_new_anime.html'
     title_page = 'Редактировать аниме'
     slug_field = 'anime_slug'
