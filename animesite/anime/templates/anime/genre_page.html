@@ -3,7 +3,7 @@
 {% block content %}
 {% for g in genre %}
 <ul>
-<li><a href="{{ g.get_absolute_url }}">{{ g }} </a><a href="{% url 'edit_genre' g.genre_slug %}"> Редактировать</a></li>
+<li><a href="{{ g.get_absolute_url }}">{{ g }} </a>
 </ul>
 {% endfor %}
 {% endblock content %}

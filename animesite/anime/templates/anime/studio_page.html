@@ -3,7 +3,7 @@
 {% block content %}
 {% for s in studio %}
 <ul>
-<li><a href="{{ s.get_absolute_url }}">{{ s }}</a><a href="{% url 'edit_studio' s.studio_slug %}"> Редактировать</a></li>
+<li><a href="{{ s.get_absolute_url }}">{{ s }}</a>
 </ul>
 {% endfor %}
 {% endblock content %}
