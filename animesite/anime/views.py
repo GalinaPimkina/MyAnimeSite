@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
@@ -181,7 +182,7 @@ class AnimeFromStudioPageView(DataMixin, ListView):
                                       studio=self.studio)
 
 
-class AddNewAnimeView(DataMixin, CreateView):
+class AddNewAnimeView(LoginRequiredMixin, DataMixin, CreateView):
     ''' добавляет новое аниме на сайт '''
 
     form_class = AddAnimeForm
@@ -189,7 +190,7 @@ class AddNewAnimeView(DataMixin, CreateView):
     title_page = 'Добавить аниме'
 
 
-class AddNewGenreView(DataMixin, CreateView):
+class AddNewGenreView(LoginRequiredMixin, DataMixin, CreateView):
     ''' позволяет добавить новый жанр, если его еще нет '''
 
     form_class = AddNewGenreForm
@@ -197,7 +198,7 @@ class AddNewGenreView(DataMixin, CreateView):
     title_page = 'Добавить жанр'
 
 
-class AddNewYearView(DataMixin, CreateView):
+class AddNewYearView(LoginRequiredMixin, DataMixin, CreateView):
     ''' позволяет добавить год, если его еще нет '''
 
     form_class = AddNewYearForm
@@ -205,7 +206,7 @@ class AddNewYearView(DataMixin, CreateView):
     title_page = 'Добавить год'
 
 
-class AddNewProducerView(DataMixin, CreateView):
+class AddNewProducerView(LoginRequiredMixin, DataMixin, CreateView):
     ''' позволяет добавить режиссера, если его еще нет '''
 
     form_class = AddNewProducerForm
@@ -213,7 +214,7 @@ class AddNewProducerView(DataMixin, CreateView):
     title_page = 'Добавить режиссера'
 
 
-class AddNewAuthorView(DataMixin, CreateView):
+class AddNewAuthorView(LoginRequiredMixin, DataMixin, CreateView):
     ''' позволяет добавить автора оригинала, если его еще нет '''
 
     form_class = AddNewAuthorForm
@@ -221,7 +222,7 @@ class AddNewAuthorView(DataMixin, CreateView):
     title_page = 'Добавить автора оригинала'
 
 
-class AddNewTagView(DataMixin, CreateView):
+class AddNewTagView(LoginRequiredMixin, DataMixin, CreateView):
     ''' позволяет добавить тег, если его еще нет '''
 
     form_class = AddNewTagForm
@@ -229,7 +230,7 @@ class AddNewTagView(DataMixin, CreateView):
     title_page = 'Добавить тег'
 
 
-class AddNewStudioView(DataMixin, CreateView):
+class AddNewStudioView(LoginRequiredMixin, DataMixin, CreateView):
     ''' позволяет добавить студию, если ее еще нет '''
 
     form_class = AddNewStudioForm
