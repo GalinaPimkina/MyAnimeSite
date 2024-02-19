@@ -1,7 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+{% if anime.image %}
+<p><img class="img-article-left" src="{{ anime.image.url }}"></p>
+{% endif %}
 <li><p>Русское название: {{ anime.name_ru }}</p></li>
 <li><p>Английское название: {{ anime.name_en }}</p></li>
 <li><p>Японское название: {{ anime.name_jp }}</p></li>
