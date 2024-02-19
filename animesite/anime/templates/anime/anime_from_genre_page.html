@@ -4,7 +4,9 @@
 <li><a href="{% url 'anime_from_genre_page' genre_slug %}">Редактировать жанр</a></li>
 <hr>
 {% for a in anime %}
-    <li><a href="{{ a.get_absolute_url }}">{{ a.name_ru }}</a></li>
+<ul>
+<li><a href="{{ a.get_absolute_url }}">{{ a.name_ru }}</a></li>
+</ul>
 {% endfor %}
 
 {% endblock content %}
