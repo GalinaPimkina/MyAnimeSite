@@ -8,6 +8,7 @@ class Anime(models.Model):
     name_en = models.CharField(max_length=255, verbose_name="Заголовок на английском")
     name_jp = models.CharField(max_length=255, verbose_name="Заголовок на японском")
     anime_slug = AutoSlugField(populate_from='name_jp', unique=True, db_index= True, verbose_name="Слаг")
+    image = models.ImageField(upload_to="photo/%Y/%m/%d/", default=None, blank=True, null=True, verbose_name="Обложка")
     genre = models.ManyToManyField("Genre", related_name="genre", verbose_name="Жанр")
     episodes = models.IntegerField(default=1, verbose_name="Количество эпизодов")
     year = models.ForeignKey(to="Years", on_delete=models.PROTECT, related_name="years", verbose_name="Год выхода")
