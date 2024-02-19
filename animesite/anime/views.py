@@ -238,7 +238,7 @@ class AddNewStudioView(LoginRequiredMixin, DataMixin, CreateView):
     title_page = 'Добавить студию'
 
 
-class EditAnimeView(DataMixin, UpdateView):
+class EditAnimeView(LoginRequiredMixin, DataMixin, UpdateView):
     ''' редактирование аниме '''
 
     model = Anime
@@ -249,7 +249,7 @@ class EditAnimeView(DataMixin, UpdateView):
     slug_url_kwarg = 'anime_slug'
 
 
-class EditGenreView(DataMixin, UpdateView):
+class EditGenreView(LoginRequiredMixin, DataMixin, UpdateView):
     ''' редактирование жанра '''
 
     model = Genre
@@ -260,7 +260,7 @@ class EditGenreView(DataMixin, UpdateView):
     slug_field = 'genre_slug'
 
 
-class EditYearView(DataMixin, UpdateView):
+class EditYearView(LoginRequiredMixin, DataMixin, UpdateView):
     ''' редактирование года '''
 
     model = Years
@@ -271,7 +271,7 @@ class EditYearView(DataMixin, UpdateView):
     slug_field = 'year'
 
 
-class EditAuthorView(DataMixin, UpdateView):
+class EditAuthorView(LoginRequiredMixin, DataMixin, UpdateView):
     ''' редактирование автора оригинала '''
 
     model = Author
@@ -282,7 +282,7 @@ class EditAuthorView(DataMixin, UpdateView):
     slug_url_kwarg = 'author_slug'
 
 
-class EditProducerView(DataMixin, UpdateView):
+class EditProducerView(LoginRequiredMixin, DataMixin, UpdateView):
     ''' редактировать режиссера '''
 
     model = Producer
@@ -293,7 +293,7 @@ class EditProducerView(DataMixin, UpdateView):
     slug_url_kwarg = 'producer_slug'
 
 
-class EditStudioView(DataMixin, UpdateView):
+class EditStudioView(LoginRequiredMixin, DataMixin, UpdateView):
     ''' редактировать студию '''
 
     model = Studio
@@ -304,7 +304,7 @@ class EditStudioView(DataMixin, UpdateView):
     slug_url_kwarg = 'studio_slug'
 
 
-class EditTagView(DataMixin, UpdateView):
+class EditTagView(LoginRequiredMixin, DataMixin, UpdateView):
     ''' редактировать тег '''
 
     model = Tag
