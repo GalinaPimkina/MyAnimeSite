@@ -35,6 +35,7 @@ class Anime(models.Model):
 class Genre(models.Model):
     name = models.CharField(max_length=100, verbose_name="Жанр")
     genre_slug = AutoSlugField(populate_from='name', unique=True, db_index=True, verbose_name="Слаг")
+    added = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, default=None, related_name="action", verbose_name="Добавлено")
 
     def __str__(self):
         return self.name
@@ -50,6 +51,7 @@ class Genre(models.Model):
 
 class Years(models.Model):
     year = models.IntegerField(default=2000, verbose_name="Год издания")
+    added = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, default=None, related_name="action", verbose_name="Добавлено")
 
     def __str__(self):
         return str(self.year)
@@ -66,6 +68,7 @@ class Years(models.Model):
 class Author(models.Model):
     name = models.CharField(max_length=255,  verbose_name="Имя")
     author_slug = AutoSlugField(populate_from="name", unique=True, db_index=True,  verbose_name="Слаг")
+    added = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, default=None, related_name="action", verbose_name="Добавлено")
 
     def __str__(self):
         return self.name
@@ -82,6 +85,7 @@ class Author(models.Model):
 class Producer(models.Model):
     name = models.CharField(max_length=100,  verbose_name="Имя")
     producer_slug = AutoSlugField(populate_from="name", unique=True, db_index=True,  verbose_name="Слаг")
+    added = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, default=None, related_name="action", verbose_name="Добавлено")
 
     def __str__(self):
         return self.name
@@ -98,6 +102,7 @@ class Producer(models.Model):
 class Studio(models.Model):
     name = models.CharField(max_length=100,  verbose_name="Название")
     studio_slug = AutoSlugField(populate_from="name", unique=True, db_index=True,  verbose_name="Слаг")
+    added = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, default=None, related_name="action", verbose_name="Добавлено")
 
     def __str__(self):
         return self.name
@@ -114,6 +119,7 @@ class Studio(models.Model):
 class Tag(models.Model):
     tag = models.CharField(max_length=100,  verbose_name="Teг")
     tag_slug = AutoSlugField(populate_from="tag", unique=True, db_index=True,  verbose_name="Слаг")
+    added = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, default=None, related_name="action", verbose_name="Добавлено")
 
     def __str__(self):
         return self.tag
@@ -132,6 +138,7 @@ class Character(models.Model):
     seiyuu = models.ForeignKey(to="Seiyuu", on_delete=models.PROTECT, verbose_name="Слаг")
     description = models.TextField()
     character_slug = AutoSlugField(populate_from="name", unique=True, db_index=True, verbose_name="Слаг")
+    added = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, default=None, related_name="action", verbose_name="Добавлено")
 
     def __str__(self):
         return self.name
@@ -145,6 +152,7 @@ class Character(models.Model):
 class Seiyuu(models.Model):
     name = models.CharField(max_length=255,  verbose_name="Имя")
     seiyuu_slug = AutoSlugField(populate_from="name", unique=True, db_index=True,  verbose_name="Слаг")
+    added = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, default=None, related_name="action", verbose_name="Добавлено")
 
     def __str__(self):
         return self.name
