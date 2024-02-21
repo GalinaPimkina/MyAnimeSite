@@ -13,5 +13,13 @@ class LoginUserView(LoginView):
 
 def registration(request):
     ''' регистрация '''
-    form = RegistrationUserForm()
-    return render(request, 'users/registration.html', {'form':form})
+    if request.method == "POST":
+        form = RegistrationUserForm(request.POST)
+        if form.is_valid():
+            user = form.save(commit=False)
+            user.set_password(form.cleaned_data['password'])
+            user.save()
+            return render(request, 'users/registration_success.html')
+    else:
+        form = RegistrationUserForm()
+    return render(request, 'users/registration.html', {'form': form})
