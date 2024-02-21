@@ -22,4 +22,4 @@ def registration(request):
             return render(request, 'users/registration_success.html')
     else:
         form = RegistrationUserForm()
-    return render(request, 'users/registration.html', {'form': form})
+    return render(request, 'users/registration.html', {'form': form, 'title': 'Регистрация'})
