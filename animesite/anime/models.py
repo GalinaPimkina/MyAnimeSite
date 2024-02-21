@@ -1,4 +1,5 @@
 from autoslug import AutoSlugField
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
 
@@ -17,6 +18,7 @@ class Anime(models.Model):
     tag = models.ManyToManyField("Tag", related_name="tags", verbose_name="Теги")
     studio = models.ManyToManyField("Studio", related_name="studio", verbose_name="Студия-издатель")
     description = models.TextField(verbose_name="Описание")
+    added = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, default=None, related_name="action", verbose_name="Добавлено")
 
     class Meta:
         verbose_name = "Аниме"
