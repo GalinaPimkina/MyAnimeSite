@@ -6,16 +6,11 @@ from anime.models import Anime, Genre, Years, Author, Producer, Studio, Tag, Cha
 
 @admin.register(Anime)
 class AnimeAdmin(admin.ModelAdmin):
-    list_display = ['name_ru', 'year', 'brief_info']
+    list_display = ['name_ru', 'year', 'added']
     list_per_page = 5
-    ordering = ['year', 'name_ru']
-    search_fields = ['name_ru', ]
+    ordering = ['year', 'name_ru', 'added']
+    search_fields = ['name_ru', 'added']
     filter_horizontal = ['genre', 'tag', 'producer']
-
-    @admin.display(description="Краткое описание")
-    def brief_info(self, anime: Anime):
-        return f"Описание {len(anime.description)} символов."
-
 
 @admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):
