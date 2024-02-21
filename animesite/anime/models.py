@@ -18,7 +18,7 @@ class Anime(models.Model):
     tag = models.ManyToManyField("Tag", related_name="tags", verbose_name="Теги")
     studio = models.ManyToManyField("Studio", related_name="studio", verbose_name="Студия-издатель")
     description = models.TextField(verbose_name="Описание")
-    added = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, default=None, related_name="action", verbose_name="Добавлено")
+    action = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, default=None, related_name="add_anime", verbose_name="Добавлено")
 
     class Meta:
         verbose_name = "Аниме"
@@ -35,6 +35,7 @@ class Anime(models.Model):
 class Genre(models.Model):
     name = models.CharField(max_length=100, verbose_name="Жанр")
     genre_slug = AutoSlugField(populate_from='name', unique=True, db_index=True, verbose_name="Слаг")
+    action = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, default=None, related_name="add_genre", verbose_name="Добавлено")
 
     def __str__(self):
         return self.name
@@ -50,6 +51,7 @@ class Genre(models.Model):
 
 class Years(models.Model):
     year = models.IntegerField(default=2000, verbose_name="Год издания")
+    action = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, default=None, related_name="add_year", verbose_name="Добавлено")
 
     def __str__(self):
         return str(self.year)
@@ -66,6 +68,7 @@ class Years(models.Model):
 class Author(models.Model):
     name = models.CharField(max_length=255,  verbose_name="Имя")
     author_slug = AutoSlugField(populate_from="name", unique=True, db_index=True,  verbose_name="Слаг")
+    action = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, default=None, related_name="add_author", verbose_name="Добавлено")
 
     def __str__(self):
         return self.name
@@ -82,6 +85,7 @@ class Author(models.Model):
 class Producer(models.Model):
     name = models.CharField(max_length=100,  verbose_name="Имя")
     producer_slug = AutoSlugField(populate_from="name", unique=True, db_index=True,  verbose_name="Слаг")
+    action = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, default=None, related_name="add_producer", verbose_name="Добавлено")
 
     def __str__(self):
         return self.name
@@ -98,6 +102,7 @@ class Producer(models.Model):
 class Studio(models.Model):
     name = models.CharField(max_length=100,  verbose_name="Название")
     studio_slug = AutoSlugField(populate_from="name", unique=True, db_index=True,  verbose_name="Слаг")
+    action = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, default=None,  related_name="add_studio", verbose_name="Добавлено")
 
     def __str__(self):
         return self.name
@@ -114,6 +119,7 @@ class Studio(models.Model):
 class Tag(models.Model):
     tag = models.CharField(max_length=100,  verbose_name="Teг")
     tag_slug = AutoSlugField(populate_from="tag", unique=True, db_index=True,  verbose_name="Слаг")
+    action = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, default=None, related_name="add_tag", verbose_name="Добавлено")
 
     def __str__(self):
         return self.tag
@@ -132,6 +138,7 @@ class Character(models.Model):
     seiyuu = models.ForeignKey(to="Seiyuu", on_delete=models.PROTECT, verbose_name="Слаг")
     description = models.TextField()
     character_slug = AutoSlugField(populate_from="name", unique=True, db_index=True, verbose_name="Слаг")
+    action = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, default=None, related_name="add_character", verbose_name="Добавлено")
 
     def __str__(self):
         return self.name
@@ -145,6 +152,7 @@ class Character(models.Model):
 class Seiyuu(models.Model):
     name = models.CharField(max_length=255,  verbose_name="Имя")
     seiyuu_slug = AutoSlugField(populate_from="name", unique=True, db_index=True,  verbose_name="Слаг")
+    action = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, default=None, related_name="add_seiyuu", verbose_name="Добавлено")
 
     def __str__(self):
         return self.name
