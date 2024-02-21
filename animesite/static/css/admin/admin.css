@@ -13,10 +13,11 @@
 
 body {
     background: #fccad9;
+    color: #522b37;
 }
 
 h1 {
-    color: #522b37;;
+    color: #522b37;
 }
 
 tr:nth-child(2n+1), .row-form-errors {
@@ -92,3 +93,4 @@ div.breadcrumbs a{
 .module {
   background: #fccad9;
 }
+
