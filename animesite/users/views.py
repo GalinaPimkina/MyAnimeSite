@@ -39,5 +39,7 @@ class UserProfile(LoginRequiredMixin, UpdateView):
     }
 
     def get_success_url(self):
-        return reverse_lazy('users:user_profile', args=[self.request.user.pk])
+        return reverse_lazy('users:user_profile')
 
+    def get_object(self, queryset=None):
+        return self.request.user
