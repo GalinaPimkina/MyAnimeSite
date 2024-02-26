@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
 
-from users.forms import LoginUserForm, RegistrationUserForm, ProfileUserForm
+from users.forms import LoginUserForm, RegistrationUserForm, ProfileUserForm, UserPasswordChangeForm
 
 
 class LoginUserView(LoginView):
@@ -51,4 +51,6 @@ class UserPasswordChangeView(PasswordChangeView):
     изменена только ссылка переадресации success_url,
      т.к. требуется дополнительно указать пространство имен users '''
 
+    form_class = UserPasswordChangeForm
     success_url = reverse_lazy('users:password_change_done')
+    template_name = 'users/password_change.html'
