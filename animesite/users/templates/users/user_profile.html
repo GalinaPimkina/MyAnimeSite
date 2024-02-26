@@ -5,5 +5,7 @@
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Сохранить</button>
+
+    <p><a href="{% url 'users:password_change' %}">Сменить пароль</p>
 </form>
 {% endblock content %}
