@@ -28,12 +28,10 @@ img.img-article-right {
 }
 
 p.link-edit a {
-    min-width: 100px;
-	background: #fff2be;
-	color: #000;
+	color: #522b37;
 	text-decoration: none;
-	padding: 10px;
-	border-radius: 20px;
+	border: 3px solid red;
+    padding: 10px;
 }
 
 p.link-read {
