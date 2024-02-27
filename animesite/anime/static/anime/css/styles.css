@@ -1,10 +1,13 @@
 html, body {
-	font-family: 'Arial';
+	font-family: Arial;
 	margin: 0;
 	padding: 0;
 	height: 100%;
 	width: 100%;
-	color: #444;
+	background: #fff2be url("../images/tumblr_222.jpg");
+	color: 	#000000;
+	background-attachment: fixed;
+	background-repeat: repeat-x;
 }
 
 a {
@@ -22,6 +25,15 @@ img.img-article-right {
 	max-width: 300px;
 	height: auto;
 	float: inline-end;
+}
+
+p.link-edit a {
+    min-width: 100px;
+	background: #fff2be;
+	color: #000;
+	text-decoration: none;
+	padding: 10px;
+	border-radius: 20px;
 }
 
 p.link-read {
