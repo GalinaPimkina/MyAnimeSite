@@ -19,6 +19,12 @@ a:hover {
 	text-decoration: underline;
 }
 
+a.back-list {
+    background: #ffe0ea;
+    color: #000000;
+    text-decoration: none;
+}
+
 img {max-width: 600px; height: auto;}
 
 img.img-article-right {
@@ -30,8 +36,10 @@ img.img-article-right {
 p.link-edit a {
 	color: #522b37;
 	text-decoration: none;
-	border: 3px solid red;
+	border: 1px solid #522b37;
+	border-radius: 25px;
     padding: 10px;
+    background: #ffe0ea;
 }
 
 p.link-read {
