@@ -30,9 +30,20 @@ img.img-article-left.thumb {
 	height: auto;
 }
 
+p.link-read {
+	text-align: left;
+}
+
+p.link-read a {
+    font-family: Segoe UI Light;
+    font-size: 25px;
+    font-weight: bold;
+}
+
 p.link-read-post {
 	text-align: right;
 }
+
 p.link-read-post a {
 	padding: 10px;
 	min-width: 100px;
