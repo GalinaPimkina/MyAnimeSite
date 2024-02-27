@@ -4,7 +4,7 @@
 <p><a href="{% url 'edit_anime' anime.anime_slug %}">Редактировать аниме {{ title }}</a></p>
 <hr>
 {% if anime.image %}
-<p><img class="img-article-left" src="{{ anime.image.url }}"></p>
+<p><a href="{{ anime.get_absolute_url }}"><img class="img-article-left" src="{{ anime.image.url }}"></a></p>
 {% endif %}
 <li><p>Русское название: {{ anime.name_ru }}</p></li>
 <li><p>Английское название: {{ anime.name_en }}</p></li>
