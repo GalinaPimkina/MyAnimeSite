@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<table>
+<table cellspacing="10">
     <tr>
         <td>
-            <p class="link-edit" align="right"><a href="{% url 'edit_anime' anime.anime_slug %}">Редактировать аниме {{ title }}</a></p>
-
             {% if anime.image %}
             <p><a href="{{ anime.get_absolute_url }}"><img class="img-article-right" src="{{ anime.image.url }}"></a></p>
             {% endif %}
@@ -54,6 +52,8 @@
             <p>
                 Краткое описание: {{ anime.description }}
             </p>
+
+            <p class="link-edit" align="right"><a href="{% url 'edit_anime' anime.anime_slug %}">Редактировать аниме {{ title }}</a></p>
         </td>
     </tr>
 </table>
