@@ -1,13 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<table>
 {% for a in anime %}
-<ul>
-    <li><p>Название: {{ a.name_ru }}</p>
+<tr>
+    <td><img class="img-article-left" alt="" src="{{ a.image.url }}" height="200" width="150"></td>
+    <td>
+        <p>{{ a.name_ru }}</p>
         <p>Описание: {{ a.description|truncatewords:15 }}</p>
         <a href="{{ a.get_absolute_url }}">Подробнее...</a>
         <hr>
-    </li>
-</ul>
+    </td>
+</tr>
 {% endfor %}
+</table>
+
 {% endblock content %}
