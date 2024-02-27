@@ -4,12 +4,10 @@
 <table>
 {% for a in anime %}
 <tr>
-    <td><img class="img-article-left" alt="" src="{{ a.image.url }}" height="200" width="150"></td>
+    <td><a href="{{ a.get_absolute_url }}"><img class="img-article-left" alt="" src="{{ a.image.url }}" height="200" width="150"></a></td>
     <td>
-        <p>{{ a.name_ru }}</p>
-        <p>Описание: {{ a.description|truncatewords:15 }}</p>
-        <a href="{{ a.get_absolute_url }}">Подробнее...</a>
-        <hr>
+        <p class="link-read"><a href="{{ a.get_absolute_url }}">{{ a.name_ru }}</a></p>
+        <p>Описание: {{ a.description|truncatewords:80 }}</p>
     </td>
 </tr>
 {% endfor %}
