@@ -3,31 +3,35 @@
 {% block content %}
 <p><a href="{% url 'edit_anime' anime.anime_slug %}">Редактировать аниме {{ title }}</a></p>
 <hr>
-{% if anime.image %}
-<p><a href="{{ anime.get_absolute_url }}"><img class="img-article-left" src="{{ anime.image.url }}"></a></p>
-{% endif %}
-<li><p>Русское название: {{ anime.name_ru }}</p></li>
-<li><p>Английское название: {{ anime.name_en }}</p></li>
-<li><p>Японское название: {{ anime.name_jp }}</p></li>
-<li><p>Жанр:</p></li>
-{% for g in genre %}
-<li><a href="{{ g.get_absolute_url }}">{{ g.name }}</a></li>
-{% endfor %}
-<li><p>Количество эпизодов: {{ anime.episodes }} эп.</p></li>
-<li><p>Год выпуска: <a href="{{ anime.year.get_absolute_url }}">{{ anime.year }} г.</a></p></li>
-<li><p>Режиссер:</p></li>
-{% for p in producer %}
-<li><a href="{{ p.get_absolute_url }}">{{ p.name }}</a></li>
-{% endfor %}
-<li><p>Автор оригинала: <a href="{{ anime.author.get_absolute_url }}">{{ anime.author }}</a></p></li>
-<li><p>Теги:</p></li>
-{% for t in tag %}
-<li><a href="{{ t.get_absolute_url }}">{{ t.tag }}</a></li>
-{% endfor %}
-{% for s in studio %}
-<li><p>Студия: <a href="{{ s.get_absolute_url }}">{{ s.name }}</a></p></li>
-{% endfor %}
-<li><p>Краткое описание: {{ anime.description }}</p></li>
-
-
+<table>
+    <tr>
+        <td>
+            {% if anime.image %}
+            <p><a href="{{ anime.get_absolute_url }}"><img class="img-article-right" src="{{ anime.image.url }}"></a></p>
+            {% endif %}
+            <p>Русское название: {{ anime.name_ru }}</p>
+            <p>Английское название: {{ anime.name_en }}</p>
+            <p>Японское название: {{ anime.name_jp }}</p>
+            <p>Жанр:</p>
+            {% for g in genre %}
+            <a href="{{ g.get_absolute_url }}">{{ g.name }}</a>
+            {% endfor %}
+            <p>Количество эпизодов: {{ anime.episodes }} эп.</p>
+            <p>Год выпуска: <a href="{{ anime.year.get_absolute_url }}">{{ anime.year }} г.</a></p></>
+            <p>Режиссер:</p></li>
+            {% for p in producer %}
+            <a href="{{ p.get_absolute_url }}">{{ p.name }}</a>
+            {% endfor %}
+            <p>Автор оригинала: <a href="{{ anime.author.get_absolute_url }}">{{ anime.author }}</a></p></li>
+            <p>Теги:</p></li>
+            {% for t in tag %}
+            <a href="{{ t.get_absolute_url }}">{{ t.tag }}</a>
+            {% endfor %}
+            {% for s in studio %}
+            <p>Студия: <a href="{{ s.get_absolute_url }}">{{ s.name }}</a></p>
+            {% endfor %}
+            <p>Краткое описание: {{ anime.description }}</p>
+        </td>
+    </tr>
+</table>
 {% endblock content %}
