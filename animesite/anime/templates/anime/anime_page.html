@@ -44,7 +44,7 @@
     <div class="cell-margin">
         Студия:
             {% for s in studio %}
-                <a href="{{ s.get_absolute_url }}"><img class="img-article-right" src="{{ s.logo.url }}"></a>
+                <a href="{{ s.get_absolute_url }}"><img class="img-logo-studio" src="{{ s.logo.url }}" alt="{{ s.name }}" title="{{ s.name }}"></a>
             {% endfor %}
     </div>
     <div class="cell-margin">
