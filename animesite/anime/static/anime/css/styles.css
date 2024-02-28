@@ -25,12 +25,23 @@ a.back-list {
     text-decoration: none;
 }
 
+div.cell-margin {
+    padding: 5px;
+}
+
+div.year-list a {
+    color: #522b37;
+    text-decoration: none;
+    margin: 10px;
+}
+
 img {max-width: 600px; height: auto;}
 
 img.img-article-right {
 	max-width: 300px;
 	height: auto;
 	float: inline-end;
+	padding: 20px;
 }
 
 p.link-edit a {
