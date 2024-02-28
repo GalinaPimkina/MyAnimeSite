@@ -346,7 +346,7 @@ class EditStudioView(LoginRequiredMixin, DataMixin, UpdateView):
     ''' редактировать студию '''
 
     model = Studio
-    fields = ['name', ]
+    fields = ['name', 'logo']
     template_name = 'anime/add_new_studio.html'
     title_page = 'Редактировать студию'
     slug_field = 'studio_slug'
