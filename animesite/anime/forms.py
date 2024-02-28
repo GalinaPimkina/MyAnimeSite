@@ -56,4 +56,4 @@ class AddNewStudioForm(forms.ModelForm):
 
     class Meta:
         model = Studio
-        fields = ['name', ]
+        fields = ['name', 'logo']
