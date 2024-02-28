@@ -1,60 +1,57 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<table cellspacing="10">
-    <tr>
-        <td>
-            {% if anime.image %}
-            <p><a href="{{ anime.get_absolute_url }}"><img class="img-article-right" src="{{ anime.image.url }}"></a></p>
-            {% endif %}
-            <p>
-                Русское название: {{ anime.name_ru }}
-            </p>
-            <p>
-                Английское название: {{ anime.name_en }}
-            </p>
-            <p>
-                Японское название: {{ anime.name_jp }}
-            </p>
-            <p>
-                Жанр:
-                    {% for g in genre %}
-                        <a class="back-list" href="{{ g.get_absolute_url }}">{{ g.name }}</a>
-                    {% endfor %}
-            </p>
-            <p>
-                Количество эпизодов: {{ anime.episodes }} эп.
-            </p>
-            <p>
-                Год выпуска: <a class="back-list" href="{{ anime.year.get_absolute_url }}">{{ anime.year }} г.</a>
-            </p>
-            <p>
-                Режиссер:
-                    {% for p in producer %}
-                        <a class="back-list" href="{{ p.get_absolute_url }}">{{ p.name }}</a>
-                    {% endfor %}
-            </p>
-            <p>
-                Автор оригинала: <a class="back-list" href="{{ anime.author.get_absolute_url }}">{{ anime.author }}</a>
-            </p>
-            <p>
-                Теги:
-                    {% for t in tag %}
-                        <a class="back-list" href="{{ t.get_absolute_url }}">{{ t.tag }}</a>
-                    {% endfor %}
-            </p>
-            <p>
-                Студия:
-                    {% for s in studio %}
-                        <a class="back-list" href="{{ s.get_absolute_url }}">{{ s.name }}</a>
-                    {% endfor %}
-            </p>
-            <p>
-                Краткое описание: {{ anime.description }}
-            </p>
+<div>
+    {% if anime.image %}
+    <div class="cell-margin"><a href="{{ anime.get_absolute_url }}"><img class="img-article-right" src="{{ anime.image.url }}"></a></div>
+    {% endif %}
+    <div class="cell-margin">
+        Русское название: {{ anime.name_ru }}
+    </div>
+    <div class="cell-margin">
+        Английское название: {{ anime.name_en }}
+    </div>
+    <div class="cell-margin">
+        Японское название: {{ anime.name_jp }}
+    </div>
+    <div class="cell-margin">
+        Жанр:
+            {% for g in genre %}
+                <a class="back-list" href="{{ g.get_absolute_url }}">{{ g.name }}</a>
+            {% endfor %}
+    </div>
+    <div class="cell-margin">
+        Количество эпизодов: {{ anime.episodes }} эп.
+    </div>
+    <div class="cell-margin">
+        Год выпуска: <a class="back-list" href="{{ anime.year.get_absolute_url }}">{{ anime.year }} г.</a>
+    </div>
+    <div class="cell-margin">
+        Режиссер:
+            {% for p in producer %}
+                <a class="back-list" href="{{ p.get_absolute_url }}">{{ p.name }}</a>
+            {% endfor %}
+    </div>
+    <div class="cell-margin">
+        Автор оригинала: <a class="back-list" href="{{ anime.author.get_absolute_url }}">{{ anime.author }}</a>
+    </div>
+    <div class="cell-margin">
+        Теги:
+            {% for t in tag %}
+                <a class="back-list" href="{{ t.get_absolute_url }}">{{ t.tag }}</a>
+            {% endfor %}
+    </div>
+    <div class="cell-margin">
+        Студия:
+            {% for s in studio %}
+                <a class="back-list" href="{{ s.get_absolute_url }}">{{ s.name }}</a>
+            {% endfor %}
+    </div>
+    <div class="cell-margin">
+        Краткое описание: {{ anime.description }}
+    </div>
 
-            <p class="link-edit" align="right"><a href="{% url 'edit_anime' anime.anime_slug %}">Редактировать аниме {{ title }}</a></p>
-        </td>
-    </tr>
-</table>
+    <div class="cell-margin"><p class="link-edit" align="right"><a href="{% url 'edit_anime' anime.anime_slug %}">Редактировать аниме {{ title }}</a></p></div>
+
+</div>
 {% endblock content %}
