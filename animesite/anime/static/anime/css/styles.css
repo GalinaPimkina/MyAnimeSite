@@ -44,6 +44,12 @@ img.img-article-right {
 	padding: 20px;
 }
 
+img.img-logo-studio {
+    max-width: 100px;
+	height: auto;
+	padding: 10px;
+}
+
 p.link-edit a {
 	color: #522b37;
 	text-decoration: none;
