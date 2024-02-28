@@ -58,6 +58,7 @@ p.link-edit a {
 	border-radius: 25px;
     padding: 10px;
     background: #ffe0ea;
+    float: inline-end;
 }
 
 p.link-read {

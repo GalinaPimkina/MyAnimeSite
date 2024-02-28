@@ -1,11 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<li><a href="{% url 'edit_author' author.author_slug %}">Редактировать автора</a></li>
-<hr>
+<div class="cell-margin"><p class="link-edit"><a href="{% url 'edit_author' author.author_slug %}">Редактировать автора</a></p></div>
+
 {% for a in anime %}
-<ul>
-<li><a href="{{ a.get_absolute_url }}">{{ a.name_ru }}</a></li>
-</ul>
+<div class="list-cell-margin">
+    <div class="cell-margin">
+        <a href="{{ a.get_absolute_url }}">{{ a.name_ru }}</a>
+    </div>
+</div>
 {% endfor %}
 {% endblock content %}
