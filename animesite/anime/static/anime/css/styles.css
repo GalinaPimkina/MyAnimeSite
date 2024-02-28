@@ -25,11 +25,11 @@ a.back-list {
     text-decoration: none;
 }
 
-div.cell-margin {
+.cell-margin {
     padding: 5px;
 }
 
-div.list-cell-margin a {
+.list-cell-margin a {
     color: #522b37;
     text-decoration: none;
     margin: 10px;
@@ -44,14 +44,21 @@ img.img-article-right {
 	padding: 20px;
 }
 
-img.img-logo-studio {
+img.img-article-left {
+	max-width: 150px;
+	height: auto;
+	float: inline-start;
+	padding: 20px;
+}
+
+.img-logo-studio {
     max-width: 100px;
 	height: auto;
 	margin: -10px 0px;
 	padding: 5px;
 }
 
-p.link-edit a {
+.link-edit a {
 	color: #522b37;
 	text-decoration: none;
 	border: 1px solid #522b37;
@@ -61,21 +68,22 @@ p.link-edit a {
     float: inline-end;
 }
 
-p.link-read {
+.link-read {
 	text-align: left;
 }
 
-p.link-read a {
+.link-read a {
     font-family: Segoe UI Light;
     font-size: 25px;
     font-weight: bold;
+    text-decoration: none;
 }
 
-p.link-read-post {
+.link-read-post {
 	text-align: right;
 }
 
-p.link-read-post a {
+.link-read-post a {
 	padding: 10px;
 	min-width: 100px;
 	background: #333671;
