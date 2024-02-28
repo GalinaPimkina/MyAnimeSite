@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
+
 {% for y in year %}
-<ul>
-<li><a href="{{ y.get_absolute_url }}">{{ y }}</a>
-</ul>
+<div class="year-list">
+    <div class="cell-margin">
+        <a href="{{ y.get_absolute_url }}">{{ y }}</a>
+    </div>
+</div>
 {% endfor %}
+
 {% endblock content %}
