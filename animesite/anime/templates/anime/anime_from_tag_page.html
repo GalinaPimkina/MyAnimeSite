@@ -2,11 +2,18 @@
 
 {% block content %}
 <div class="cell-margin"><p class="link-edit"><a href="{% url 'edit_tag' tag.tag_slug %}">Редактировать тег</a></p></div>
+
+<table>
 {% for a in anime %}
-<div class="list-cell-margin">
-    <div class="cell-margin">
-        <a href="{{ a.get_absolute_url }}">{{ a.name_ru }}</a>
-    </div>
-</div>
+<tr>
+    <td><a href="{{ a.get_absolute_url }}"><img class="img-article-left" alt="" src="{{ a.image.url }}" height="200" width="150"></a></td>
+    <td>
+        <h1 class="link-read"><a href="{{ a.get_absolute_url }}">{{ a.name_ru }}</a></h1>
+        <p>Количество эпизодов: {{ a.episodes }}</p>
+        <p>{{ a.description|truncatewords:80 }}</p>
+        <div class="cell-margin"><p class="link-edit" align="right"><a href="{{ a.get_absolute_url }}">Подробнее</a></p></div>
+    </td>
+</tr>
 {% endfor %}
+</table>
 {% endblock content %}
