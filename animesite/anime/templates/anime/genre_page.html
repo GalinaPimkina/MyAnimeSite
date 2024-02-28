@@ -2,8 +2,10 @@
 
 {% block content %}
 {% for g in genre %}
-<ul>
-<li><a href="{{ g.get_absolute_url }}">{{ g }} </a>
-</ul>
+<div class="list-cell-margin">
+    <div class="cell-margin">
+        <a href="{{ g.get_absolute_url }}">{{ g }} </a>
+    </div>
+</div>
 {% endfor %}
 {% endblock content %}
