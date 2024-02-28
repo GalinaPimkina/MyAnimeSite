@@ -102,6 +102,7 @@ class Producer(models.Model):
 class Studio(models.Model):
     name = models.CharField(max_length=100,  verbose_name="Название")
     studio_slug = AutoSlugField(populate_from="name", unique=True, db_index=True,  verbose_name="Слаг")
+    logo = models.ImageField(upload_to="logo/%Y/%m/%d/", verbose_name="Логотип")
     action = models.ForeignKey(get_user_model(), on_delete=models.SET_NULL, null=True, default=None,  related_name="add_studio", verbose_name="Добавлено")
 
     def __str__(self):
