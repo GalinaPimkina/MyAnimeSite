@@ -34,10 +34,16 @@
 <table align="center" width="70%">
 	<tr>
 		<td>
-		<!-- Блок контента -->
-		{% block content %}
-		{% endblock %}
-		<!-- Конец блока контента -->
+			{% block breadcrumbs %}
+			{% endblock breadcrumbs %}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<!-- Блок контента -->
+			{% block content %}
+			{% endblock %}
+			<!-- Конец блока контента -->
 		</td>
 	</tr>
 </table>

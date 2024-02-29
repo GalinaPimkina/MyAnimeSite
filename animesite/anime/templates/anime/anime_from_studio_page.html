@@ -1,14 +1,13 @@
 {% extends 'base.html' %}
 
-{% block content %}
-<div class="content-table">
-<div class="cell-margin">
-    <div class="link-edit">
+{% block breadcrumbs %}
+<div class="link-edit">
+    <div class="link-edit-breadcrumbs">
         <a href="{% url 'edit_studio' studio.studio_slug %}">Редактировать студию: {{ studio.name }}</a>
     </div>
 </div>
+{% endblock breadcrumbs %}
 
-    {% include 'anime/show_anime_list_template.html' %}
-
-</div>
+{% block content %}
+{% include 'anime/show_anime_list_template.html' %}
 {% endblock content %}

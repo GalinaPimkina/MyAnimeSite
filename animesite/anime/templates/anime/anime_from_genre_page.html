@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 
-{% block content %}
-<div>
-    <div class="link-edit">
+{% block breadcrumbs %}
+<div class="link-edit">
+    <div class="link-edit-breadcrumbs">
         <a href="{% url 'anime_from_genre_page' genre_slug %}">Редактировать жанр: {{ genre.name }}</a>
     </div>
-
-    {% include 'anime/show_anime_list_template.html' %}
-
 </div>
+{% endblock breadcrumbs %}
 
+{% block content %}
+{% include 'anime/show_anime_list_template.html' %}
 {% endblock content %}

@@ -1,14 +1,13 @@
 {% extends 'base.html' %}
 
-{% block content %}
-<div class="content-table">
-    <div class="cell-margin">
-        <div class="link-edit">
-            <a href="{% url 'edit_tag' tag.tag_slug %}">Редактировать тег: {{ tag.tag }}</a>
-        </div>
+{% block breadcrumbs %}
+<div class="link-edit">
+    <div class="link-edit-breadcrumbs">
+        <a href="{% url 'edit_tag' tag.tag_slug %}">Редактировать тег: {{ tag.tag }}</a>
     </div>
-
-    {% include 'anime/show_anime_list_template.html' %}
-
 </div>
+{% endblock breadcrumbs %}
+
+{% block content %}
+{% include 'anime/show_anime_list_template.html' %}
 {% endblock content %}
