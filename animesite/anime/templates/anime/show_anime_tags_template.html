@@ -1,9 +1,9 @@
 {% with a.tag.all as tags %}
 {% if tags %}
-<ul>
+<div class="list-tag-padding">
     {% for t in tags %}
-    <li><a href="{{ t.get_absolute_url }}">{{ t.tag }}</a></li>
+        <a href="{{ t.get_absolute_url }}">{{ t.tag }}</a>
     {% endfor %}
-</ul>
+</div>
 {% endif %}
 {% endwith %}
