@@ -7,6 +7,9 @@
     <td><a href="{{ a.get_absolute_url }}"><img class="img-article-left" alt="" src="{{ a.image.url }}" height="200" width="150"></a></td>
     <td>
         <p class="link-read"><a href="{{ a.get_absolute_url }}">{{ a.name_ru }}</a></p>
+
+        {% include 'anime/show_anime_tags.html' %}
+
         <p>Описание: {{ a.description|truncatewords:80 }}</p>
     </td>
 </tr>
