@@ -70,6 +70,7 @@ class AnimeFromGenrePageView(DataMixin, ListView):
         context = super().get_context_data(**kwargs)
         return self.get_mixin_context(context,
                                       title=f'Поиск по жанру: {self.genre.name}',
+                                      genre=self.genre,
                                       genre_slug=self.genre.genre_slug)
 
 
