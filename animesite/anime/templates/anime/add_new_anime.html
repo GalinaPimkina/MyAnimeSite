@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="content-table">
 <h1>{{ title }}</h1>
 <form action="" method="post" enctype="multipart/form-data">
     {% csrf_token %}
@@ -19,5 +20,5 @@
     <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.description.label }}: </label>{{ form.description }}</p>
     <button type="submit">Сохранить</button>
 </form>
-
+</div>
 {% endblock content %}

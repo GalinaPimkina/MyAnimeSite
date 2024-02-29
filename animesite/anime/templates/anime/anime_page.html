@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div>
+<div class="content-table">
     {% if anime.image %}
     <div class="cell-margin"><a href="{{ anime.get_absolute_url }}"><img class="img-article-right" src="{{ anime.image.url }}"></a></div>
     {% endif %}
