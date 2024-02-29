@@ -1,0 +1,9 @@
+{% with a.studio.all as studios %}
+{% if studios %}
+<div>
+    {% for s in studios %}
+        <a href="{{ s.get_absolute_url }}"><img class="img-logo-studio" src="{{ s.logo.url }}" alt="{{ s.name }}" title="{{ s.name }}"></a>
+    {% endfor %}
+</div>
+{% endif %}
+{% endwith %}
