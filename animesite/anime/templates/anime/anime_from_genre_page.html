@@ -1,14 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="content-table">
-    <div class="cell-margin">
-        <div class="link-edit">
-            <a href="{% url 'anime_from_genre_page' genre_slug %}">Редактировать жанр: {{ genre.name }}</a>
-        </div>
+<div>
+    <div class="link-edit">
+        <a href="{% url 'anime_from_genre_page' genre_slug %}">Редактировать жанр: {{ genre.name }}</a>
     </div>
 
     {% include 'anime/show_anime_list_template.html' %}
 
 </div>
+
 {% endblock content %}
