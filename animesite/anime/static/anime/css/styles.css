@@ -66,7 +66,7 @@ img.img-article-right {
 }
 
 .img-logo-studio {
-    max-width: 60px;
+    max-width: 70px;
 	height: auto;
 	margin: -10px 0px;
 	padding: 5px;
@@ -145,30 +145,30 @@ ul.list-articles li {
 .clear {clear: both;}
 
 .header {
-	background: #3F4137;
-	height: 60px;
+	background: #fff2be;
+	height: 80px;
 }
 
 .logo {
 	background: url('../images/logo.png') no-repeat 0px 0px;
 	width: 50px;
 	height: 50px;
+	margin: -10px 0 0 0;
 }
 
 ul.mainmenu {
 	list-style: none;
-	margin: 0;
+	margin: 10px;
 	padding: 0;
-	height: 80px;
 	color: #DB7093;
 	font-size: 20px;
 	overflow: hidden;
 }
 ul.mainmenu li {
 	float: left;
-	margin: 17px 30px 0 10px;
+	margin: 25px 30px 0 10px;
 }
-ul.mainmenu li.logo {margin: 0;}
+
 ul.mainmenu li.last {float: right;}
 
 ul.mainmenu li a {
