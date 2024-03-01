@@ -2,23 +2,25 @@
 
 {% block content %}
 <div class="content-table">
-<h1>{{ title }}</h1>
-<form action="" method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.name_ru.label }}: </label>{{ form.name_ru }}</p>
-    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.name_en.label }}: </label>{{ form.name_en }}</p>
-    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.name_jp.label }}: </label>{{ form.name_jp }}</p>
-    <p><label for="{{ form.image.id_for_label}} ">{{ form.image.label }}: </label>{{ form.image }}</p>
-    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.slug.label }}: </label>{{ form.slug }}</p>
-    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.genre.label }}: </label>{{ form.genre }} Нет нужного? <a href="{% url 'add_new_genre' %}">Добавь! :)</a></p>
-    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.episodes.label }}: </label>{{ form.episodes }}</p>
-    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.year.label }}: </label>{{ form.year }} Нет нужного? <a href="{% url 'add_new_year' %}">Добавь! :)</a></p>
-    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.producer.label }}: </label>{{ form.producer }} Нет нужного? <a href="{% url 'add_new_producer' %}">Добавь! :)</a></p>
-    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.author.label }}: </label>{{ form.author }} Нет нужного? <a href="{% url 'add_new_author' %}">Добавь! :)</a></p>
-    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.tag.label }}: </label>{{ form.tag }} Нет нужного? <a href="{% url 'add_new_tag' %}">Добавь! :)</a></p>
-    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.studio.label }}: </label>{{ form.studio }} Нет нужной? <a href="{% url 'add_new_studio' %}">Добавь! :)</a></p>
-    <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.description.label }}: </label>{{ form.description }}</p>
-    <button type="submit">Сохранить</button>
-</form>
+    <div class="form-table-panel">
+        <h1>{{ title }}</h1>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.name_ru.label }}: </label>{{ form.name_ru }}</p>
+            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.name_en.label }}: </label>{{ form.name_en }}</p>
+            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.name_jp.label }}: </label>{{ form.name_jp }}</p>
+            <p><label for="{{ form.image.id_for_label}} ">{{ form.image.label }}: </label>{{ form.image }}</p>
+            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.slug.label }}: </label>{{ form.slug }}</p>
+            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.genre.label }}: </label>{{ form.genre }}<a href="{% url 'add_new_genre' %}">Добавить</a></p>
+            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.episodes.label }}: </label>{{ form.episodes }}</p>
+            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.year.label }}: </label>{{ form.year }}<a href="{% url 'add_new_year' %}">Добавить</a></p>
+            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.producer.label }}: </label>{{ form.producer }}<a href="{% url 'add_new_producer' %}">Добавить</a></p>
+            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.author.label }}: </label>{{ form.author }}<a href="{% url 'add_new_author' %}">Добавить</a></p>
+            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.tag.label }}: </label>{{ form.tag }}<a href="{% url 'add_new_tag' %}">Добавить</a></p>
+            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.studio.label }}: </label>{{ form.studio }}<a href="{% url 'add_new_studio' %}">Добавить</a></p>
+            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.description.label }}: </label>{{ form.description }}</p>
+            <button type="submit">Сохранить</button>
+        </form>
+    </div>
 </div>
 {% endblock content %}
