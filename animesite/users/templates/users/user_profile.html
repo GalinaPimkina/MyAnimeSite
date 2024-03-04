@@ -1,11 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Сохранить</button>
+<div class="content-table">
+    <div class="form-table-panel">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Сохранить</button>
 
-    <p><a href="{% url 'users:password_change' %}">Сменить пароль</p>
-</form>
+            <p><a href="{% url 'users:password_change' %}">Сменить пароль</p>
+        </form>
+    </div>
+</div>
 {% endblock content %}

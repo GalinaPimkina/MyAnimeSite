@@ -1,8 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Регистрация прошла успешно!</h1>
+<div class="content-table">
+    <div class="form-table-panel">
+        <h1>Регистрация прошла успешно!</h1>
 
-<p><a href="{% url 'users:login_user' %}">Авторизуйтесь</a>, чтобы продолжить работу.</p>
-
+        <p><a href="{% url 'users:login_user' %}">Авторизуйтесь</a>, чтобы продолжить работу.</p>
+    </div>
+</div>
 {% endblock content %}
