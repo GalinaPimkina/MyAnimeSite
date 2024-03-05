@@ -11,13 +11,13 @@
             <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.name_jp.label }}: </label>{{ form.name_jp }}</p>
             <p><label for="{{ form.image.id_for_label}} ">{{ form.image.label }}: </label>{{ form.image }}</p>
             <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.slug.label }}: </label>{{ form.slug }}</p>
-            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.genre.label }}: </label>{{ form.genre }}<a href="{% url 'add_new_genre' %}">Добавить</a></p>
+            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.genre.label }}: </label>{{ form.genre }}<a href="{% url 'add_new_genre' %}"><button type="button">Добавить жанр</button></a></p>
             <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.episodes.label }}: </label>{{ form.episodes }}</p>
-            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.year.label }}: </label>{{ form.year }}<a href="{% url 'add_new_year' %}">Добавить</a></p>
-            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.producer.label }}: </label>{{ form.producer }}<a href="{% url 'add_new_producer' %}">Добавить</a></p>
-            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.author.label }}: </label>{{ form.author }}<a href="{% url 'add_new_author' %}">Добавить</a></p>
-            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.tag.label }}: </label>{{ form.tag }}<a href="{% url 'add_new_tag' %}">Добавить</a></p>
-            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.studio.label }}: </label>{{ form.studio }}<a href="{% url 'add_new_studio' %}">Добавить</a></p>
+            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.year.label }}: </label>{{ form.year }}<a href="{% url 'add_new_year' %}"><button type="button">Добавить год</button></a></p>
+            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.producer.label }}: </label>{{ form.producer }}<a href="{% url 'add_new_producer' %}"><button type="button">Добавить режиссера</button></a></p>
+            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.author.label }}: </label>{{ form.author }}<a href="{% url 'add_new_author' %}"><button type="button">Добавить автора оригинала</button></a></p>
+            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.tag.label }}: </label>{{ form.tag }}<a href="{% url 'add_new_tag' %}"><button type="button">Добавить тег</button></a></p>
+            <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.studio.label }}: </label>{{ form.studio }}<a href="{% url 'add_new_studio' %}"><button type="button">Добавить студию</button></a></p>
             <p><label for="{{ form.name_ru.id_for_label}} ">{{ form.description.label }}: </label>{{ form.description }}</p>
             <button type="submit">Сохранить</button>
         </form>
