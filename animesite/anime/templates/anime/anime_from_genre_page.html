@@ -3,7 +3,7 @@
 {% block breadcrumbs %}
 <div class="link-edit">
     <div class="link-edit-breadcrumbs">
-        <a href="{% url 'anime_from_genre_page' genre_slug %}">Редактировать жанр: {{ genre.name }}</a>
+        <p><a href="{% url 'anime_from_genre_page' genre_slug %}">Редактировать жанр: {{ genre.name }}</a><a href="{% url 'add_new_genre' %}">Добавить жанр</a></p>
     </div>
 </div>
 {% endblock breadcrumbs %}
