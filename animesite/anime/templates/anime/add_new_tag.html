@@ -7,7 +7,7 @@
         <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Сохранить</button>
+            <button type="submit">Сохранить</button><a href="{% url 'add_new_tag' %}"><button type="button">Добавить еще один тег</button></a>
         </form>
     </div>
 </div>
