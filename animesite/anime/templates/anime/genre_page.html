@@ -1,5 +1,15 @@
 {% extends 'base.html' %}
 
+{% block breadcrumbs %}
+<div class="link-edit">
+    <div class="link-edit-breadcrumbs">
+        {% if user.is_authenticated %}
+        <p><a href="{% url 'add_new_genre' %}">Добавить жанр</a></p>
+        {% endif %}
+    </div>
+</div>
+{% endblock breadcrumbs %}
+
 {% block content %}
 <div class="content-table">
 {% for g in genre %}
