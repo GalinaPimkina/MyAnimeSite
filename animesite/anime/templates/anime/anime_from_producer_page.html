@@ -3,7 +3,9 @@
 {% block breadcrumbs %}
 <div class="link-edit">
     <div class="link-edit-breadcrumbs">
+        {% if user.is_authenticated %}
         <p><a href="{% url 'edit_producer' producer.producer_slug %}">Редактировать режиссера: {{ producer.name }}</a><a href="{% url 'add_new_producer' %}">Добавить режиссера</a></p>
+        {% endif %}
     </div>
 </div>
 {% endblock breadcrumbs %}
