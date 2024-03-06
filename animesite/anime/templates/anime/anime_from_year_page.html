@@ -3,7 +3,9 @@
 {% block breadcrumbs %}
 <div class="link-edit">
     <div class="link-edit-breadcrumbs">
+        {% if user.is_authenticated %}
         <p><a href="{% url 'edit_year' year.year %}">Редактировать {{ year }} год</a><a href="{% url 'add_new_year' %}">Добавить год</a></p>
+        {% endif %}
     </div>
 </div>
 {% endblock breadcrumbs %}
