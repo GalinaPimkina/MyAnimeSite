@@ -5,6 +5,13 @@
     <div class="form-table-panel">
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
+
+            {% if user.photo %}
+            <p><img src="{{ user.photo.url }}" width="200"></p>
+            {% else %}
+            <p><img src="{{ default_image }}" width="200"></p>
+            {% endif %}
+
             {{ form.as_p }}
             <button type="submit">Сохранить</button>
 
