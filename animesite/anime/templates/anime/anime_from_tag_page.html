@@ -3,7 +3,7 @@
 {% block breadcrumbs %}
 <div class="link-edit">
     <div class="link-edit-breadcrumbs">
-        {% if user.is_authenticated %}{% if perms.anime.add_genre %}
+        {% if user.is_authenticated %}{% if perms.anime.add_tag %}
         <p><a href="{% url 'edit_tag' tag.tag_slug %}">Редактировать тег: {{ tag.tag }}</a><a href="{% url 'add_new_tag' %}">Добавить тег</a></p>
         {% endif %}{% endif %}
     </div>
