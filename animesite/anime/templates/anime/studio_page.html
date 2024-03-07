@@ -3,9 +3,9 @@
 {% block breadcrumbs %}
 <div class="link-edit">
     <div class="link-edit-breadcrumbs">
-        {% if user.is_authenticated %}
+        {% if user.is_authenticated %}{% if perms.anime.add_years %}
         <p><a href="{% url 'add_new_studio' %}">Добавить студию</a></p>
-        {% endif %}
+        {% endif %}{% endif %}
     </div>
 </div>
 {% endblock breadcrumbs %}
