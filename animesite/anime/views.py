@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
@@ -183,12 +183,13 @@ class AnimeFromStudioPageView(DataMixin, ListView):
                                       studio=self.studio)
 
 
-class AddNewAnimeView(LoginRequiredMixin, DataMixin, CreateView):
+class AddNewAnimeView(PermissionRequiredMixin, LoginRequiredMixin, DataMixin, CreateView):
     ''' добавляет новое аниме на сайт '''
 
     form_class = AddAnimeForm
     template_name = 'anime/add_new_anime.html'
     title_page = 'Добавить аниме'
+    permission_required = 'anime.add_anime'
 
     def form_valid(self, form):
         ''' производит запись текущего пользователя в аниме '''
@@ -198,12 +199,13 @@ class AddNewAnimeView(LoginRequiredMixin, DataMixin, CreateView):
         return super().form_valid(form)
 
 
-class AddNewGenreView(LoginRequiredMixin, DataMixin, CreateView):
+class AddNewGenreView(PermissionRequiredMixin, LoginRequiredMixin, DataMixin, CreateView):
     ''' позволяет добавить новый жанр, если его еще нет '''
 
     form_class = AddNewGenreForm
     template_name = 'anime/add_new_genre.html'
     title_page = 'Добавить жанр'
+    permission_required = 'anime.add_genre'
 
     def form_valid(self, form):
         ''' производит запись текущего пользователя в жанр '''
@@ -213,12 +215,13 @@ class AddNewGenreView(LoginRequiredMixin, DataMixin, CreateView):
         return super().form_valid(form)
 
 
-class AddNewYearView(LoginRequiredMixin, DataMixin, CreateView):
+class AddNewYearView(PermissionRequiredMixin, LoginRequiredMixin, DataMixin, CreateView):
     ''' позволяет добавить год, если его еще нет '''
 
     form_class = AddNewYearForm
     template_name = 'anime/add_new_year.html'
     title_page = 'Добавить год'
+    permission_required = 'anime.add_years'
 
     def form_valid(self, form):
         ''' производит запись текущего пользователя в год '''
@@ -228,12 +231,13 @@ class AddNewYearView(LoginRequiredMixin, DataMixin, CreateView):
         return super().form_valid(form)
 
 
-class AddNewProducerView(LoginRequiredMixin, DataMixin, CreateView):
+class AddNewProducerView(PermissionRequiredMixin, LoginRequiredMixin, DataMixin, CreateView):
     ''' позволяет добавить режиссера, если его еще нет '''
 
     form_class = AddNewProducerForm
     template_name = 'anime/add_new_producer.html'
     title_page = 'Добавить режиссера'
+    permission_required = 'anime.add_producer'
 
     def form_valid(self, form):
         ''' производит запись текущего пользователя в режиссера '''
@@ -243,12 +247,13 @@ class AddNewProducerView(LoginRequiredMixin, DataMixin, CreateView):
         return super().form_valid(form)
 
 
-class AddNewAuthorView(LoginRequiredMixin, DataMixin, CreateView):
+class AddNewAuthorView(PermissionRequiredMixin, LoginRequiredMixin, DataMixin, CreateView):
     ''' позволяет добавить автора оригинала, если его еще нет '''
 
     form_class = AddNewAuthorForm
     template_name = 'anime/add_new_author.html'
     title_page = 'Добавить автора оригинала'
+    permission_required = 'anime.add_author'
 
     def form_valid(self, form):
         ''' производит запись текущего пользователя в автора '''
@@ -258,12 +263,13 @@ class AddNewAuthorView(LoginRequiredMixin, DataMixin, CreateView):
         return super().form_valid(form)
 
 
-class AddNewTagView(LoginRequiredMixin, DataMixin, CreateView):
+class AddNewTagView(PermissionRequiredMixin, LoginRequiredMixin, DataMixin, CreateView):
     ''' позволяет добавить тег, если его еще нет '''
 
     form_class = AddNewTagForm
     template_name = 'anime/add_new_tag.html'
     title_page = 'Добавить тег'
+    permission_required = 'anime.add_tag'
 
     def form_valid(self, form):
         ''' производит запись текущего пользователя в тег '''
@@ -273,12 +279,13 @@ class AddNewTagView(LoginRequiredMixin, DataMixin, CreateView):
         return super().form_valid(form)
 
 
-class AddNewStudioView(LoginRequiredMixin, DataMixin, CreateView):
+class AddNewStudioView(PermissionRequiredMixin, LoginRequiredMixin, DataMixin, CreateView):
     ''' позволяет добавить студию, если ее еще нет '''
 
     form_class = AddNewStudioForm
     template_name = 'anime/add_new_studio.html'
     title_page = 'Добавить студию'
+    permission_required = 'anime.add_studio'
 
     def form_valid(self, form):
         ''' производит запись текущего пользователя в студию '''
@@ -288,7 +295,7 @@ class AddNewStudioView(LoginRequiredMixin, DataMixin, CreateView):
         return super().form_valid(form)
 
 
-class EditAnimeView(LoginRequiredMixin, DataMixin, UpdateView):
+class EditAnimeView(PermissionRequiredMixin, LoginRequiredMixin, DataMixin, UpdateView):
     ''' редактирование аниме '''
 
     model = Anime
@@ -297,9 +304,10 @@ class EditAnimeView(LoginRequiredMixin, DataMixin, UpdateView):
     title_page = 'Редактировать аниме'
     slug_field = 'anime_slug'
     slug_url_kwarg = 'anime_slug'
+    permission_required = 'anime.change_anime'
 
 
-class EditGenreView(LoginRequiredMixin, DataMixin, UpdateView):
+class EditGenreView(PermissionRequiredMixin, LoginRequiredMixin, DataMixin, UpdateView):
     ''' редактирование жанра '''
 
     model = Genre
@@ -308,9 +316,10 @@ class EditGenreView(LoginRequiredMixin, DataMixin, UpdateView):
     title_page = 'Редактировать жанр'
     slug_url_kwarg = 'genre_slug'
     slug_field = 'genre_slug'
+    permission_required = 'anime.change_genre'
 
 
-class EditYearView(LoginRequiredMixin, DataMixin, UpdateView):
+class EditYearView(PermissionRequiredMixin, LoginRequiredMixin, DataMixin, UpdateView):
     ''' редактирование года '''
 
     model = Years
@@ -319,9 +328,10 @@ class EditYearView(LoginRequiredMixin, DataMixin, UpdateView):
     title_page = 'Редактировать год'
     slug_url_kwarg = 'year'
     slug_field = 'year'
+    permission_required = 'anime.change_years'
 
 
-class EditAuthorView(LoginRequiredMixin, DataMixin, UpdateView):
+class EditAuthorView(PermissionRequiredMixin, LoginRequiredMixin, DataMixin, UpdateView):
     ''' редактирование автора оригинала '''
 
     model = Author
@@ -330,9 +340,10 @@ class EditAuthorView(LoginRequiredMixin, DataMixin, UpdateView):
     title_page = 'Редактировать автора'
     slug_field = 'author_slug'
     slug_url_kwarg = 'author_slug'
+    permission_required = 'anime.change_author'
 
 
-class EditProducerView(LoginRequiredMixin, DataMixin, UpdateView):
+class EditProducerView(PermissionRequiredMixin, LoginRequiredMixin, DataMixin, UpdateView):
     ''' редактировать режиссера '''
 
     model = Producer
@@ -341,9 +352,10 @@ class EditProducerView(LoginRequiredMixin, DataMixin, UpdateView):
     title_page = 'Редактировать режиссера'
     slug_field = 'producer_slug'
     slug_url_kwarg = 'producer_slug'
+    permission_required = 'anime.change_producer'
 
 
-class EditStudioView(LoginRequiredMixin, DataMixin, UpdateView):
+class EditStudioView(PermissionRequiredMixin, LoginRequiredMixin, DataMixin, UpdateView):
     ''' редактировать студию '''
 
     model = Studio
@@ -352,9 +364,10 @@ class EditStudioView(LoginRequiredMixin, DataMixin, UpdateView):
     title_page = 'Редактировать студию'
     slug_field = 'studio_slug'
     slug_url_kwarg = 'studio_slug'
+    permission_required = 'anime.change_studio'
 
 
-class EditTagView(LoginRequiredMixin, DataMixin, UpdateView):
+class EditTagView(PermissionRequiredMixin, LoginRequiredMixin, DataMixin, UpdateView):
     ''' редактировать тег '''
 
     model = Tag
@@ -363,3 +376,4 @@ class EditTagView(LoginRequiredMixin, DataMixin, UpdateView):
     title_page = 'Редактировать тег'
     slug_field = 'tag_slug'
     slug_url_kwarg = 'tag_slug'
+    permission_required = 'anime.change_tag'
