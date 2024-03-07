@@ -154,6 +154,7 @@ ul.list-articles li {
 .header {
 	background: #fff2be;
 	height: 80px;
+	margin: 10px;
 }
 
 .logo {
