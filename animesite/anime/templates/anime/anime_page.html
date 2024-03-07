@@ -51,7 +51,8 @@
         Краткое описание: {{ anime.description }}
     </div>
 
+    {% if perms.anime.change_anime %}
     <div class="cell-margin"><p class="link-edit" align="right"><a href="{% url 'edit_anime' anime.anime_slug %}">Редактировать аниме {{ title }}</a></p></div>
-
+    {% endif %}
 </div>
 {% endblock content %}
