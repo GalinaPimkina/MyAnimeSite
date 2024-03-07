@@ -37,10 +37,11 @@ class ProfileUserForm(forms.ModelForm):
 
     username = forms.CharField(disabled=True, label="Логин")
     email = forms.CharField(disabled=True, label="E-mail")
+    date_joined = forms.DateTimeField(disabled=True, label='Зарегистирован(а)')
 
     class Meta:
         model = get_user_model()
-        fields = ['username', 'email', 'first_name', 'last_name']
+        fields = ['username', 'email', 'first_name', 'last_name', 'date_joined']
         labels = {
             'first_name': 'Имя',
             'last_name': 'Фамилия',
