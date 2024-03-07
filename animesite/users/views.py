@@ -5,6 +5,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, UpdateView
 
+from animesite import settings
 from users.forms import LoginUserForm, RegistrationUserForm, ProfileUserForm, UserPasswordChangeForm
 
 
@@ -36,6 +37,7 @@ class UserProfile(LoginRequiredMixin, UpdateView):
     template_name = 'users/user_profile.html'
     extra_context = {
         'title': 'Профиль пользователя',
+        'default_image': settings.DEFAULT_USER_IMAGE,
     }
 
     def get_success_url(self):
