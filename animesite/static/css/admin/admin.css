@@ -16,6 +16,10 @@ body {
     color: #522b37;
 }
 
+.form-row label {
+    color: #522b37;
+}
+
 h1 {
     color: #522b37;
 }
@@ -38,8 +42,68 @@ a:link, a:visited {
 }
 
 .module h2, .module caption, .inline-group h2 {
-    background: #a3848d;
+    background: #522b37;
     color: #a3848d;
+}
+
+.help, p.help, form p.help, div.help, form div.help, div.help li {
+    color: #522b37;
+}
+
+.object-tools a:link {
+    background: #522b37;
+}
+
+.aligned label.required {
+    color : #522b37;
+}
+
+input[type="text"] {
+    background:  #522b37;
+}
+
+.aligned .form-row input.vTextField {
+    background:  #522b37;
+}
+
+.selector-chosen a.selector-clearall {
+    color:  #522b37;
+}
+
+.selector-available a.selector-chooseall{
+    color:  #522b37;
+}
+
+.related-widget-wrapper .selector .selector-available h2 {
+    background:  #522b37;
+}
+
+.related-widget-wrapper .selector .selector-chosen h2 {
+    background:  #522b37;
+}
+
+.related-widget-wrapper .selector ul.selector-chooser {
+    background-color:#522b37;
+}
+
+.selector select {
+    background-color: #522b37;
+}
+
+.form-row p.datetime {
+    color:  #522b37;
+}
+
+p.datetime span {
+    color:  #522b37;
+}
+
+.content .submit-row {
+    background: #522b37;
+}
+
+.submit-row input[type="submit"] {
+    background: #3e1e28;
 }
 
 #content-related {
