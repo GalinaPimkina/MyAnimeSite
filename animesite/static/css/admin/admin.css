@@ -16,6 +16,19 @@ body {
     color: #522b37;
 }
 
+.changelist-form-container #toolbar {
+    background: #522b37;
+}
+
+.changelist-form-container #toolbar form input[type="text"] {
+  background: #ffe0ea;
+}
+
+.changelist-form-container #toolbar form input[type="submit"] {
+  background: #ffe0ea;
+  color: #522b37;
+}
+
 .form-row label {
     color: #522b37;
 }
