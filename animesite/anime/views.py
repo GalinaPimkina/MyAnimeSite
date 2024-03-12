@@ -34,7 +34,7 @@ class AllAnimePageView(DataMixin, ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['filtersrt'] = self.filterset
+        context['filterset'] = self.filterset
         return context
 
 
