@@ -1,7 +1,14 @@
 {% extends 'base.html' %}
 
+{% block breadcrumbs %}
+<h2>Поиск по названию</h2>
+
+<form action="" method="get">
+    {{ filterset.form.as_p }}
+    <p><input type="submit" value="Найти"></p>
+</form>
+{% endblock breadcrumbs %}
+
 {% block content %}
-
 {% include 'anime/show_anime_list_template.html' %}
-
 {% endblock content %}
