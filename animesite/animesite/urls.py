@@ -24,7 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('anime.urls')),
     path('users/', include('users.urls', namespace='users')),
-    path('news/', include('news.urls', namespace='news')),
+    path('', include('news.urls', namespace='news')),
     path("__debug__/", include("debug_toolbar.urls")),
 ]
 
