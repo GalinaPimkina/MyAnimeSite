@@ -3,7 +3,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.AnimeHomePageView.as_view(), name='anime_home_page'),
     path('anime/', views.AllAnimePageView.as_view(), name='all_anime_page'),
     path('anime/add/', views.AddNewAnimeView.as_view(), name='add_new_anime'),
     path('anime/edit/<slug:anime_slug>/', views.EditAnimeView.as_view(), name='edit_anime'),
