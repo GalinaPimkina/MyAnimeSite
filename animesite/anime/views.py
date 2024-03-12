@@ -32,6 +32,11 @@ class AllAnimePageView(DataMixin, ListView):
         self.filterset = AnimeFilter(self.request.GET, queryset)
         return self.filterset.qs
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filtersrt'] = self.filterset
+        return context
+
 
 class AnimePageView(DataMixin, DetailView):
     ''' страница с описанием одного конкретного аниме '''
