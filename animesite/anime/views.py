@@ -9,16 +9,6 @@ from .models import Anime, Genre, Producer, Tag, Years, Author, Studio
 from .utils import DataMixin
 
 
-class AnimeHomePageView(DataMixin, ListView):
-    '''главная страница сайта, выводится список всех аниме/
-    пока что практически аналог AllAnimePage, но будет изменена в дальнейшем'''
-
-    model = Anime
-    template_name = 'anime/anime_home_page.html'
-    context_object_name = 'anime'
-    title_page = 'Главная страница'
-
-
 class AllAnimePageView(DataMixin, ListView):
     """ страница отображения всех имеющихсся на сайте тайтлов """
 
