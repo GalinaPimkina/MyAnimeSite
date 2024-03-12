@@ -2,6 +2,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMix
 from django.shortcuts import get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView, UpdateView
 
+from .filters import AnimeFilter
 from .forms import AddAnimeForm, AddNewGenreForm, AddNewYearForm, AddNewProducerForm, AddNewAuthorForm, AddNewTagForm, \
     AddNewStudioForm
 from .models import Anime, Genre, Producer, Tag, Years, Author, Studio
@@ -25,6 +26,11 @@ class AllAnimePageView(DataMixin, ListView):
     template_name = 'anime/all_anime_page.html'
     context_object_name = 'anime'
     title_page = 'Каталог аниме'
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        self.filterset = AnimeFilter(self.request.GET, queryset)
+        return self.filterset.qs
 
 
 class AnimePageView(DataMixin, DetailView):
