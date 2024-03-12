@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="content-table">
+    {% if post %}
+        {% for p in post %}
+            <p>{{ p }}</p>
+        {% endfor %}
+    {% else %}
+        <p>Упс! Тут пока что ничего нет.</p>
+    {% endif %}
+</div>
+{% endblock content %}
