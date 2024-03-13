@@ -28,6 +28,9 @@ class RegistrationUserForm(UserCreationForm):
         }
 
     def clean_email(self):
+        ''' проверка наличия е-мейл адреса в системе при регистрации нового пользователя,
+         если таковой уже существует, вызывается исключение '''
+
         email = self.cleaned_data['email']
         if get_user_model().objects.filter(email=email).exists():
             raise forms.ValidationError("Такой e-mail уже используется!")
