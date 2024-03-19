@@ -103,11 +103,13 @@ img.img-article-right {
 }
 
 .link-read-post a {
-	padding: 10px;
-	min-width: 100px;
-	background: #333671;
-	color: #fff;
+	color: #522b37;
 	text-decoration: none;
+	border: 1px solid #522b37;
+	border-radius: 25px;
+    padding: 10px;
+    background: #ffe0ea;
+    float: end;
 }
 
 .form-table-panel {
