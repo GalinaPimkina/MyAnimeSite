@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block breadcrumbs %}
+<div class="content-table">
+<p>Автор: {{ post.author }} Дата создания: {{ post.time_create }}</p>
+</div>
+{% endblock breadcrumbs %}
+
+{% block content %}
+<div class="content-table">
+    <div class="cell-margin">
+        <img class="img-article-left" src="{{ post.image.url }}" alt="{{ post.title }}">
+    </div>
+    <div class="cell-margin">
+        <p>{{ post.text }}</p>
+    </div>
+</div>
+{% endblock content %}
