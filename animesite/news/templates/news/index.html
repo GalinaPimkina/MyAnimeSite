@@ -4,7 +4,14 @@
 <div class="content-table">
     {% if post %}
         {% for p in post %}
-            <p>{{ p }}</p>
+    <div>
+        <div class="link-read"><p><a href="{% url 'news:post_page' p.post_slug %}"><img class="img-article-left" alt="{{ p.title }}" src="{{ p.image.url }}"></a><a href="{% url 'news:post_page' p.post_slug %}">{{ p.title }}</a></p>
+            <p>{{ p.text|truncatewords:50 }}</p>
+        </div>
+        <div class="link-read-post">
+            <a href="{% url 'news:post_page' p.post_slug %}">Подробнее...</a>
+        </div>
+    </div>
         {% endfor %}
     {% else %}
         <p>Упс! Тут пока что ничего нет.</p>
