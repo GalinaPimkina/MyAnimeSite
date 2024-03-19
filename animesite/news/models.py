@@ -20,8 +20,8 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
-    author = models.ForeignKey(to=User, on_delete=models.SET_NULL, related_name='comment_author', verbose_name='Автор комментария')
-    text = models.TextField()
+    author = models.ForeignKey(to=User, on_delete=models.SET_NULL, null=True, related_name='comment_author', verbose_name='Автор комментария')
+    text = models.TextField(verbose_name='Текст комментария')
 
 
 class Category(models.Model):
