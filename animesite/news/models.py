@@ -22,6 +22,8 @@ class Post(models.Model):
 class Comment(models.Model):
     author = models.ForeignKey(to=User, on_delete=models.SET_NULL, null=True, related_name='comment_author', verbose_name='Автор комментария')
     text = models.TextField(verbose_name='Текст комментария')
+    time_create = models.DateTimeField(auto_now_add=True)
+    time_update = models.DateTimeField(auto_now=True)
 
 
 class Category(models.Model):
