@@ -26,7 +26,9 @@ class Comment(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=150, verbose_name='Категория')
+    category_slug = AutoSlugField(populate_from='name', unique=True, db_index=True, verbose_name="Слаг")
 
 
 class PostTag(models.Model):
     name = models.CharField(max_length=100, verbose_name='Тег')
+    tag_slug = AutoSlugField(populate_from='name', unique=True, db_index=True, verbose_name="Слаг")
